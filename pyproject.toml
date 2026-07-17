@@ -1,0 +1,8 @@
+[project]
+name = "icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift"
+version = "0.1.0"
+description = "Clean-room repro of ECL (Expectation Consistency Loss for calibration under covariate shift), ICML 2026, OpenReview gFPPTokv9C."
+requires-python = ">=3.11,<3.13"
+dependencies = ["numpy", "scipy"]
+[tool.pytest.ini_options]
+pythonpath = ["repro/src"]

@@ -1,0 +1,16 @@
+{
+  "iff": {
+    "ok": true,
+    "max_diff": 0.0
+  },
+  "engine": {
+    "ok": true
+  },
+  "compatibility": {
+    "ok": true
+  },
+  "neg_control": {
+    "ok": true,
+    "fails": 20
+  }
+}

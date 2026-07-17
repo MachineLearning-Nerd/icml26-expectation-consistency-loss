@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "title": "Repro - ECL Calibration under Covariate Shift (gFPPTokv9C)",
+  "emoji": "📏",
+  "space_id": "DineshAI/gFPPTokv9C",
+  "paper": {"arxiv_id": "2605.21552", "openreview_id": "gFPPTokv9C", "title": "Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift"},
+  "tags": ["icml2026-repro", "paper-gFPPTokv9C"],
+  "updated_at": "2026-07-17T19:40:00+00:00",
+  "root": {
+    "slug": "index",
+    "title": "Repro - ECL Calibration under Covariate Shift (gFPPTokv9C)",
+    "file": "pages/index.md",
+    "children": [
+      {"slug": "claim-iff", "title": "Claim 1+2 — Calibration-transfer iff + compatibility", "file": "pages/claim-iff/page.md", "children": []},
+      {"slug": "methods-environment", "title": "Methods & environment", "file": "pages/methods-environment/page.md", "children": []},
+      {"slug": "negative-controls", "title": "Negative controls", "file": "pages/negative-controls/page.md", "children": []},
+      {"slug": "conclusion", "title": "Conclusion", "file": "pages/conclusion/page.md", "children": []}
+    ]
+  },
+  "agent_view_tokens": 103,
+  "revision": "1784317000000000000"
+}

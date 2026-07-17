@@ -1,0 +1,11 @@
+{
+  "space_id": "DineshAI/gFPPTokv9C",
+  "emoji": "📏",
+  "created_at": "2026-07-17T19:40:00+00:00",
+  "paper": {"arxiv_id": "2605.21552", "openreview_id": "gFPPTokv9C", "title": "Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift"},
+  "tags": ["icml2026-repro", "paper-gFPPTokv9C"],
+  "autosync": true,
+  "private": false,
+  "title": "Repro - ECL Calibration under Covariate Shift (gFPPTokv9C)",
+  "artifacts_bucket": "DineshAI/gFPPTokv9C-artifacts"
+}
