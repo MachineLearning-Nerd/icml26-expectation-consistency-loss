@@ -117,7 +117,11 @@ def test_vector_route_is_independent_and_names_its_universal_factor():
         plan, bins=bins, classes=classes, delta=delta
     )
     displayed = displayed_radius(plan, bins=bins, classes=classes, delta=delta)
-    assert vector == pytest.approx(VECTOR_CONCENTRATION_FACTOR * displayed)
+    # The independent route uses log(4B/delta) and separate source/target
+    # Cauchy bounds; it must be no worse than the named universal factor times
+    # Eq. 9 for K>=2, not be implemented as an equality/reuse of Eq. 9.
+    assert vector <= VECTOR_CONCENTRATION_FACTOR * displayed
+    assert vector > 0
 
 
 def test_proof_audit_separates_proof_gap_from_theorem_assessment():
