@@ -193,6 +193,30 @@ def main() -> None:
             ],
         ),
         (
+            "claim_4_real_mnist_soft_bins",
+            [
+                python,
+                "repro/src/claim4_real_mnist_soft_bins.py",
+                "--inputs",
+                ".openresearch/artifacts/claim-4/route-real-mnist/inputs.json",
+                "--output",
+                ".openresearch/artifacts/claim-4/route-real-mnist/raw_results.json",
+            ],
+        ),
+        (
+            "claim_4_real_mnist_independent_checker",
+            [
+                python,
+                "repro/src/claim4_real_mnist_independent_checker.py",
+                "--inputs",
+                ".openresearch/artifacts/claim-4/route-real-mnist/inputs.json",
+                "--results",
+                ".openresearch/artifacts/claim-4/route-real-mnist/raw_results.json",
+                "--output",
+                ".openresearch/artifacts/claim-4/route-real-mnist/independent_checker.json",
+            ],
+        ),
+        (
             "cumulative_pytest",
             [python, "-m", "pytest", "repro/tests", "-q"],
         ),
@@ -235,8 +259,8 @@ def main() -> None:
         "runtime": runtime,
         "steps": results,
         "limitations": [
-            "Baseline preserves the prior exact and synthetic checks; it does not upgrade Claims 2, 4, 5, or 6.",
-            "The real-MNIST route is excluded because its historical data path is external to this repository.",
+            "The frozen baseline subset preserves the prior exact and synthetic checks; upgrades are reported only by their separate child-route artifacts.",
+            "The Claim 4 child route downloads hash-audited MNIST into the shared user cache; the dataset is not vendored in this repository.",
             "Later claim experiments must retain every baseline step and use the same locked environment and command.",
         ],
     }
