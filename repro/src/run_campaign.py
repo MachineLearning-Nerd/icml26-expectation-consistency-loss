@@ -193,6 +193,30 @@ def main() -> None:
             ],
         ),
         (
+            "claim_2_soft_theorem_proof",
+            [
+                python,
+                "repro/src/claim2_soft_theorem_proof.py",
+                "--stress",
+                ".openresearch/artifacts/claim-2/route-b/raw_results.json",
+                "--output",
+                ".openresearch/artifacts/claim-2/route-c-soft-proof/raw_results.json",
+            ],
+        ),
+        (
+            "claim_2_soft_theorem_independent_checker",
+            [
+                python,
+                "repro/src/claim2_soft_theorem_independent_checker.py",
+                "--proof",
+                ".openresearch/artifacts/claim-2/route-c-soft-proof/raw_results.json",
+                "--stress",
+                ".openresearch/artifacts/claim-2/route-b/raw_results.json",
+                "--output",
+                ".openresearch/artifacts/claim-2/route-c-soft-proof/independent_checker.json",
+            ],
+        ),
+        (
             "claim_4_real_mnist_soft_bins",
             [
                 python,

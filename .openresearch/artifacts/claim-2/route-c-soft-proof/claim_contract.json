@@ -1,0 +1,12 @@
+{
+  "claim": "Theorem 3.2 gives the Eq. 9 finite-sample bound for empirical hard Eq. 5 or soft Eq. 8 and the resulting O(B/epsilon^2) order.",
+  "intended_assumptions": [
+    "iid source and target evaluation samples",
+    "posterior and bin-assignment functions fixed independently of evaluation samples",
+    "simplex-valued posteriors and hard/soft assignments",
+    "positive realized source and target denominator for every included bin",
+    "K>=2"
+  ],
+  "verification_rule": "Prove the displayed radius with an absolute constant for both conditional weighted means and empirical target-bin masses; independently check every deterministic reduction.",
+  "verdict": "VERIFIED"
+}
