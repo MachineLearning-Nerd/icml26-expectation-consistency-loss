@@ -259,6 +259,30 @@ def main() -> None:
             ],
         ),
         (
+            "claim_6_table1_falsification",
+            [
+                python,
+                "repro/src/claim6_table1_falsification.py",
+                "--claim3",
+                ".openresearch/artifacts/claim-3/raw_certificate.json",
+                "--output",
+                ".openresearch/artifacts/claim-6/route-2-table1/raw_results.json",
+            ],
+        ),
+        (
+            "claim_6_table1_independent_checker",
+            [
+                python,
+                "repro/src/claim6_table1_independent_checker.py",
+                "--input",
+                ".openresearch/artifacts/claim-6/route-2-table1/raw_results.json",
+                "--paper",
+                "repro/evidence/claim3/2605.21552v1.pdf",
+                "--output",
+                ".openresearch/artifacts/claim-6/route-2-table1/independent_checker.json",
+            ],
+        ),
+        (
             "cumulative_pytest",
             [python, "-m", "pytest", "repro/tests", "-q"],
         ),

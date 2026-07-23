@@ -1,0 +1,7 @@
+{
+  "claim": "Table 1 says ECL simultaneously satisfies all five listed dimensions and is theoretically mini-batch trainable.",
+  "paper_definition": "Section 3.5 defines mini-batch trainability as equality between the expected mini-batch gradient and the full empirical ECL gradient.",
+  "quantifier": "The unbiased-gradient equality is asserted for the ECL mini-batch construction over source and target mini-batches.",
+  "falsification_rule": "One valid counterexample to the asserted equality makes the mini-batch-trainable Table 1 cell false; one false cell falsifies the simultaneous-all-five conjunction and therefore compound Claim 6.",
+  "verdict_domain": ["VERIFIED", "FALSIFIED", "BLOCKED"]
+}
