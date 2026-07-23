@@ -239,6 +239,26 @@ def main() -> None:
             ],
         ),
         (
+            "claim_6_full_simulation_figure2",
+            [
+                python,
+                "repro/src/claim6_simulation_figure2.py",
+                "--output",
+                ".openresearch/artifacts/claim-6/route-1-simulation/raw_results.json",
+            ],
+        ),
+        (
+            "claim_6_simulation_independent_checker",
+            [
+                python,
+                "repro/src/claim6_simulation_checker.py",
+                "--input",
+                ".openresearch/artifacts/claim-6/route-1-simulation/raw_results.json",
+                "--output",
+                ".openresearch/artifacts/claim-6/route-1-simulation/independent_checker.json",
+            ],
+        ),
+        (
             "cumulative_pytest",
             [python, "-m", "pytest", "repro/tests", "-q"],
         ),
