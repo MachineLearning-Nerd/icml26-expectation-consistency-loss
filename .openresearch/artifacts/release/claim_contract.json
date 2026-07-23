@@ -1,0 +1,56 @@
+{
+  "campaign": "Expectation Consistency Loss under covariate shift",
+  "paper": {
+    "arxiv_id": "2605.21552",
+    "pdf_sha256": "fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab",
+    "html_sha256": "0b5e5f8f9b7af9e0c82e00f289d65e9556df1335924dd25913c8a52dd6868f98"
+  },
+  "judged_baseline": {
+    "score": "6/12",
+    "space_id": "DineshAI/gFPPTokv9C",
+    "space_revision": "b864c4b287cffb41d35d51e471f0f23013a787e4"
+  },
+  "allowed_verdicts": [
+    "VERIFIED",
+    "FALSIFIED",
+    "BLOCKED"
+  ],
+  "claims": [
+    {
+      "claim": 1,
+      "contract": "Theorem 3.1's expectation-consistency equivalence on common score support.",
+      "verdict": "VERIFIED",
+      "confidence": "HIGH"
+    },
+    {
+      "claim": 2,
+      "contract": "Theorem 3.2's finite-sample Eq. 9 form and O(B/epsilon^2) order under fixed posterior and assignment functions, iid evaluation samples, positive realized soft-bin denominators, and K >= 2.",
+      "verdict": "VERIFIED",
+      "confidence": "HIGH"
+    },
+    {
+      "claim": 3,
+      "contract": "Theorem 3.3's universal unbiased mini-batch gradient identity.",
+      "verdict": "FALSIFIED",
+      "confidence": "HIGH"
+    },
+    {
+      "claim": 4,
+      "contract": "Appendix F's differentiable canonical, class-wise, and top-label soft-binning implementations.",
+      "verdict": "VERIFIED",
+      "confidence": "HIGH"
+    },
+    {
+      "claim": 5,
+      "contract": "Table 2's historical ten-run digit-transfer aggregates for LeNet-5, ResNet20, and DenseNet40.",
+      "verdict": "BLOCKED",
+      "confidence": "LOW"
+    },
+    {
+      "claim": 6,
+      "contract": "Table 1's conjunction that ECL alone satisfies all five listed capabilities, with Figure 2 and Table 3 as corroboration.",
+      "verdict": "FALSIFIED",
+      "confidence": "HIGH"
+    }
+  ]
+}

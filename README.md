@@ -1,3 +1,59 @@
+# Reproduction update — ECL under covariate shift
+
+[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/blob/master/notebooks/ecl_reproduction.py)
+
+We tested all six judged claims in *Expectation Consistency Loss: Rethink
+Confidence Calibration under Covariate Shift* (arXiv 2605.21552). The strongest
+new result is exact: the paper defines Table 1’s “theoretically mini-batch
+trainable” capability as an unbiased-gradient identity, but valid rational
+witnesses give full versus expected mini-batch gradients of `3` versus `3/2`
+and `1` versus `0`. Claims 3 and 6 are therefore FALSIFIED as written.
+
+The previous live score remains **6/12**. The conservative future-judge
+forecast is **8–10/12**, with **10/12** the best-supported possible result;
+neither is an awarded score. Claim 5 remains honestly BLOCKED.
+
+The full illustrated article is
+[ECL under covariate shift: an exact audit changes the empirical story](reports/ecl-covariate-shift/report.md).
+The self-contained [marimo tutorial](notebooks/ecl_reproduction.py) opens with
+the completed evidence and does not require rerunning training.
+
+| Claim | Assessment | Paper number versus observed evidence |
+| --- | --- | --- |
+| 1 | VERIFIED, HIGH | 561 exact components agree |
+| 2 | VERIFIED, HIGH | paper leaves `C` unspecified; corrected proof certifies `C=16`, with max diagnostic error/radius `0.0873` |
+| 3 | FALSIFIED, HIGH | claimed equal gradients; exact `3 vs 3/2`, `1 vs 0`, `3/4 vs 0`, and `0 vs 1/4` |
+| 4 | VERIFIED, HIGH | three variants; independent max gradient error `2.91e-8` on 10,000 MNIST images |
+| 5 | BLOCKED, LOW | paper LeNet ECE `61.9%→21.5%`; three full-data routes diverge but cannot refute the unavailable historical ten-run aggregate |
+| 6 | FALSIFIED, HIGH | paper simulation ECL `{0.028,0.024,0.048}`; observed `{0.1549,0.0638,0.1499}`, plus exact false Table 1 mini-batch cell |
+
+Substitutions are explicit: the Claim 6 simulation follows the paper text
+where the saved notebook conflicts with it; Claim 5 routes use one available
+LeNet reconstruction because the official digit pipeline, seeds, checkpoints,
+and ResNet20/DenseNet40 raw runs are absent. Compute was local CPU except two
+Hugging Face `cpu-upgrade` full-dataset Claim 5 runs; no GPU was used.
+
+## Experiment log
+
+Every experiment used the exact same command:
+`uv run --frozen --python 3.12 python repro/src/run_campaign.py`.
+
+| Branch / experiment | Purpose | Exact run command | Assessment / outcome | Compute |
+| --- | --- | --- | --- | --- |
+| `master` | Public presentation surface | Not run as an experiment (publication surface) | Pending explicit publication approval | — |
+| [`orx/frozen-cumulative-baseline`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/frozen-cumulative-baseline) | Freeze accepted evidence | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | 8/8 steps, 122 tests | Local CPU, 40s |
+| [`orx/claim-2-synthesis-and-claim-4-real-mnist-soft-bi`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-2-synthesis-and-claim-4-real-mnist-soft-bi) | Full MNIST Appendix F check | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | Claim 4 VERIFIED forecast | Local CPU, 7m |
+| [`orx/claim-5-route-4-mandatory-falsification-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-5-route-4-mandatory-falsification-audit) | Fourth-route falsification gate | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | Claim 5 BLOCKED | Local CPU, 5m |
+| [`orx/claim-6-route-1-full-simulated-figure-2`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-6-route-1-full-simulated-figure-2) | Five-seed, three-paradigm Figure 2 | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | DIVERGENT_OR_MIXED | Local CPU, 4m52s |
+| [`orx/claim-6-route-2-primary-source-table-1-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-6-route-2-primary-source-table-1-audit) | Exact Table 1 logical audit | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | Claim 6 FALSIFIED forecast | Local CPU, 5m38s |
+| [`orx/claim-2-route-3-soft-bin-concentration-proof`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-2-route-3-soft-bin-concentration-proof) | Corrected soft Eq. 8 proof | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | 22/22 steps, 151 tests; Claim 2 VERIFIED forecast | Local CPU, 7m47s |
+
+## Original repository overview
+
+> The section below is preserved as the historical baseline README. Its
+> interim assessments and 122-test count are superseded by the reproduction
+> update above.
+
 # Repro — ECL under covariate shift (`gFPPTokv9C`)
 
 Source-pinned reproduction of *Expectation Consistency Loss: Rethink Confidence

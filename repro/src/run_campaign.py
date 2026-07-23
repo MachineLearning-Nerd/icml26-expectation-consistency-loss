@@ -307,6 +307,10 @@ def main() -> None:
             ],
         ),
         (
+            "reader_facing_release_gate",
+            [python, "repro/src/release_gate.py"],
+        ),
+        (
             "cumulative_pytest",
             [python, "-m", "pytest", "repro/tests", "-q"],
         ),

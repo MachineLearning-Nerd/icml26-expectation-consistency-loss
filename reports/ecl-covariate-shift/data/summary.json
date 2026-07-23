@@ -1,0 +1,48 @@
+{
+  "previous_live_judged_score": "6/12",
+  "conservative_projected_range": "8-10/12",
+  "best_supported_possible_score": "10/12 (forecast, not a judge result)",
+  "winning_branch": "orx/claim-2-route-3-soft-bin-concentration-proof",
+  "winning_git_sha": "647e2ed98c762b493d20cc506fd67d00b1cc8124",
+  "final_cumulative_run": "d7777b89-7141-4e80-a127-65e4f9e42f2d",
+  "fixed_command": "uv run --frozen --python 3.12 python repro/src/run_campaign.py",
+  "claims": [
+    {"claim": 1, "verdict": "VERIFIED", "confidence": "HIGH", "current_points": 2, "forecast_points": 2},
+    {"claim": 2, "verdict": "VERIFIED", "confidence": "HIGH", "current_points": 1, "forecast_points": 2},
+    {"claim": 3, "verdict": "FALSIFIED", "confidence": "HIGH", "current_points": 2, "forecast_points": 2},
+    {"claim": 4, "verdict": "VERIFIED", "confidence": "HIGH", "current_points": 1, "forecast_points": 2},
+    {"claim": 5, "verdict": "BLOCKED", "confidence": "LOW", "current_points": 0, "forecast_points": 0},
+    {"claim": 6, "verdict": "FALSIFIED", "confidence": "HIGH", "current_points": 0, "forecast_points": 2}
+  ],
+  "claim2": {
+    "absolute_constant": 16.0,
+    "derived_budget": 15.313708498985,
+    "deterministic_trials": 840,
+    "soft_diagnostic_rows": 1024,
+    "maximum_error_over_radius": 0.08733412918842667
+  },
+  "claim3_and_6_exact_witnesses": [
+    {"name": "Appendix H scaling", "full": 3.0, "claimed_minibatch": 1.5},
+    {"name": "Same-batch direction", "full": 1.0, "claimed_minibatch": 0.0},
+    {"name": "Soft-weight derivative", "full": 0.75, "claimed_minibatch": 0.0},
+    {"name": "Eq. 8 vs Eq. 10 gradient", "full": 0.0, "claimed_minibatch": 0.25}
+  ],
+  "claim4": [
+    {"paradigm": "Canonical", "loss_error": 1.3877787807814457e-16, "gradient_error": 2.9058572202991795e-08},
+    {"paradigm": "Class-wise", "loss_error": 5.551115123125783e-17, "gradient_error": 1.4662976995788446e-10},
+    {"paradigm": "Top-label", "loss_error": 2.0122792321330962e-16, "gradient_error": 8.915696653177818e-11}
+  ],
+  "claim6_simulation": {
+    "Top-label": {"Uncalibrated": 0.076820714116, "Soft-ECE": 0.097668291003, "ECL": 0.154860116288},
+    "Class-wise": {"Uncalibrated": 0.061386315420, "Soft-ECE": 0.084159761669, "ECL": 0.063802525521},
+    "Canonical": {"Uncalibrated": 0.085390211137, "Soft-ECE": 0.150459683551, "ECL": 0.149937176191}
+  },
+  "compute": {
+    "local_cpu_completed_runs": 8,
+    "hugging_face_cpu_completed_runs": 2,
+    "local_release_candidate_cumulative_seconds": 453.075,
+    "hugging_face_cpu_runtime_seconds": 4492,
+    "gpu_runs": 0,
+    "known_hugging_face_cost_usd": 0.0
+  }
+}
