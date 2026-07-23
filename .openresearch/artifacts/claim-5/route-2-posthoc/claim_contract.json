@@ -1,0 +1,36 @@
+{
+  "claim_id": 5,
+  "route": 2,
+  "paper_cell": "Table 2, Digit -> SVHN, LeNet-5",
+  "paper_result": {
+    "uncal_ece_percent_mean": 61.9,
+    "uncal_ece_percent_std": 6.16,
+    "ecl_ece_percent_mean": 21.5,
+    "ecl_ece_percent_std": 1.51,
+    "runs": 10
+  },
+  "interpretation": "The public predecessor's joint correctness-head training and post-hoc positive-temperature search, with its absent ECLoss_hd replaced explicitly by the paper's Appendix F top-label ECL.",
+  "protocol": {
+    "source": "all MNIST train+test plus all USPS train+test",
+    "target": "all SVHN train+test",
+    "architecture": "exact predecessor LeNet-5 topology",
+    "image_shape": [3, 28, 28],
+    "batch_size": 100,
+    "primary_optimizer": "Adam, learning rate 0.001",
+    "correctness_head_optimizer": "Adam, learning rate 0.01",
+    "epochs": 100,
+    "temperature_grid": "integers 1 through 50 in ascending order",
+    "seed": 260521553,
+    "target_labels_used_during_training_or_selection": false
+  },
+  "required_evidence": [
+    "dataset integrity hashes and exact sample counts",
+    "complete joint-training curve",
+    "all 50 source-selected temperature objectives",
+    "raw target labels, predictions, and confidences",
+    "independent 15-bin ECE and accuracy recomputation",
+    "model, logits, and prediction digests",
+    "prediction-invariance and label-rotation controls"
+  ],
+  "verdict_rule": "This single-seed route is substantive but cannot by itself VERIFY the ten-run paper mean. It is compatible only if both observed ECE cells fall within paper mean plus or minus two printed standard deviations and ECL lowers ECE. Divergence is not FALSIFICATION because ECLoss_hd and the ten-run protocol are missing."
+}
