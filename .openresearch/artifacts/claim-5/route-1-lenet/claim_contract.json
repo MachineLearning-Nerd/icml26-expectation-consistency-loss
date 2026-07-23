@@ -1,0 +1,36 @@
+{
+  "claim_id": 5,
+  "route": 1,
+  "paper_cell": "Table 2, Digit -> SVHN, LeNet-5",
+  "paper_result": {
+    "uncal_ece_percent_mean": 61.9,
+    "uncal_ece_percent_std": 6.16,
+    "ecl_ece_percent_mean": 21.5,
+    "ecl_ece_percent_std": 1.51,
+    "runs": 10
+  },
+  "interpretation": "The paper's Algorithm 2 in-training top-label ECL, because the current official source has no digit script and the predecessor's ECL path cannot import.",
+  "protocol": {
+    "source": "all MNIST train+test plus all USPS train+test",
+    "target": "all SVHN train+test",
+    "architecture": "exact predecessor LeNet-5 topology",
+    "image_shape": [3, 28, 28],
+    "batch_size": 100,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "baseline_epochs": 100,
+    "correctness_head_epochs": 100,
+    "ecl_finetune_epochs": 100,
+    "seed": 260521552,
+    "target_labels_used_during_training": false
+  },
+  "required_evidence": [
+    "dataset integrity hashes and exact sample counts",
+    "complete epoch curves",
+    "raw target labels, predictions, and confidences",
+    "independent 15-bin ECE and accuracy recomputation",
+    "model and prediction digests",
+    "label-rotation negative control"
+  ],
+  "verdict_rule": "This single-seed route is substantive but cannot by itself VERIFY the ten-run paper mean. It is compatible only if both observed cells fall within paper mean plus or minus two printed standard deviations and ECL lowers ECE. It is divergent under this interpretation otherwise; divergence is not FALSIFICATION because the released training protocol is incomplete."
+}
