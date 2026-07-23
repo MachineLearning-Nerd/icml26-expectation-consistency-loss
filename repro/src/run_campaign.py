@@ -153,6 +153,26 @@ def main() -> None:
             ],
         ),
         (
+            "claim_2_corrected_theorem",
+            [
+                python,
+                "repro/src/claim2_theorem_certificate.py",
+                "--output",
+                ".openresearch/artifacts/claim-2/route-a/raw_results.json",
+            ],
+        ),
+        (
+            "claim_2_independent_checker",
+            [
+                python,
+                "repro/src/claim2_theorem_independent_checker.py",
+                "--input",
+                ".openresearch/artifacts/claim-2/route-a/raw_results.json",
+                "--output",
+                ".openresearch/artifacts/claim-2/route-a/independent_checker.json",
+            ],
+        ),
+        (
             "cumulative_pytest",
             [python, "-m", "pytest", "repro/tests", "-q"],
         ),
