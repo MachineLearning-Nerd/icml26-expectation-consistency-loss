@@ -2,7 +2,30 @@
 name = "icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift"
 version = "0.1.0"
 description = "Clean-room repro of ECL (Expectation Consistency Loss for calibration under covariate shift), ICML 2026, OpenReview gFPPTokv9C."
-requires-python = ">=3.11,<3.13"
-dependencies = ["numpy", "scipy"]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "marimo>=0.16,<1",
+  "matplotlib>=3.9,<4",
+  "numpy>=2,<3",
+  "pillow>=11,<13",
+  "pytest>=8,<10",
+  "scipy>=1.14,<2",
+  "torch>=2.7,<3",
+  "torchvision>=0.22,<1",
+]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cpu", marker = "sys_platform == 'linux'" },
+]
+torchvision = [
+  { index = "pytorch-cpu", marker = "sys_platform == 'linux'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
 [tool.pytest.ini_options]
 pythonpath = ["repro/src"]
