@@ -1,0 +1,20 @@
+{
+  "claim_id": 5,
+  "route": 4,
+  "purpose": "mandatory falsification after three LOW-confidence verification routes",
+  "exact_claim": {
+    "domain": "Digit source MNIST+USPS to target SVHN, top-label ECE percent",
+    "quantifier": "Each printed mean and standard deviation is reported as derived from ten runs.",
+    "comparisons": [
+      "LeNet-5 ECL 21.5 +/- 1.51 versus Uncal 61.9 +/- 6.16",
+      "ResNet20 ECL 36.8 +/- 2.08 versus PseudoCal 48.2 +/- 3.95",
+      "DenseNet40 ECL 38.4 +/- 3.21 versus Uncal 80.8 +/- 6.26"
+    ]
+  },
+  "valid_falsification_requires": [
+    "a counterexample matching every released data, architecture, objective, optimizer, and ten-run assumption",
+    "independent raw-prediction recomputation for all six compared cells",
+    "a contradiction of the historical aggregate rather than a different stochastic realization"
+  ],
+  "verdict_rule": "FALSIFIED only if a valid counterexample meets every condition. Otherwise BLOCKED after recording all four routes and exact external unblock requirements."
+}
