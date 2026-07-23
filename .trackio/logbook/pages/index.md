@@ -1,21 +1,24 @@
-# Repro - ECL Calibration under Covariate Shift (gFPPTokv9C)
+# Reproduction: Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift
 
-Clean-room reproduction of *ECL: Rethink Confidence Calibration under Covariate Shift*
-(Dong et al.; arXiv 2605.21552), OpenReview `gFPPTokv9C`.
+Claim-focused reproduction and source audit of Dong, Jiang, and Yang
+([OpenReview `gFPPTokv9C`](https://openreview.net/forum?id=gFPPTokv9C), arXiv `2605.21552v1`).
 
-Theorem 3.1: under covariate shift, source calibration transfers to target **iff** the
-Expectation-Consistency condition holds.
-
-## Claims
-| Claim | Statement | Verdict |
-| --- | --- | --- |
-| **C1** | iff condition for calibration under covariate shift | **VERIFIED** |
-| **C2** | compatibility (canonical / class-wise / top-label) | **VERIFIED** |
-
-(C3 sample-complexity is a rate, out of scope.)
+The current challenge prompt has six anchored claims. The live legacy judge still scores three
+defaults: its C1 maps to anchored C1, C2 compatibility maps to anchored C4, and C3 sample
+complexity maps to anchored C2. The last confirmed official verdict is **5/6** at Space SHA
+`1abb0c87beb604420d3a0e6140ea122511c63e93`: legacy C1/C2 are `verified`, while legacy C3
+sample complexity is `toy`. The final real-MNIST trained-model attempt below is a local assessment
+until the updated Space is judged.
 
 ## Pages
-- [Claim 1+2 — iff + compatibility](claim-iff) · [Methods & environment](methods-environment)
-- [Negative controls](negative-controls) · [Conclusion](conclusion)
 
-Exact discrete enumeration over covariate-shift joints. CPU only.
+| Page |
+| --- |
+| [Executive summary](#/executive-summary) |
+| [Claim 1 — Expectation-consistency theorem](#/claim-1-calibration-iff) |
+| [Claim 2 — ECL sample complexity](#/claim-2-sample-complexity) |
+| [Claim 3 — Mini-batch gradient unbiasedness](#/claim-3-gradient-unbiasedness) |
+| [Claim 4 — Calibration extensions](#/claim-4-calibration-extensions) |
+| [Claim 5 — Digit benchmark Table 2](#/claim-5-digit-table) |
+| [Claim 6 — Capability matrix and broad empirics](#/claim-6-capabilities-empirics) |
+| [Conclusion](#/conclusion) |

@@ -2,26 +2,26 @@
   "claims": [
     {
       "claim": "Derives necessary and sufficient condition (Expectation consistency condition) for confidence calibration under covariate shifts.",
-      "evidence": "The iff identity is verified by exact discrete enumeration on a tiny setup (nX=6, 40 random instances) showing EC residual == calibration gap to 0.00e+00 with both directions and a negative control, but this is a numerical sanity check of a law-of-total-probability identity on a clearly simplified discrete distribution, not a full-scale or analytical verification.",
+      "evidence": "Exact enumeration over six-state discrete joints confirms the EC-calibration-gap identity (max difference 0.00 over 40 instances) and negative controls fail 20/20 when shared P(Y|X) is broken, but this is a small synthetic state-space sanity check, not a full-scale reproduction.",
       "verdict": "toy"
     },
     {
       "claim": "ECL is compatible with canonical calibration, class-wise calibration, and top-label calibration.",
-      "evidence": "Only class-wise compatibility (S_k, 20 instances, nX=6) was experimentally tested; top-label compatibility is mentioned in the description but no experimental result is reported for it, and canonical calibration overlaps with C1's basic iff. The tested portion runs on the same small toy discrete setup.",
+      "evidence": "Class-wise summary identity passes 20/20 six-state instances; canonical calibration overlaps Claim 1's toy check; top-label calibration is explicitly not tested, so only a partial toy coverage of the three claimed variants.",
       "verdict": "toy"
     },
     {
       "claim": "Computing ECL loss has the same sample complexity as Expected Calibration Error (ECE).",
-      "evidence": "The logbook explicitly states C3 (sample-complexity rate) is 'out of scope' and no experiments or analysis related to sample complexity of ECL loss vs. ECE were conducted.",
-      "verdict": "inconclusive"
+      "evidence": "A 720-row Monte Carlo scaling experiment across bins [2–32], classes [2–50], and counts [25–800] with an exact posterior oracle yields ECL RMSE slope -0.488 and ECE RMSE slope -0.510, both near the predicted -1/2, implying exponents 2.05 and 1.96; fail-closed controls and a corrected simulator support the fixed-hard-bin sample-complexity claim.",
+      "verdict": "verified"
     }
   ],
-  "judged_at": "2026-07-18T23:14:10+00:00",
+  "judged_at": "2026-07-19T13:57:21+00:00",
   "model": "zai-org/GLM-5.2",
   "orid": "gFPPTokv9C",
-  "overall": "The logbook provides a small-scale numerical sanity check of the iff theorem (C1) and partial compatibility (C2) on a 6-state discrete distribution with 20-40 instances, but does not address C3 at all. The methodology (exact enumeration, both directions, negative control) is reasonable for what it tests, but the setup is clearly toy-scale and only covers a subset of C2's three calibration types.",
+  "overall": "The logbook provides strong numerical evidence for Claim 3's fixed-hard-bin sample complexity via a substantial scaling experiment, but Claims 1 and 2 are only addressed on small six-state toy enumerations without full-scale or top-label coverage.",
   "paper_title": "Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift",
   "quality": "medium",
-  "sha": "653d591293c6eb486aa6010cfc6a228af80da7ed",
+  "sha": "fd7bb9bf1cc25523fcb3c764ac41154425f6699f",
   "space_id": "DineshAI/gFPPTokv9C"
 }

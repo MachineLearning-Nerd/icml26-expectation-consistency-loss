@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ECL six-claim reproduction audit</title>
+  <style>
+    :root { color-scheme:dark; --ink:#eef5ff; --muted:#9fb1c7; --cyan:#63e6ff; --green:#6ee7a8; --gold:#ffd166; --red:#ff7b8b; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:28px; font:15px/1.4 ui-sans-serif,system-ui,sans-serif; color:var(--ink); background:radial-gradient(circle at 90% 0,#17334a 0,transparent 36%),#07111d; }
+    main { max-width:1160px; margin:auto; }
+    h1 { margin:0 0 8px; font-size:clamp(30px,5vw,58px); line-height:1.04; letter-spacing:-.035em; }
+    .sub { color:var(--muted); max-width:940px; font-size:17px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0; }
+    .card { padding:18px; border:1px solid #29435a; border-radius:15px; background:#0d1d2bcc; }
+    .tag { color:var(--cyan); font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:11px; }
+    .metric { font-size:31px; font-weight:850; margin:4px 0; }
+    .pass { color:var(--green); } .warn { color:var(--gold); } .fail { color:var(--red); }
+    table { width:100%; border-collapse:collapse; background:#0d1d2bcc; border-radius:15px; overflow:hidden; }
+    th,td { padding:11px 13px; border-bottom:1px solid #29435a; text-align:left; vertical-align:top; }
+    th { color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+    code { color:#b8f3ff; }
+    footer { margin-top:16px; color:var(--muted); font-size:12px; }
+    @media (max-width:760px) { .grid { grid-template-columns:1fr; } body { padding:18px; } th,td { padding:9px; } }
+  </style>
+</head>
+<body>
+<main>
+  <div class="tag">ICML 2026 reproduction audit · gFPPTokv9C</div>
+  <h1>Expectation Consistency Loss</h1>
+  <p class="sub">A six-claim source-pinned audit: two general formula results verify, the hard-bin rate reproduces, the published mini-batch gradient theorem is falsified, and unreleased benchmark evidence remains explicitly open.</p>
+  <section class="grid">
+    <article class="card"><div class="tag">Exact theorem checks</div><div class="metric pass">561</div><div>C1 components · formal all-posterior proof</div></article>
+    <article class="card"><div class="tag">Rate experiment</div><div class="metric pass">720</div><div>ECL slope −0.4881 · ECE −0.5102</div></article>
+    <article class="card"><div class="tag">Verified suite</div><div class="metric pass">109</div><div>Deterministic tests · local CPU · USD 0</div></article>
+  </section>
+  <table>
+    <thead><tr><th>Claim</th><th>Finding</th><th>Decisive boundary</th></tr></thead>
+    <tbody>
+      <tr><td>C1 · EC theorem</td><td class="pass">Verified</td><td>Common score support; source calibration is needed for absolute target calibration</td></tr>
+      <tr><td>C2 · Sample complexity</td><td class="pass">Hard-bin rate supported</td><td>Appendix G proof incomplete; soft ratio remains open</td></tr>
+      <tr><td>C3 · Unbiased gradient</td><td class="fail">Falsified as stated</td><td>Eq. 8 gradient <code>0</code> vs profiled Eq. 10 <code>1/4</code>; four independent proof failures</td></tr>
+      <tr><td>C4 · Three paradigms</td><td class="pass">Formula-level verified</td><td>Canonical/class-wise/top-label semantics executed separately</td></tr>
+      <tr><td>C5 · Digit Table 2</td><td class="warn">Source-only</td><td>No raw ten-run outputs, checkpoints, or faithful released digit pipeline</td></tr>
+      <tr><td>C6 · Broad evidence</td><td class="warn">Partial</td><td>Capability surface pinned; PACS/ImageNet pipelines and raw results absent</td></tr>
+    </tbody>
+  </table>
+  <footer>arXiv 2605.21552v1 · NeuroDong/ECL@aae77f8 · every public claim is bounded by executed evidence; no score change is asserted before official rejudging.</footer>
+</main>
+</body>
+</html>

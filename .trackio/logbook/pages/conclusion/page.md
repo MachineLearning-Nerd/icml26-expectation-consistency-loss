@@ -2,29 +2,35 @@
 
 ---
 <!-- trackio-cell
-{"type": "markdown", "id": "cell_eexec_01", "created_at": "2026-07-17T19:44:00+00:00", "title": "Executive summary", "pinned": true, "pinned_at": "2026-07-17T19:44:05+00:00"}
+{"type": "markdown", "id": "cell_gfp_conclusion_01", "created_at": "2026-07-19T13:34:19+00:00", "title": "Download and rerun"}
 -->
-**C1 + C2 reproduced.** *ECL* (Dong et al.; `gFPPTokv9C`) Theorem 3.1 — the necessary-and-sufficient
-Expectation-Consistency condition for calibration transfer under covariate shift — is verified by
-exact enumeration: EC residual == calibration gap to 0.00e+00 over 40 instances, both directions,
-with the covariate-shift-scope negative control failing 20/20 when the assumption is broken.
+The reproduction bundle contains the paper/code/verdict hashes, all six claim scripts,
+configuration, tests, human-readable audits, captured stdout, and machine-readable results.
 
-- **C1 (iff) — VERIFIED.** Calibration transfers iff EC holds (total-probability engine on both domains).
-- **C2 (compatibility) — VERIFIED.** Same iff for class-wise / alternative summary.
+```bash
+uv venv --python 3.12 .venv
+uv pip install --python .venv/bin/python numpy scipy pytest
+.venv/bin/python repro/src/claim1_general_certificate.py
+.venv/bin/python repro/src/run_claim3_sample_complexity.py
+.venv/bin/python repro/src/run_claim3_soft_sample_complexity.py
+.venv/bin/python repro/src/run_claim3_real_mnist_sample_complexity.py \
+  --data-root /path/to/uncompressed-mnist-idx
+.venv/bin/python repro/src/claim3_gradient_certificate.py
+.venv/bin/python repro/src/claim2_compatibility_certificate.py
+.venv/bin/python repro/src/claim5_table2_audit.py \
+  --paper repro/evidence/claim3/2605.21552v1.pdf --official-root upstream
+.venv/bin/python repro/src/claim6_capability_audit.py
+.venv/bin/python -m pytest repro/tests/ -q
+```
 
-5/5 pytest tests pass. CPU only, exact.
+Public repository: [MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift).
 
-## Scope & cost
-| | This reproduction | Full replication |
-| --- | --- | --- |
-| Scope | C1 iff + C2 compatibility (exact) | + C3 sample-complexity rate |
-| Hardware | 4 vCPU CPU | — |
-| Time | < 1 min | — |
-| Cost | 0 | — |
-| Outcome | C1, C2 VERIFIED | — |
 
-## Honest deviations
-- C1 (iff) + C2 verified; C3 (sample-complexity rate) out of scope.
-- The iff is the law of total probability under covariate shift (a clean characterization of *when*
-  calibration transfers), verified substantively with both directions + scope negative control.
-- Official `NeuroDong/ECL` (ECL loss) cross-references; theorem verification is clean-room numpy.
+
+---
+<!-- trackio-cell
+{"type": "artifact", "id": "cell_acc88dbaf82a", "created_at": "2026-07-19T15:52:00+00:00", "title": "Portable six-claim reproduction bundle", "artifact": "reproduction-ecl-sample-complexity/repro-bundle:v4", "artifact_type": "reproduction"}
+-->
+**📦 Artifact** `reproduction-ecl-sample-complexity/repro-bundle:v4` · reproduction
+
+https://huggingface.co/buckets/DineshAI/gFPPTokv9C-artifacts#reproduction-ecl-sample-complexity/repro-bundle:v4

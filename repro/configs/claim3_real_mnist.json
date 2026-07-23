@@ -1,0 +1,27 @@
+{
+  "data_root": "../icml26-repro-uMdZHVXdOL-fiber-dp-attenuation/repro/data",
+  "primary_train_range": [0, 30000],
+  "posterior_train_range": [30000, 60000],
+  "evaluation_split": "official_test_10000",
+  "feature_extractor": "7x7_block_means_plus_14_row_and_14_column_means",
+  "classifier": "multinomial_logistic_regression_lbfgs",
+  "l2": 0.001,
+  "max_iterations": 100,
+  "optimizer_ftol": 1e-7,
+  "shift_strength": 1.1,
+  "uniform_support_floor": 0.05,
+  "baseline_bins": 55,
+  "actual_bins": [10, 55, 220],
+  "sample_sizes": [250, 500, 1000, 2000, 4000, 8000],
+  "bins_axis_sample_size": 4000,
+  "stabilizer": 1e-5,
+  "official_decay_factor": 0.9,
+  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
+  "replicates": 40,
+  "license_evidence": {
+    "cache_local_license_file_present": false,
+    "dataset_homepage": "https://www.tensorflow.org/datasets/catalog/mnist",
+    "external_license_reference": "https://keras.io/api/datasets/mnist/",
+    "external_license_statement": "CC BY-SA 3.0"
+  }
+}

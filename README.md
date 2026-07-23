@@ -1,35 +1,72 @@
-# Repro — ECL: Calibration under Covariate Shift (gFPPTokv9C)
+# Repro — ECL under covariate shift (`gFPPTokv9C`)
 
-Clean-room reproduction of *Expectation Consistency Loss: Rethink Confidence Calibration
-under Covariate Shift* (Dong et al.; arXiv [2605.21552](https://arxiv.org/abs/2605.21552)),
-for the [ICML 2026 Agent Reproduction Challenge](https://huggingface.co/spaces/ICML-2026-agent-repro/challenge).
-OpenReview `gFPPTokv9C`.
+Source-pinned reproduction of *Expectation Consistency Loss: Rethink Confidence
+Calibration under Covariate Shift* (Dong et al.; arXiv
+[2605.21552](https://arxiv.org/abs/2605.21552)) for the
+[ICML 2026 Agent Reproduction Challenge](https://huggingface.co/spaces/ICML-2026-agent-repro/challenge).
 
-**Theorem 3.1 (necessary-and-sufficient condition).** Under covariate shift
-(`P_s(X)≠P_t(X)`, shared `P(Y|X)`, `S=f(X)` ⟹ `Y⊥S|X`): source calibration transfers to the
-target **iff** the Expectation-Consistency condition holds:
-`P_s(Y_k=1|S)=P_t(Y_k=1|S)` ⟺ `E_{P_s(X|S)}[P(Y_k=1|X)]=E_{P_t(X|S)}[P(Y_k=1|X)]`.
+The current challenge prompt exposes six anchored claims. The live legacy judge still
+scores three defaults: legacy C1 maps to anchored C1, compatibility C2 maps to anchored
+C4, and sample-complexity C3 maps to anchored C2.
 
-## Results (all CPU, exact discrete enumeration)
+## Results
 
-| Claim | Verdict | Headline evidence |
-|---|---|---|
-| **C1** iff condition for calibration transfer | **VERIFIED** | EC residual == calibration gap to **0.00e+00** on 40 instances; EC=0 ⟺ gap=0 consistent; engine `P(Y\|S)=E[P(Y\|X)\|S]` holds on both domains. |
-| **C2** compatibility (class-wise / top-label) | **VERIFIED** | the iff holds for alternative summary `S_k` (Theorem D.2) — same total-probability structure. |
+| Current claim | Local assessment | Headline evidence |
+| --- | --- | --- |
+| C1 — Theorem 3.1 | **Verified with support/version qualifications** | General tower-property proof; formal all-posterior certificate; exact 257-state, 17-score, 11-class construction with 561 component checks |
+| C2 — Theorem 3.2 sample complexity | **Hard-bin rate plus synthetic and real-trained-model soft Eq. 8 scaling supported** | Real MNIST classifiers reach `0.9097/0.9076`; ECL/ECE tail slopes `-0.680940/-0.742584`; B exponents `0.889/1.014` |
+| C3 — Theorem 3.3 gradient | **Falsified as stated** | Appendix scaling, same-batch direction, soft-weight derivatives, and Eq. 10 objective parity each fail exact controls |
+| C4 — Calibration extensions | **Formula-level verified** | Exact canonical, class-wise, and top-label certificates with diagnostic losses `1/6`, `1/6`, and `1/48`; four controls rejected |
+| C5 — Digit Table 2 | **Inconclusive source-only** | Printed reductions are exact; raw ten-run outputs/checkpoints/faithful current pipeline are absent |
+| C6 — Table 1/Figure 2/Table 3 | **Partial source support; broad empirics inconclusive** | All official source hashes/modes pass; paper arithmetic checked; PACS/ImageNet pipelines and raw runs absent |
 
-Negative control: breaking covariate shift (`P_s(Y|X)≠P_t(Y|X)`) makes the iff **fail** (20/20) — the shared-`g` EC residual ≠ the true calibration gap, confirming the theorem's scope. C3 (sample complexity, a rate) is out of scope. 5/5 pytest tests pass.
+The last confirmed official record is **5/6** at Space SHA
+`1abb0c87beb604420d3a0e6140ea122511c63e93`: legacy C1/C2 are `verified`, and
+legacy C3 sample complexity is `toy`. The final real-MNIST attempt in this checkout is not
+called official until a fresh judge record points to its public SHA.
 
 ## Reproduce
+
 ```bash
-uv venv --python 3.12 .venv && source .venv/bin/activate
-uv pip install numpy scipy pytest
-python repro/src/run_ecl.py
-python -m pytest repro/tests/
+uv venv --python 3.12 .venv
+uv pip install --python .venv/bin/python numpy scipy pytest
+
+.venv/bin/python repro/src/claim1_general_certificate.py
+.venv/bin/python repro/src/run_claim3_sample_complexity.py
+.venv/bin/python repro/src/run_claim3_soft_sample_complexity.py
+.venv/bin/python repro/src/run_claim3_real_mnist_sample_complexity.py \
+  --data-root /path/to/uncompressed-mnist-idx
+.venv/bin/python repro/src/claim3_gradient_certificate.py
+.venv/bin/python repro/src/claim2_compatibility_certificate.py
+.venv/bin/python repro/src/claim5_table2_audit.py \
+  --paper repro/evidence/claim3/2605.21552v1.pdf --official-root upstream
+.venv/bin/python repro/src/claim6_capability_audit.py
+.venv/bin/python -m pytest repro/tests/ -q
 ```
 
-## Scope & honest disclosures
-- C1 (iff) + C2 (compatibility) verified exactly. C3 (sample-complexity rate) is out of scope.
-- The iff is the law of total probability applied under covariate shift (a clean characterization of *when* calibration transfers); verified substantively with both directions + the covariate-shift-scope negative control.
-- Official code `NeuroDong/ECL` (the ECL training loss) cross-references; theorem verification is clean-room numpy enumeration.
+Expected full result: **122 passed**.
+
+## Important scientific boundaries
+
+- C1 identifies equality of source/target calibration curves on common score support.
+  EC alone does not make either curve equal the score; target calibration additionally
+  needs a source-calibration premise.
+- C2 supports fixed hard bins, fixed-`B` soft Eq. 8 scaling on a controlled construction, and
+  comparable sample order on a real-MNIST task with disjoint trained classifiers. Appendix G
+  retains an omitted `sqrt(K)` term and omits target-bin-mass estimation. The empirical `B`
+  sweeps do not prove universal dependence; the MNIST posterior head is an estimate rather than
+  an oracle, and its minimum soft masses are extremely small.
+- C3's exact counterexample gives Eq. 8 loss/gradient `3/4, 0` versus profiled Eq. 10
+  `65/128, 1/4`. This rejects the unrestricted theorem, not the empirical usefulness of
+  the official proximal/EMA heuristic.
+- C4 verifies mathematical grouping/observable compatibility, not image-benchmark
+  improvement or numerical equivalence of every soft/proximal implementation detail.
+- C5/C6 are source/provenance audits. Paper-table arithmetic and embedded figures are
+  never promoted to independent empirical measurements.
+- Paper PDF SHA-256: `fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab`.
+- Official source pin: `NeuroDong/ECL@aae77f890f1e4ebc13dad135b5e29758d98d318d`;
+  `losses.py` SHA-256 `1c2de34967f34b98faae5025368edac88f46a709d6e1e0c063e2c01f4d6e9754`.
+
+Detailed audits are under `docs/`; deterministic JSON certificates are under `outputs/`.
 
 Logbook: https://huggingface.co/spaces/DineshAI/gFPPTokv9C
