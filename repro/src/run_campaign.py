@@ -173,6 +173,26 @@ def main() -> None:
             ],
         ),
         (
+            "claim_2_soft_falsification_stress",
+            [
+                python,
+                "repro/src/claim2_soft_falsification_stress.py",
+                "--output",
+                ".openresearch/artifacts/claim-2/route-b/raw_results.json",
+            ],
+        ),
+        (
+            "claim_2_soft_stress_checker",
+            [
+                python,
+                "repro/src/claim2_soft_stress_checker.py",
+                "--input",
+                ".openresearch/artifacts/claim-2/route-b/raw_results.json",
+                "--output",
+                ".openresearch/artifacts/claim-2/route-b/independent_checker.json",
+            ],
+        ),
+        (
             "cumulative_pytest",
             [python, "-m", "pytest", "repro/tests", "-q"],
         ),

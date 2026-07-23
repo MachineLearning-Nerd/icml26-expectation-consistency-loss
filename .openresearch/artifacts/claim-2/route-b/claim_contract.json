@@ -1,0 +1,7 @@
+{
+  "claim": "The differentiable soft Eq. 8 estimator satisfies the universally stated Theorem 3.2 finite-sample form for some absolute constant.",
+  "counterexample_gate": "A candidate must use iid source/target samples, a fixed shared posterior function, official soft assignments, positive relevant denominators, and must contradict the probability statement for every admissible absolute constant rather than merely exceed an arbitrary small constant once.",
+  "paper_anchors": ["S3.SS4", "S3.Thmtheorem2", "S3.E8", "A6", "A7"],
+  "route": "B_assumption_preserving_falsification_stress",
+  "search_axes": ["soft-bin count", "temperature", "sample size", "opposing source-target mass", "stabilizer bias"]
+}
