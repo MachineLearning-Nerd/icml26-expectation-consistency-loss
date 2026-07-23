@@ -217,6 +217,30 @@ def main() -> None:
             ],
         ),
         (
+            "claim_5_lenet_svhn_reconstruction",
+            [
+                python,
+                "repro/src/claim5_lenet_svhn_reconstruction.py",
+                "--predictions",
+                ".openresearch/artifacts/claim-5/route-1-lenet/predictions.csv",
+                "--output",
+                ".openresearch/artifacts/claim-5/route-1-lenet/raw_results.json",
+            ],
+        ),
+        (
+            "claim_5_lenet_independent_checker",
+            [
+                python,
+                "repro/src/claim5_lenet_independent_checker.py",
+                "--predictions",
+                ".openresearch/artifacts/claim-5/route-1-lenet/predictions.csv",
+                "--results",
+                ".openresearch/artifacts/claim-5/route-1-lenet/raw_results.json",
+                "--output",
+                ".openresearch/artifacts/claim-5/route-1-lenet/independent_checker.json",
+            ],
+        ),
+        (
             "cumulative_pytest",
             [python, "-m", "pytest", "repro/tests", "-q"],
         ),
