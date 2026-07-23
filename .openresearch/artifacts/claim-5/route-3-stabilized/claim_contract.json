@@ -1,0 +1,35 @@
+{
+  "claim_id": 5,
+  "route": 3,
+  "paper_cell": "Table 2, Digit -> SVHN, LeNet-5",
+  "paper_result": {
+    "uncal_ece_percent_mean": 61.9,
+    "uncal_ece_percent_std": 6.16,
+    "ecl_ece_percent_mean": 21.5,
+    "ecl_ece_percent_std": 1.51,
+    "runs": 10
+  },
+  "interpretation": "Appendix J frozen correctness head calibrated on source with Soft-ECE, followed by Algorithm 2 in-training top-label ECL. The square-root boundary is stabilized by adding 1e-12 inside sqrt.",
+  "protocol": {
+    "source": "all MNIST train+test plus all USPS train+test",
+    "target": "all SVHN train+test",
+    "architecture": "exact predecessor LeNet-5 topology",
+    "batch_size": 100,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "baseline_epochs": 100,
+    "correctness_head_epochs": 100,
+    "ecl_finetune_epochs": 100,
+    "seed": 260521554,
+    "target_labels_used_during_training": false
+  },
+  "required_evidence": [
+    "exact dataset hashes and full sample counts",
+    "three complete finite training curves",
+    "literal-versus-stabilized Soft-ECE boundary diagnostic",
+    "all target predictions and confidences",
+    "independent 15-bin ECE and accuracy recomputation",
+    "label-rotation and nonfinite negative controls"
+  ],
+  "verdict_rule": "A single seed remains insufficient to VERIFY a ten-run summary. It is compatible only if both ECE values fall within paper mean plus or minus two printed standard deviations and ECL lowers ECE. A mismatch is not FALSIFICATION because the paper omits seeds and the ECL cross-entropy coefficient, and the stabilization is a declared repair."
+}
