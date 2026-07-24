@@ -1,0 +1,70 @@
+{
+  "assumption_audit": {
+    "all_probability_domain_paths_valid": true,
+    "official_source_hash_matches_pin": true,
+    "ordinary_gradients_avoid_nonsmooth_zero_points": true,
+    "posterior_paths_are_locally_valid": true,
+    "soft_assignments_are_probability_simplex_rows": true
+  },
+  "confidence": "HIGH",
+  "exact_claim_contract": {
+    "logical_form": "all_five(ECL) implies minibatch_unbiased(ECL)",
+    "paper_operational_definition": "Section 3.5 says mini-batch trainability requires the mini-batch gradient to be an unbiased estimator of the full-dataset gradient.",
+    "quantifier": "the displayed gradient equality over source and target mini-batches",
+    "table1_assertion": "ECL has all five listed capabilities, including theoretical mini-batch trainability."
+  },
+  "exact_contradictions": {
+    "appendix_h_scaling": {
+      "equal": false,
+      "expected_minibatch_gradient": "3/2",
+      "full_gradient": "3"
+    },
+    "eq8_vs_profiled_eq10": {
+      "eq10_gradient": "1/4",
+      "eq10_loss": "65/128",
+      "eq8_gradient": "0",
+      "eq8_loss": "3/4",
+      "gradient_equal": false,
+      "loss_equal": false
+    },
+    "same_batch_direction": {
+      "equal": false,
+      "expected_minibatch_gradient": "0",
+      "full_gradient": "1"
+    },
+    "soft_weight_derivative": {
+      "equal": false,
+      "printed_gradient": "0",
+      "true_gradient": "3/4"
+    }
+  },
+  "limitations": [
+    "This does not say the released loop cannot execute or sometimes optimize a useful objective.",
+    "It falsifies 'theoretically mini-batch trainable' under the paper's explicit unbiased-gradient definition.",
+    "It does not independently reproduce the PACS numbers; they are unnecessary to falsify a conjunction whose Table 1 component is false."
+  ],
+  "logical_evaluation": {
+    "compound_claim6_conjunction": false,
+    "paper_table_cell_minibatch_trainable": true,
+    "required_unbiased_gradient_identity": true,
+    "table1_all_five_conjunction": false,
+    "valid_counterexample_to_identity_exists": true
+  },
+  "negative_controls": {
+    "correctly_scaled_fixed_direction_estimator_is_unbiased": true,
+    "counterexample_does_not_reject_every_possible_minibatch_estimator": true,
+    "pacs_or_figure2_needed_to_falsify_a_false_conjunction": false
+  },
+  "paper_source": {
+    "anchors": [
+      "Table 1 (PDF page 3)",
+      "Section 3.5",
+      "Theorem 3.3",
+      "Appendix H"
+    ],
+    "pdf_sha256": "fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab"
+  },
+  "schema_version": 1,
+  "verdict": "FALSIFIED",
+  "verdict_basis": "An assumption-complete exact counterexample falsifies the paper's own operational definition of one required Table 1 capability; one false conjunct falsifies the simultaneous-all-five and compound Claim 6 assertions."
+}

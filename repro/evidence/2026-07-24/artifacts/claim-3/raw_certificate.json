@@ -1,0 +1,337 @@
+{
+  "assessment": {
+    "algorithm1_unbiased_for_eq8_gradient": "not_established_and_exact_identity_fails",
+    "all_certificate_gates_pass": true,
+    "anchored_claim_3": "contradicted_as_stated",
+    "eq10_is_eq8_auxiliary_reformulation": "falsified_by_exact_within_bin_variance_counterexample",
+    "inconclusive": false,
+    "loss_estimation_unbiasedness": "falsified_for_self_normalized_minibatch_ecl",
+    "narrow_fixed_direction_estimator": "verified_with_explicit_conditions_and_corrected_scaling",
+    "recommended_verdict": "not_reproduced__theorem_3_3_contradicted_as_written",
+    "substantive_scientific_attempt": true,
+    "toy": false
+  },
+  "certificate_sha256": "c7dab6e2caa93bc9c6a23ef081fddc0fbfcffc8aba14e2cecb700ddf63bd80b0",
+  "derivation": {
+    "eq10_distinction": "Eq. 10 differentiates squared residuals 2*omega*(p-u)*grad(p), plus derivatives through theta-dependent omega. Appendix H instead writes a fixed norm-direction linear gradient. Those are different estimators and objectives.",
+    "nonsmooth_point": "At E_s,j=E_t,j the norm has a subdifferential; the theorem must specify a measurable compatible subgradient selection rather than an ordinary gradient.",
+    "population_gradient_interchange": "For a population rather than a finite dataset, differentiability almost everywhere plus an integrable dominating derivative (or another valid Leibniz rule) is required before moving grad through expectation.",
+    "posterior_estimator_condition": "Unbiasedness can be stated conditional on a posterior estimator fitted on independent data or frozen before the current batch. Re-fitting it on the same batch creates dependence and changes the target estimand.",
+    "soft_self_normalization": "A ratio of random weighted sums is not generally an unbiased estimator of the full ratio, even when numerator and denominator separately are unbiased.",
+    "valid_restricted_identity": "Conditional on a fixed posterior function, fixed differentiable weights/counts, a fixed norm subgradient v independent of the current batch, and correct finite-population scaling, linearity gives E[G_m | state] = G_full."
+  },
+  "environment": {
+    "arithmetic": "Python standard-library fractions.Fraction; exhaustive subsets",
+    "implementation": "CPython",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.12.11"
+  },
+  "exact_certificates": {
+    "appendix_h_normalization": {
+      "appendix_h_normalization_matches": false,
+      "appendix_h_unscaled_expectation": "3/2",
+      "construction": {
+        "assignments_strictly_interior": true,
+        "batch_size": 1,
+        "per_sample_bin_weights_valid": true,
+        "per_sample_derivatives": [
+          "0",
+          "4"
+        ],
+        "per_sample_two_bin_assignments": [
+          [
+            "1/4",
+            "3/4"
+          ],
+          [
+            "3/4",
+            "1/4"
+          ]
+        ],
+        "population_size": 2,
+        "posterior_local_validity_radius": "1/16",
+        "posterior_path_locally_valid": true,
+        "posterior_values_at_theta_0": [
+          "1/2",
+          "1/2"
+        ],
+        "soft_count": "1",
+        "soft_weights": [
+          "1/4",
+          "3/4"
+        ]
+      },
+      "corrected_estimator_expectation": "3",
+      "corrected_estimator_is_exactly_unbiased": true,
+      "full_weighted_mean_gradient": "3",
+      "required_scale_N_over_nj": "2"
+    },
+    "eq10_objective_and_gradient": {
+      "asymptotic_equivalence_supported_by_this_family": false,
+      "construction": {
+        "all_probabilities_strictly_interior_at_theta": true,
+        "bin_weight": "1",
+        "one_bin_assignment_valid": true,
+        "posterior_local_validity_radius": "1/32",
+        "source_derivatives": [
+          "1",
+          "-1"
+        ],
+        "source_posterior_path_locally_valid": true,
+        "source_probabilities": [
+          "15/16",
+          "13/16"
+        ],
+        "target_derivatives": [
+          "0",
+          "0"
+        ],
+        "target_posterior_path_locally_valid": true,
+        "target_probabilities": [
+          "1/8",
+          "1/8"
+        ],
+        "theta": "1/16"
+      },
+      "eq10_fixed_aux_or_envelope_gradient": "1/4",
+      "eq10_profile_loss": "65/128",
+      "eq8_gradient": "0",
+      "eq8_loss": "3/4",
+      "exact_auxiliary_minimizer": {
+        "u_s": "5/8",
+        "u_t": "3/8"
+      },
+      "gradients_equal": false,
+      "objectives_equal": false,
+      "omitted_term": "sum_i ||p_i-mean_domain||^2; it depends on theta and is discarded in Appendix H's claimed substitution",
+      "replication_stress": [
+        {
+          "eq10_minus_eq8": "-31/128",
+          "eq10_profile_gradient": "1/4",
+          "eq10_profile_loss": "65/128",
+          "replication": 1,
+          "samples_per_domain": 2
+        },
+        {
+          "eq10_minus_eq8": "-7/64",
+          "eq10_profile_gradient": "1/2",
+          "eq10_profile_loss": "41/64",
+          "replication": 2,
+          "samples_per_domain": 4
+        },
+        {
+          "eq10_minus_eq8": "-1/32",
+          "eq10_profile_gradient": "1",
+          "eq10_profile_loss": "23/32",
+          "replication": 4,
+          "samples_per_domain": 8
+        },
+        {
+          "eq10_minus_eq8": "1/32",
+          "eq10_profile_gradient": "2",
+          "eq10_profile_loss": "25/32",
+          "replication": 8,
+          "samples_per_domain": 16
+        },
+        {
+          "eq10_minus_eq8": "7/64",
+          "eq10_profile_gradient": "4",
+          "eq10_profile_loss": "55/64",
+          "replication": 16,
+          "samples_per_domain": 32
+        },
+        {
+          "eq10_minus_eq8": "31/128",
+          "eq10_profile_gradient": "8",
+          "eq10_profile_loss": "127/128",
+          "replication": 32,
+          "samples_per_domain": 64
+        },
+        {
+          "eq10_minus_eq8": "127/256",
+          "eq10_profile_gradient": "16",
+          "eq10_profile_loss": "319/256",
+          "replication": 64,
+          "samples_per_domain": 128
+        }
+      ]
+    },
+    "self_normalization_and_same_batch_norm": {
+      "construction": {
+        "assignments_strictly_interior": true,
+        "batch_size": 1,
+        "per_sample_bin_weights_valid": true,
+        "per_sample_two_bin_assignments": [
+          [
+            "1/4",
+            "3/4"
+          ],
+          [
+            "3/4",
+            "1/4"
+          ]
+        ],
+        "posterior_local_validity_radius": "1/8",
+        "posterior_path_locally_valid": true,
+        "soft_weights": [
+          "1/4",
+          "3/4"
+        ],
+        "source_derivatives": [
+          "1",
+          "1"
+        ],
+        "source_probabilities_at_theta_0": [
+          "1/4",
+          "3/4"
+        ],
+        "target_probability": "1/2"
+      },
+      "expected_minibatch_abs_loss": "1/4",
+      "expected_same_batch_direction_gradient": "0",
+      "full_abs_ecl_gradient": "1",
+      "full_abs_ecl_loss": "1/8",
+      "full_self_normalized_mean": "5/8",
+      "independent_full_direction_corrected_gradient": "1",
+      "independent_full_direction_corrected_is_unbiased": true,
+      "interpretation": "Loss unbiasedness, ratio unbiasedness, and gradient unbiasedness are distinct. The norm direction must not be selected from the same random batch.",
+      "loss_estimator_unbiased": false,
+      "same_batch_direction_gradient_unbiased": false
+    },
+    "soft_weight_derivative": {
+      "appendix_h_derivative_when_p_is_fixed": "0",
+      "assignment_path_locally_valid": true,
+      "assignments_strictly_interior_at_theta_0": true,
+      "audited_bin_weights_at_theta_0": [
+        "1/4",
+        "3/4"
+      ],
+      "construction": "audited-bin weights omega_1(theta)=1/4+theta and omega_2(theta)=3/4; complements 3/4-theta and 1/4; fixed p_1=1 and p_2=0",
+      "fixed_posterior_probabilities_valid": true,
+      "local_assignment_rows": [
+        [
+          [
+            "1/8",
+            "7/8"
+          ],
+          [
+            "3/4",
+            "1/4"
+          ]
+        ],
+        [
+          [
+            "1/4",
+            "3/4"
+          ],
+          [
+            "3/4",
+            "1/4"
+          ]
+        ],
+        [
+          [
+            "3/8",
+            "5/8"
+          ],
+          [
+            "3/4",
+            "1/4"
+          ]
+        ]
+      ],
+      "local_validity_radius": "1/8",
+      "omitting_weight_and_denominator_derivatives_is_valid": false,
+      "per_sample_two_bin_assignments_at_theta_0": [
+        [
+          "1/4",
+          "3/4"
+        ],
+        [
+          "3/4",
+          "1/4"
+        ]
+      ],
+      "true_quotient_rule_derivative": "3/4",
+      "weighted_mean_at_theta_0": "1/4"
+    }
+  },
+  "limitations": [
+    "This is a theorem audit, not an empirical calibration benchmark; one exact counterexample suffices to reject a universal unbiasedness identity.",
+    "The source audit is static because the project dependencies intentionally exclude PyTorch; the mathematical counterexamples do not depend on PyTorch.",
+    "A differently defined linear estimator with frozen independent state can be unbiased, but it is not the Eq. 10 squared-residual loss returned by the official implementation."
+  ],
+  "official_source_audit": {
+    "current_batch_auxiliaries_are_detached_then_reused_on_same_batch": true,
+    "declared_pin": "NeuroDong/ECL@aae77f890f1e4ebc13dad135b5e29758d98d318d",
+    "eq10_returned_loss_is_squared_residual_sum": true,
+    "final_notebook_optimizer_is_fc2_only": true,
+    "implementation_implication": "In the final notebook phase p from classifier2 is fixed with respect to the fc2 optimizer, while w_s/w_t depend on fc2 logits and remain in autograd. Appendix H keeps omega*grad(p) but omits these weight derivatives.",
+    "line_evidence": {
+      "class ECLossMiniBatch": [
+        154
+      ],
+      "loss_s_j = (w_s[:, j] *": [
+        282,
+        376,
+        453
+      ],
+      "loss_t_j = (w_t[:, j] *": [
+        283,
+        377,
+        454
+      ],
+      "u_s_j_detached = u_s_j.detach()": [
+        274,
+        368,
+        447
+      ],
+      "u_t_j_detached = u_t_j.detach()": [
+        275,
+        369,
+        448
+      ],
+      "w_j = n_t_j / (n_t_batch.sum() + tiny)": [
+        257,
+        353,
+        432
+      ]
+    },
+    "matches_independently_read_back_pinned_losses_sha256": true,
+    "paper_required_current_batch_independence_is_satisfied": false,
+    "posterior_head_is_separately_pretrained": true,
+    "soft_assignment_weights_feed_loss_without_detach": true,
+    "vendored_losses_sha256": "1c2de34967f34b98faae5025368edac88f46a709d6e1e0c063e2c01f4d6e9754"
+  },
+  "paper": {
+    "anchored_claim": "Theorem 3.3 shows the mini-batch ECL formulation using auxiliary variables u_j^s and u_j^t yields an unbiased gradient estimator, E[grad_theta Lhat_ecl^mini] = grad_theta Lhat_ecl, enabling standard SGD training.",
+    "anchors": [
+      "Section 3.5, Theorem 3.3, Eq. 10",
+      "Appendix H, Eqs. 32-33"
+    ],
+    "openreview_id": "gFPPTokv9C",
+    "paper_pdf_hash_matches_expected": true,
+    "paper_pdf_sha256": "fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab",
+    "title": "Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift"
+  },
+  "probability_domain_audit": {
+    "eq10_probabilities_interior_and_locally_valid": true,
+    "normalization_assignments_valid": true,
+    "normalization_posterior_path_locally_valid": true,
+    "self_normalized_assignments_valid": true,
+    "self_normalized_posterior_path_locally_valid": true,
+    "weight_derivative_assignment_path_locally_valid": true,
+    "weight_derivative_fixed_posteriors_valid": true
+  },
+  "verification_gates": {
+    "all_probability_domain_paths_valid": true,
+    "corrected_fixed_direction_estimator_unbiased": true,
+    "eq10_gradient_counterexample": true,
+    "eq10_objective_counterexample": true,
+    "pinned_source_hash_match": true,
+    "printed_appendix_h_normalization_counterexample": true,
+    "same_batch_direction_bias_counterexample": true,
+    "self_normalized_loss_bias_counterexample": true,
+    "soft_weight_derivative_omission_counterexample": true
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "claim_id": 4,
+  "contract_version": 1,
+  "paper_statement": "Appendix F gives differentiable soft-binning implementations of canonical, class-wise, and top-label ECL.",
+  "source_anchors": [
+    "Appendix D.1",
+    "Appendix D.2",
+    "Appendix E.1",
+    "Appendix E.2",
+    "Appendix F, Equations 24-29",
+    "Section 3.3, Equations 6-8"
+  ],
+  "machine_check": {
+    "dataset": "official hash-audited MNIST: 60000 training and 10000 held-out test images",
+    "models": "two label-trained multinomial logistic models on disjoint 30000-image training halves",
+    "domains": "positive source and target weights on every held-out image, determined from X pixels only",
+    "formulations": [
+      "top-label: 15 Gaussian soft bins over max score and posterior of the predicted class",
+      "class-wise: 15 Gaussian soft bins independently for every one of 10 classes",
+      "canonical: shifted simplex-grid Gaussian bins over the full 10-dimensional score"
+    ],
+    "differentiability_test": "PyTorch autograd derivative with respect to score temperature must match an independent centered NumPy finite difference for every formulation",
+    "tolerances": {
+      "loss_absolute_error": 2e-11,
+      "gradient_scaled_error": 2e-7
+    }
+  },
+  "required_controls": [
+    "official IDX SHA-256 values match",
+    "training halves are disjoint and test data are held out",
+    "domain selection does not use labels",
+    "detaching scores removes the temperature gradient",
+    "shuffling posterior values changes every loss",
+    "class-wise and canonical losses do not collapse to top-label"
+  ],
+  "verdict_rule": "VERIFIED only if all three real-data losses are finite and nonzero, all three gradients are finite and nonzero, the independent checker agrees within preregistered tolerances, and every control passes.",
+  "excluded_claims": [
+    "Table 2 benchmark magnitudes",
+    "equivalence to the paper's deep digit architectures",
+    "ground-truth population posterior identification"
+  ]
+}

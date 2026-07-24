@@ -1,0 +1,9 @@
+{
+  "C4_violations": 0,
+  "falsification_succeeded": false,
+  "independence": "stdlib implementation; imports neither numpy nor the experiment module",
+  "maximum_recomputed_ratio": 0.08733412918842667,
+  "mismatches": [],
+  "rows": 1024,
+  "status": "PASS"
+}

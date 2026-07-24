@@ -1,0 +1,9 @@
+{
+  "C4_violations": 0,
+  "all_negative_controls_rejected": true,
+  "independence": "does not import the certificate implementation or numpy",
+  "input_rows": 2879,
+  "maximum_recomputed_ratio": 0.2891735036727088,
+  "mismatches": [],
+  "status": "PASS"
+}

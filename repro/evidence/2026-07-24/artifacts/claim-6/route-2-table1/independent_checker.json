@@ -1,0 +1,31 @@
+{
+  "gates": {
+    "all_assumptions_asserted_valid": true,
+    "conjunction_evaluates_false": true,
+    "counterexample_exists": true,
+    "full_gradient_is_3": true,
+    "normalization_identity_false": true,
+    "paper_hash_exact": true,
+    "primary_values_match_recomputation": true,
+    "printed_expectation_is_3_over_2": true,
+    "same_batch_expected_gradient_is_0": true,
+    "same_batch_identity_false": true,
+    "self_normalized_full_gradient_is_1": true,
+    "table_cell_is_asserted_true": true,
+    "verdict_is_falsified": true
+  },
+  "independence": "stdlib Fraction recomputation; no import from either certificate",
+  "negative_controls": {
+    "corrected_estimator_boundary_preserved": true,
+    "false_cell_not_at_issue_if_paper_had_marked_it_false": true,
+    "no_counterexample_cannot_falsify_asserted_identity": true
+  },
+  "recomputed": {
+    "normalization_expected_unscaled_gradient": "3/2",
+    "normalization_full_gradient": "3",
+    "same_batch_expected_gradient": "0",
+    "self_normalized_full_gradient": "1"
+  },
+  "status": "PASS",
+  "verdict": "FALSIFIED"
+}

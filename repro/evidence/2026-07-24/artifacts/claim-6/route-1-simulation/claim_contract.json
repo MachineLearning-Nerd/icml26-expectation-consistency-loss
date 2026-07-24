@@ -1,0 +1,7 @@
+{
+  "claim": "Figure 2 reports that ECL reduces calibration error under the stated simulated covariate shift for top-label, class-wise, and canonical calibration while preserving or improving accuracy.",
+  "domain": "400 source and 400 target two-dimensional normal samples with deterministic three-class labeling",
+  "exact_test": "For five deterministic seeds, independently recompute the released 15-bin metric and require the ECL mean to be below both uncalibrated and Soft-ECE means for every paradigm, with a positive paired 95% t-interval versus uncalibrated.",
+  "route_scope": "Figure 2 simulation component only; Table 1 and PACS/Table 3 are outside this route.",
+  "allowed_verdict": "This route can be ALIGNED or DIVERGENT_OR_MIXED, but cannot alone verify or falsify compound Claim 6."
+}

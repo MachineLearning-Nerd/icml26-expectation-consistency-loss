@@ -1,0 +1,39 @@
+{
+  "all_three_losses_and_gradients_match": true,
+  "finite_difference_step": 0.0001,
+  "formulations": {
+    "canonical": {
+      "centered_finite_difference_gradient": -0.013700448753192762,
+      "gradient_absolute_error": 2.9058572202991795e-08,
+      "gradient_relative_scale_error": 2.9058572202991795e-08,
+      "loss_absolute_error": 1.3877787807814457e-16,
+      "match": true,
+      "numpy_loss": 0.037420954788297274,
+      "primary_autograd_gradient": -0.013700419694620559,
+      "primary_torch_loss": 0.037420954788297135
+    },
+    "class_wise": {
+      "centered_finite_difference_gradient": 0.00429677208459156,
+      "gradient_absolute_error": 1.4662976995788446e-10,
+      "gradient_relative_scale_error": 1.4662976995788446e-10,
+      "loss_absolute_error": 5.551115123125783e-17,
+      "match": true,
+      "numpy_loss": 0.08122202069650114,
+      "primary_autograd_gradient": 0.00429677193796179,
+      "primary_torch_loss": 0.0812220206965012
+    },
+    "top_label": {
+      "centered_finite_difference_gradient": -0.030635072423360055,
+      "gradient_absolute_error": 8.915696653177818e-11,
+      "gradient_relative_scale_error": 8.915696653177818e-11,
+      "loss_absolute_error": 2.0122792321330962e-16,
+      "match": true,
+      "numpy_loss": 0.021129419168138812,
+      "primary_autograd_gradient": -0.03063507251251702,
+      "primary_torch_loss": 0.021129419168139013
+    }
+  },
+  "independence": "NumPy-only implementation; does not import the PyTorch certificate module.",
+  "input_sha256": "ddece5db814fbe6c873bfac0dc6db0af5ca02145668adbe8d0691e632f4d0321",
+  "status": "VERIFIED"
+}

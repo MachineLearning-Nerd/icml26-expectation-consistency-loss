@@ -1,0 +1,406 @@
+{
+  "negative_controls": {
+    "observed_mean_shift": [
+      1.9941012403333727,
+      2.004262478807583
+    ],
+    "tampered_metric_changed": true
+  },
+  "route_assessment": "DIVERGENT_OR_MIXED",
+  "rows": [
+    {
+      "accuracy": 0.87,
+      "calibration_error": 0.09892315439879892,
+      "method": "uncalibrated",
+      "paradigm": "TopLabel",
+      "seed": 1907
+    },
+    {
+      "accuracy": 0.755,
+      "calibration_error": 0.14956672132015228,
+      "method": "soft_ece",
+      "paradigm": "TopLabel",
+      "seed": 1907
+    },
+    {
+      "accuracy": 0.84,
+      "calibration_error": 0.16859426751732826,
+      "method": "ecl",
+      "paradigm": "TopLabel",
+      "seed": 1907
+    },
+    {
+      "accuracy": 0.85,
+      "calibration_error": 0.06421799222261836,
+      "method": "uncalibrated",
+      "paradigm": "Classwise",
+      "seed": 1907
+    },
+    {
+      "accuracy": 0.7875,
+      "calibration_error": 0.09225522991638847,
+      "method": "soft_ece",
+      "paradigm": "Classwise",
+      "seed": 1907
+    },
+    {
+      "accuracy": 0.8675,
+      "calibration_error": 0.07533858453462612,
+      "method": "ecl",
+      "paradigm": "Classwise",
+      "seed": 1907
+    },
+    {
+      "accuracy": 0.845,
+      "calibration_error": 0.07195110975565344,
+      "method": "uncalibrated",
+      "paradigm": "Canonical",
+      "seed": 1907
+    },
+    {
+      "accuracy": 0.7925,
+      "calibration_error": 0.1941810041733945,
+      "method": "soft_ece",
+      "paradigm": "Canonical",
+      "seed": 1907
+    },
+    {
+      "accuracy": 0.865,
+      "calibration_error": 0.10415445044527855,
+      "method": "ecl",
+      "paradigm": "Canonical",
+      "seed": 1907
+    },
+    {
+      "accuracy": 0.855,
+      "calibration_error": 0.07953985758125781,
+      "method": "uncalibrated",
+      "paradigm": "TopLabel",
+      "seed": 2903
+    },
+    {
+      "accuracy": 0.795,
+      "calibration_error": 0.07759146973490717,
+      "method": "soft_ece",
+      "paradigm": "TopLabel",
+      "seed": 2903
+    },
+    {
+      "accuracy": 0.835,
+      "calibration_error": 0.15889208443462852,
+      "method": "ecl",
+      "paradigm": "TopLabel",
+      "seed": 2903
+    },
+    {
+      "accuracy": 0.8575,
+      "calibration_error": 0.06500224680237167,
+      "method": "uncalibrated",
+      "paradigm": "Classwise",
+      "seed": 2903
+    },
+    {
+      "accuracy": 0.795,
+      "calibration_error": 0.0746471589654185,
+      "method": "soft_ece",
+      "paradigm": "Classwise",
+      "seed": 2903
+    },
+    {
+      "accuracy": 0.8425,
+      "calibration_error": 0.09389548686575817,
+      "method": "ecl",
+      "paradigm": "Classwise",
+      "seed": 2903
+    },
+    {
+      "accuracy": 0.8625,
+      "calibration_error": 0.11478341144720702,
+      "method": "uncalibrated",
+      "paradigm": "Canonical",
+      "seed": 2903
+    },
+    {
+      "accuracy": 0.79,
+      "calibration_error": 0.08994593219008619,
+      "method": "soft_ece",
+      "paradigm": "Canonical",
+      "seed": 2903
+    },
+    {
+      "accuracy": 0.84,
+      "calibration_error": 0.19248301125681816,
+      "method": "ecl",
+      "paradigm": "Canonical",
+      "seed": 2903
+    },
+    {
+      "accuracy": 0.85,
+      "calibration_error": 0.06634731642901898,
+      "method": "uncalibrated",
+      "paradigm": "TopLabel",
+      "seed": 3907
+    },
+    {
+      "accuracy": 0.825,
+      "calibration_error": 0.09333532564342026,
+      "method": "soft_ece",
+      "paradigm": "TopLabel",
+      "seed": 3907
+    },
+    {
+      "accuracy": 0.8175,
+      "calibration_error": 0.1022061557322741,
+      "method": "ecl",
+      "paradigm": "TopLabel",
+      "seed": 3907
+    },
+    {
+      "accuracy": 0.8325,
+      "calibration_error": 0.06089597650318939,
+      "method": "uncalibrated",
+      "paradigm": "Classwise",
+      "seed": 3907
+    },
+    {
+      "accuracy": 0.78,
+      "calibration_error": 0.084236931590795,
+      "method": "soft_ece",
+      "paradigm": "Classwise",
+      "seed": 3907
+    },
+    {
+      "accuracy": 0.855,
+      "calibration_error": 0.04494813872319898,
+      "method": "ecl",
+      "paradigm": "Classwise",
+      "seed": 3907
+    },
+    {
+      "accuracy": 0.855,
+      "calibration_error": 0.06914097900583546,
+      "method": "uncalibrated",
+      "paradigm": "Canonical",
+      "seed": 3907
+    },
+    {
+      "accuracy": 0.7925,
+      "calibration_error": 0.15720542424537728,
+      "method": "soft_ece",
+      "paradigm": "Canonical",
+      "seed": 3907
+    },
+    {
+      "accuracy": 0.845,
+      "calibration_error": 0.1512962705558311,
+      "method": "ecl",
+      "paradigm": "Canonical",
+      "seed": 3907
+    },
+    {
+      "accuracy": 0.8825,
+      "calibration_error": 0.05281847678124908,
+      "method": "uncalibrated",
+      "paradigm": "TopLabel",
+      "seed": 4903
+    },
+    {
+      "accuracy": 0.8125,
+      "calibration_error": 0.06139069475233554,
+      "method": "soft_ece",
+      "paradigm": "TopLabel",
+      "seed": 4903
+    },
+    {
+      "accuracy": 0.8675,
+      "calibration_error": 0.11053833067417144,
+      "method": "ecl",
+      "paradigm": "TopLabel",
+      "seed": 4903
+    },
+    {
+      "accuracy": 0.8875,
+      "calibration_error": 0.06335603636070039,
+      "method": "uncalibrated",
+      "paradigm": "Classwise",
+      "seed": 4903
+    },
+    {
+      "accuracy": 0.77,
+      "calibration_error": 0.09320570340353994,
+      "method": "soft_ece",
+      "paradigm": "Classwise",
+      "seed": 4903
+    },
+    {
+      "accuracy": 0.9,
+      "calibration_error": 0.05053219676034429,
+      "method": "ecl",
+      "paradigm": "Classwise",
+      "seed": 4903
+    },
+    {
+      "accuracy": 0.865,
+      "calibration_error": 0.0806460873779627,
+      "method": "uncalibrated",
+      "paradigm": "Canonical",
+      "seed": 4903
+    },
+    {
+      "accuracy": 0.795,
+      "calibration_error": 0.155262493328975,
+      "method": "soft_ece",
+      "paradigm": "Canonical",
+      "seed": 4903
+    },
+    {
+      "accuracy": 0.875,
+      "calibration_error": 0.15067547579182683,
+      "method": "ecl",
+      "paradigm": "Canonical",
+      "seed": 4903
+    },
+    {
+      "accuracy": 0.8775,
+      "calibration_error": 0.08647476539015769,
+      "method": "uncalibrated",
+      "paradigm": "TopLabel",
+      "seed": 5903
+    },
+    {
+      "accuracy": 0.81,
+      "calibration_error": 0.10645724356174471,
+      "method": "soft_ece",
+      "paradigm": "TopLabel",
+      "seed": 5903
+    },
+    {
+      "accuracy": 0.89,
+      "calibration_error": 0.23406974308192732,
+      "method": "ecl",
+      "paradigm": "TopLabel",
+      "seed": 5903
+    },
+    {
+      "accuracy": 0.8675,
+      "calibration_error": 0.053459325209645386,
+      "method": "uncalibrated",
+      "paradigm": "Classwise",
+      "seed": 5903
+    },
+    {
+      "accuracy": 0.81,
+      "calibration_error": 0.07645378446992,
+      "method": "soft_ece",
+      "paradigm": "Classwise",
+      "seed": 5903
+    },
+    {
+      "accuracy": 0.8975,
+      "calibration_error": 0.054298220719044166,
+      "method": "ecl",
+      "paradigm": "Classwise",
+      "seed": 5903
+    },
+    {
+      "accuracy": 0.8675,
+      "calibration_error": 0.0904294680996479,
+      "method": "uncalibrated",
+      "paradigm": "Canonical",
+      "seed": 5903
+    },
+    {
+      "accuracy": 0.8175,
+      "calibration_error": 0.1557035638181589,
+      "method": "soft_ece",
+      "paradigm": "Canonical",
+      "seed": 5903
+    },
+    {
+      "accuracy": 0.875,
+      "calibration_error": 0.15107667290672994,
+      "method": "ecl",
+      "paradigm": "Canonical",
+      "seed": 5903
+    }
+  ],
+  "status": "PASS",
+  "summaries": {
+    "Canonical": {
+      "ecl": {
+        "mean_accuracy": 0.86,
+        "mean_calibration_error": 0.14993717619129693,
+        "sample_sd_accuracy": 0.016583123951777013,
+        "sample_sd_calibration_error": 0.031264583535983666
+      },
+      "paired_ecl_vs_uncalibrated": {
+        "95pct_t_ci_low": -0.08917698571684132,
+        "mean_improvement": -0.06454696505403561
+      },
+      "route_aligned": false,
+      "soft_ece": {
+        "mean_accuracy": 0.7975,
+        "mean_calibration_error": 0.15045968355119838,
+        "sample_sd_accuracy": 0.011319231422671768,
+        "sample_sd_calibration_error": 0.03764816815023078
+      },
+      "uncalibrated": {
+        "mean_accuracy": 0.859,
+        "mean_calibration_error": 0.08539021113726131,
+        "sample_sd_accuracy": 0.009117291264405261,
+        "sample_sd_calibration_error": 0.01841540140916831
+      }
+    },
+    "Classwise": {
+      "ecl": {
+        "mean_accuracy": 0.8724999999999999,
+        "mean_calibration_error": 0.06380252552059434,
+        "sample_sd_accuracy": 0.02555631037532608,
+        "sample_sd_calibration_error": 0.020375158384466824
+      },
+      "paired_ecl_vs_uncalibrated": {
+        "95pct_t_ci_low": -0.025213109122612376,
+        "mean_improvement": -0.002416210100889307
+      },
+      "route_aligned": false,
+      "soft_ece": {
+        "mean_accuracy": 0.7885,
+        "mean_calibration_error": 0.08415976166921238,
+        "sample_sd_accuracy": 0.015165750888103116,
+        "sample_sd_calibration_error": 0.008620372932694432
+      },
+      "uncalibrated": {
+        "mean_accuracy": 0.859,
+        "mean_calibration_error": 0.06138631541970503,
+        "sample_sd_accuracy": 0.020432816741702536,
+        "sample_sd_calibration_error": 0.004691768320930226
+      }
+    },
+    "TopLabel": {
+      "ecl": {
+        "mean_accuracy": 0.85,
+        "mean_calibration_error": 0.1548601162880659,
+        "sample_sd_accuracy": 0.028668362352949305,
+        "sample_sd_calibration_error": 0.052952594120026016
+      },
+      "paired_ecl_vs_uncalibrated": {
+        "95pct_t_ci_low": -0.13034993023584066,
+        "mean_improvement": -0.07803940217196943
+      },
+      "route_aligned": false,
+      "soft_ece": {
+        "mean_accuracy": 0.7995,
+        "mean_calibration_error": 0.097668291002512,
+        "sample_sd_accuracy": 0.02706473720544871,
+        "sample_sd_calibration_error": 0.033573092228854434
+      },
+      "uncalibrated": {
+        "mean_accuracy": 0.867,
+        "mean_calibration_error": 0.0768207141160965,
+        "sample_sd_accuracy": 0.014075688260259234,
+        "sample_sd_calibration_error": 0.01785295332589809
+      }
+    }
+  },
+  "verdict_effect": "This route alone cannot verify or falsify the compound Claim 6."
+}

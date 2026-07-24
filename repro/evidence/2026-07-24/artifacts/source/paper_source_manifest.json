@@ -1,0 +1,17 @@
+{
+  "arxiv_id": "2605.21552v1",
+  "retrieval": {
+    "retrieved_at_utc": "2026-07-23T16:21:50Z",
+    "sha256": "0b5e5f8f9b7af9e0c82e00f289d65e9556df1335924dd25913c8a52dd6868f98",
+    "url": "https://ar5iv.labs.arxiv.org/html/2605.21552",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 OpenResearch-Reproduction/1.0"
+  },
+  "source_anchors": {
+    "claim_1": ["S3.SS1", "S3.Thmtheorem1", "A2"],
+    "claim_2": ["S3.SS4", "S3.Thmtheorem2", "A7"],
+    "claim_3": ["S3.SS5", "S3.Thmtheorem3", "A8"],
+    "claim_4": ["A4", "A5.SS1", "A5.SS2", "A6"],
+    "claim_5": ["S4.SS2", "S4.SS2.SSS1", "S4.T2"],
+    "claim_6": ["S1.T1", "S4.F2", "A3.T3"]
+  }
+}

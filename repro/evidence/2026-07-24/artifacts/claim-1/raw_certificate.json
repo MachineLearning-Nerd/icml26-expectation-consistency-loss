@@ -1,0 +1,248 @@
+{
+  "analytical_proof": {
+    "absolute_calibration_corollary": "If the source is perfectly calibrated, EC is necessary and sufficient for target calibration on common S support. Without source calibration, EC only says the two calibration curves are equal.",
+    "minimum_condition": "E_d[Y_k|X,S]=E_d[Y_k|X]; deterministic S=f(X) is sufficient",
+    "shared_kernel_qualification": "Covariate shift must provide a common regular-conditional kernel q(y|x) on the union of source and target X support, not merely unrelated a.s. versions.",
+    "statement": "For d in {s,t}, S=f(X) gives sigma(S) subset sigma(X), so E_d[Y_k|S]=E_d[E_d[Y_k|X]|S]=E_d[q_k(X)|S]. With one common q_k version under covariate shift, the calibration-curve gap and EC residual are identical; equality to zero is therefore iff.",
+    "support_qualification": "Equality is almost everywhere where source and target S-conditionals are both identified; mutual absolute continuity of P_s^S and P_t^S is a clean sufficient condition."
+  },
+  "assessment": {
+    "absolute_calibration_from_ec_alone": "falsified_without_source_calibration_premise",
+    "all_certificate_gates_pass": true,
+    "inconclusive": false,
+    "literal_theorem_3_1": "verified_with_support_and_version_qualifications",
+    "substantive_scientific_attempt": true,
+    "toy": false
+  },
+  "assumption_breaking_controls": {
+    "S_not_X_measurable": {
+      "E_P_Y1_given_X_given_S1": "1/2",
+      "P_Y1_given_S1": "1",
+      "assessment": "falsifies Eq. 13 when S is allowed to carry label information beyond X",
+      "construction": "X is constant, Y~Bernoulli(1/2), and S=Y",
+      "eq13_residual": "1/2"
+    },
+    "disjoint_summary_support": {
+      "assessment": "cross-domain conditionals cannot be compared at absent S values",
+      "cross_domain_statement_identified": false,
+      "support": {
+        "shared": [],
+        "source_only": [
+          "0"
+        ],
+        "target_only": [
+          "1"
+        ]
+      }
+    },
+    "shared_conditional_broken": {
+      "characterization_fails": true,
+      "source_q_ec_residual": "0",
+      "true_calibration_curve_gap": "-1/2"
+    },
+    "source_calibration_premise_missing": {
+      "assessment": "EC alone transfers a curve but does not imply P(Y=1|S)=S",
+      "both_domains_absolutely_miscalibrated": true,
+      "ec_holds": true,
+      "prediction_S1": "3/4",
+      "source_P_Y1_given_S": "1/4",
+      "target_P_Y1_given_S": "1/4"
+    }
+  },
+  "direction_witnesses": {
+    "ec_zero_implies_equal_calibration_curve": {
+      "all_exact_gaps_zero": true,
+      "gap": {
+        "0": [
+          "0",
+          "0"
+        ],
+        "1": [
+          "0",
+          "0"
+        ]
+      },
+      "marginals_differ": true
+    },
+    "unequal_calibration_curve_implies_ec_nonzero": {
+      "expected_binary_class_gap": "1/2",
+      "gap": {
+        "0": [
+          "1/2",
+          "-1/2"
+        ]
+      },
+      "marginals_differ": true
+    }
+  },
+  "environment": {
+    "arithmetic_dependencies": [
+      "Python standard-library fractions.Fraction"
+    ],
+    "implementation": "CPython",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.12.11"
+  },
+  "formal_all_q_certificate": {
+    "all_formal_coefficient_maps_equal": true,
+    "iff_for_every_common_posterior_q": true,
+    "reason": "calibration gap and EC residual are the same formal linear form in q; therefore their zero sets are identical",
+    "rows": [
+      {
+        "coefficient_sha256": "b502628c25b20668e5eb6f5c1d092c3dd7bf7be5b09494c003bfe419ce9543de",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "0"
+      },
+      {
+        "coefficient_sha256": "ada430a855acd4cf50440c7fb4dbaf46edb51812f770552d295f6f7cb056e515",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 16,
+        "summary": "1"
+      },
+      {
+        "coefficient_sha256": "8de1b209a9324dfb81ad28d9d64ec5c8934b44d59de59e2b1d3f240ef0e3e2c7",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "10"
+      },
+      {
+        "coefficient_sha256": "f2069f148cfe706b851a0ccb749cdd2df12d07b82707a8d1d339907a0355ed8d",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "11"
+      },
+      {
+        "coefficient_sha256": "12ee96b773d8698a53285ec409be46583e80e9e6cad74505cf6d90a1d99583de",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "12"
+      },
+      {
+        "coefficient_sha256": "40f1848fd5c60ad82d77729e047b76734672f0a3a2015ea291de4a761d30aa33",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "13"
+      },
+      {
+        "coefficient_sha256": "fa0b25d025824fc4d4c46b9c6aaa9a6a323cc4ed2a71e8808fdcc73133c37791",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "14"
+      },
+      {
+        "coefficient_sha256": "c23b43b446467888e05ec0c4da459976b900d8f25cfc61ae97d4b580f536ed0a",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "15"
+      },
+      {
+        "coefficient_sha256": "dbb05b6c8ee09ff19562f98edbce9be4984fea5e1e489ccc5ff17ac9b2106124",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "16"
+      },
+      {
+        "coefficient_sha256": "8383c18239f6223d345779fe7c470a52b3d581b8421b6e7a3e0d6705a94c9533",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "2"
+      },
+      {
+        "coefficient_sha256": "3547a531caa5f6037f19c3cad1c9dea39b4a37fa6de1ea52faffeb58fa8f71d7",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "3"
+      },
+      {
+        "coefficient_sha256": "9ff2e3fff11983d62c9bb5fb082238b6a58c19b956d2571412ebd30b95aa2b83",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "4"
+      },
+      {
+        "coefficient_sha256": "8fcb8ec289a6d2b9fe6a277359402df091f0c1b618823ad05f811a7fcb68e597",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 16,
+        "summary": "5"
+      },
+      {
+        "coefficient_sha256": "2d632d2807e9531f12b0af8d59d2e9d53c77aeaa3f3cb5888daf82747de79255",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "6"
+      },
+      {
+        "coefficient_sha256": "260892219f849d396cf763668da555843a27397aeb22c0070ec8bbbfb7a70609",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "7"
+      },
+      {
+        "coefficient_sha256": "2e6b7b4a6ba13c2a4038ff096ba2eb6bf317ec6d75769481968c57b783eb60bc",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "8"
+      },
+      {
+        "coefficient_sha256": "e4783b8d8d916c15591c78e46574668e20c153bd35a61af07a30bccb0350beb0",
+        "coefficients_equal": true,
+        "nonzero_coefficients": 15,
+        "summary": "9"
+      }
+    ],
+    "support": {
+      "shared": [
+        "0",
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "source_only": [],
+      "target_only": []
+    }
+  },
+  "large_exact_multiclass_certificate": {
+    "arithmetic": "fractions.Fraction only; no floating point",
+    "certificate_sha256": "2d60d40d6458fe8ad6339054db3096588f83122a0b5ab9804dcda38e90a3342b",
+    "cross_domain_gap_equals_ec_exact": true,
+    "dimensions": {
+      "n_classes": 11,
+      "n_summary_values": 17,
+      "n_x": 257
+    },
+    "exact_cross_domain_component_checks": 187,
+    "exact_eq13_component_checks": 374,
+    "source_and_target_marginals_differ": true,
+    "source_eq13_exact": true,
+    "target_eq13_exact": true
+  },
+  "limitations": [
+    "The executable certificate covers finite exact probability spaces; the accompanying tower-property proof supplies the general measurable-space argument.",
+    "Regular conditional probabilities are version-dependent at null events; no pointwise claim is made outside common S support.",
+    "This reproduces the theorem, not the paper's empirical calibration performance or ECL optimization objective."
+  ],
+  "paper": {
+    "anchors": [
+      "Section 3.1, Theorem 3.1",
+      "Appendix B, Eqs. 13-14"
+    ],
+    "official_source": "NeuroDong/ECL@aae77f890f1e4ebc13dad135b5e29758d98d318d",
+    "openreview_id": "gFPPTokv9C",
+    "paper_pdf_sha256": "fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab",
+    "title": "Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift"
+  }
+}

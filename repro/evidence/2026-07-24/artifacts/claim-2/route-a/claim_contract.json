@@ -1,0 +1,14 @@
+{
+  "assumptions": [
+    "K >= 2",
+    "fixed hard bins",
+    "iid source and target evaluation samples",
+    "simplex-valued posterior function fixed independently of evaluation samples",
+    "positive source count for every positive empirical target-weight bin"
+  ],
+  "claim": "For every delta in (0,1), Eq. 5 satisfies the displayed Eq. 9 deviation form with probability at least 1-delta for an absolute constant C; balanced bins imply N=O(B log(BK/delta)/epsilon^2), matching histogram ECE up to the displayed logarithm.",
+  "failure_condition": "Any failed proof obligation, C=4 diagnostic violation, checker mismatch, accepted invalid control, or source-hash mismatch exits nonzero.",
+  "paper_anchors": ["S3.SS4", "S3.Thmtheorem2", "A7"],
+  "quantifiers": ["all B >= 1", "all K >= 2", "all delta in (0,1)", "all distributions satisfying the assumptions"],
+  "route": "A_corrected_hard_bin_proof"
+}

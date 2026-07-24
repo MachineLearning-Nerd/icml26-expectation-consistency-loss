@@ -1,0 +1,15 @@
+{
+  "accepted_regressions": {
+    "claim_1": "Exact rational certificate and negative controls must pass.",
+    "claim_3": "All four exact counterexamples and restricted positive control must pass."
+  },
+  "baseline_sha": "1b2ade09f2b227c4cfdf282137417ff1d79e7c60",
+  "below_full_credit": {
+    "claim_2": "Preserve existing hard/soft scaling evidence without promoting it.",
+    "claim_4": "Preserve exact formula checks without promoting them.",
+    "claim_5": "Preserve fail-closed source-only audit as inconclusive.",
+    "claim_6": "Preserve fail-closed source-only audit as inconclusive."
+  },
+  "failure_semantics": "Any failed verifier or negative-control expectation exits nonzero.",
+  "fixed_command": "uv run --frozen --python 3.12 python repro/src/run_campaign.py"
+}

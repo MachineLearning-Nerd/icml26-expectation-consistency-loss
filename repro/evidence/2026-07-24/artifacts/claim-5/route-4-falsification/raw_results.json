@@ -1,0 +1,215 @@
+{
+  "exact_claim": {
+    "comparisons": [
+      "LeNet-5: ECL 21.5 +/- 1.51 versus Uncal 61.9 +/- 6.16",
+      "ResNet20: ECL 36.8 +/- 2.08 versus PseudoCal 48.2 +/- 3.95",
+      "DenseNet40: ECL 38.4 +/- 3.21 versus Uncal 80.8 +/- 6.26"
+    ],
+    "domain": "Digit covariate shift with MNIST and USPS merged as source and SVHN as target; top-label 15-bin ECE percentages.",
+    "necessary_counterexample_conditions": [
+      "execute the same data construction, architectures, objectives, hyperparameters, and ten-run seed schedule",
+      "independently recompute all six compared ECE summaries from raw predictions",
+      "show a contradiction rather than a different valid stochastic realization",
+      "cover LeNet-5, ResNet20, and DenseNet40"
+    ],
+    "quantifier": "The paper says each printed mean and standard deviation is derived from exactly ten runs; this is a historical aggregate claim, not a universal guarantee over every seed or reconstruction."
+  },
+  "negative_controls": {
+    "different_single_seed_rejected_as_historical_falsification": true,
+    "missing_architectures_rejected_as_compound_falsification": true,
+    "nine_runs_rejected": true,
+    "nonfinite_execution_rejected_as_falsification": true,
+    "out_of_range_ece_rejected": true
+  },
+  "paper_cells": {
+    "densenet40_ecl": {
+      "mean_percent": 38.4,
+      "std_percent": 3.21
+    },
+    "densenet40_uncal": {
+      "mean_percent": 80.8,
+      "std_percent": 6.26
+    },
+    "lenet5_ecl": {
+      "mean_percent": 21.5,
+      "std_percent": 1.51
+    },
+    "lenet5_uncal": {
+      "mean_percent": 61.9,
+      "std_percent": 6.16
+    },
+    "resnet20_ecl": {
+      "mean_percent": 36.8,
+      "std_percent": 2.08
+    },
+    "resnet20_pseudocal": {
+      "mean_percent": 48.2,
+      "std_percent": 3.95
+    }
+  },
+  "prior_route_adjudication": {
+    "route_1_algorithm2_literal": {
+      "rejection": "nonfinite failed execution cannot contradict a finite empirical summary",
+      "result": "nonfinite correctness-head and ECL stages",
+      "valid_counterexample": false
+    },
+    "route_2_predecessor_posthoc": {
+      "rejection": "missing ECLoss_hd was repaired, only one seed and one architecture, and a different realization does not refute the historical ten-run summary",
+      "result": "full LeNet-5 seed: 54.3883% Uncal and 10.1819% repaired post-hoc ECL",
+      "valid_counterexample": false
+    },
+    "route_3_stabilized_appendix_j": {
+      "rejection": "declared numerical repair, unstated CE coefficient, one seed, and no ResNet20 or DenseNet40 coverage",
+      "result": "full LeNet-5 seed: 41.9553% Uncal and 68.4514% stabilized in-training ECL",
+      "valid_counterexample": false
+    }
+  },
+  "runtime": {
+    "machine": "arm64",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "wall_seconds": 0.0032241669832728803
+  },
+  "source_incompleteness": {
+    "blockers": [
+      "the current paper-linked commit contains no digit experiment script or named digit architectures",
+      "neither public source snapshot contains the ten per-run Table 2 observations or a seed schedule",
+      "neither snapshot contains released digit checkpoints or saved digit result files",
+      "neither snapshot pins a dependency environment or dataset checksums/revisions",
+      "the predecessor script has no ten-run driver and requires manual target/architecture edits",
+      "the predecessor digit script uses batch size 256, while Appendix J states a uniform batch size of 100",
+      "the predecessor DenseNet40 classifier is a one-element tuple and is not callable as written",
+      "the predecessor fresh-training path saves below weights/Digit but that directory is absent",
+      "the paper does not state whether the reported standard deviation uses n or n-1",
+      "the authorized ceiling for this attempt excludes the required multi-architecture ten-run GPU training"
+    ],
+    "confirmed": true
+  },
+  "statistical_realizability": {
+    "all_summaries_have_valid_ten_run_realizations": true,
+    "interpretation": "Existence of realizations does not verify the historical values; it only rules out an internal arithmetic impossibility as a falsification route.",
+    "realizations": {
+      "densenet40_ecl": {
+        "all_values_valid_ece_percent": true,
+        "mean_absolute_error": 0.0,
+        "recomputed_mean_percent": 38.4,
+        "recomputed_sample_std_percent": 3.2099999999999964,
+        "sample_std_absolute_error": 3.552713678800501e-15,
+        "values_percent": [
+          35.35472661325785,
+          35.35472661325785,
+          35.35472661325785,
+          35.35472661325785,
+          35.35472661325785,
+          41.445273386742144,
+          41.445273386742144,
+          41.445273386742144,
+          41.445273386742144,
+          41.445273386742144
+        ]
+      },
+      "densenet40_uncal": {
+        "all_values_valid_ece_percent": true,
+        "mean_absolute_error": 0.0,
+        "recomputed_mean_percent": 80.8,
+        "recomputed_sample_std_percent": 6.259999999999996,
+        "sample_std_absolute_error": 3.552713678800501e-15,
+        "values_percent": [
+          74.86124255420378,
+          74.86124255420378,
+          74.86124255420378,
+          74.86124255420378,
+          74.86124255420378,
+          86.73875744579621,
+          86.73875744579621,
+          86.73875744579621,
+          86.73875744579621,
+          86.73875744579621
+        ]
+      },
+      "lenet5_ecl": {
+        "all_values_valid_ece_percent": true,
+        "mean_absolute_error": 0.0,
+        "recomputed_mean_percent": 21.5,
+        "recomputed_sample_std_percent": 1.5100000000000016,
+        "sample_std_absolute_error": 1.5543122344752192e-15,
+        "values_percent": [
+          20.067488219943723,
+          20.067488219943723,
+          20.067488219943723,
+          20.067488219943723,
+          20.067488219943723,
+          22.932511780056277,
+          22.932511780056277,
+          22.932511780056277,
+          22.932511780056277,
+          22.932511780056277
+        ]
+      },
+      "lenet5_uncal": {
+        "all_values_valid_ece_percent": true,
+        "mean_absolute_error": 0.0,
+        "recomputed_mean_percent": 61.9,
+        "recomputed_sample_std_percent": 6.160000000000003,
+        "sample_std_absolute_error": 2.6645352591003757e-15,
+        "values_percent": [
+          56.05611088400883,
+          56.05611088400883,
+          56.05611088400883,
+          56.05611088400883,
+          56.05611088400883,
+          67.74388911599117,
+          67.74388911599117,
+          67.74388911599117,
+          67.74388911599117,
+          67.74388911599117
+        ]
+      },
+      "resnet20_ecl": {
+        "all_values_valid_ece_percent": true,
+        "mean_absolute_error": 0.0,
+        "recomputed_mean_percent": 36.8,
+        "recomputed_sample_std_percent": 2.08,
+        "sample_std_absolute_error": 0.0,
+        "values_percent": [
+          34.82673874005493,
+          34.82673874005493,
+          34.82673874005493,
+          34.82673874005493,
+          34.82673874005493,
+          38.773261259945066,
+          38.773261259945066,
+          38.773261259945066,
+          38.773261259945066,
+          38.773261259945066
+        ]
+      },
+      "resnet20_pseudocal": {
+        "all_values_valid_ece_percent": true,
+        "mean_absolute_error": 0.0,
+        "recomputed_mean_percent": 48.2,
+        "recomputed_sample_std_percent": 3.9500000000000037,
+        "sample_std_absolute_error": 3.552713678800501e-15,
+        "values_percent": [
+          44.45270097270047,
+          44.45270097270047,
+          44.45270097270047,
+          44.45270097270047,
+          44.45270097270047,
+          51.947299027299536,
+          51.947299027299536,
+          51.947299027299536,
+          51.947299027299536,
+          51.947299027299536
+        ]
+      }
+    },
+    "sample_std_convention": "n-1"
+  },
+  "unblock_requirements": [
+    "the exact ten raw run predictions or checkpoints and seed schedule",
+    "an executable release of the digit ECL objective for all three architectures",
+    "the missing digit loss coefficient and preprocessing/split details"
+  ],
+  "valid_counterexample_found": false,
+  "verdict": "BLOCKED"
+}

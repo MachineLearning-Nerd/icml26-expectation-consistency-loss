@@ -1,0 +1,342 @@
+{
+  "limitations": [
+    "The frozen baseline subset preserves the prior exact and synthetic checks; upgrades are reported only by their separate child-route artifacts.",
+    "The Claim 4 child route downloads hash-audited MNIST into the shared user cache; the dataset is not vendored in this repository.",
+    "Later claim experiments must retain every baseline step and use the same locked environment and command."
+  ],
+  "runtime": {
+    "deterministic_thread_ceiling": 1,
+    "git_sha": "27f6b268ab59e159c572033852f62bb9a884088e",
+    "logical_cpu_count": 8,
+    "machine": "arm64",
+    "packages": {
+      "marimo": "0.23.14",
+      "matplotlib": "3.11.1",
+      "numpy": "2.5.1",
+      "pillow": "12.3.0",
+      "pytest": "9.1.1",
+      "scipy": "1.18.0",
+      "torch": "2.13.0",
+      "torchvision": "0.28.0"
+    },
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.12.11",
+    "python_executable": "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+    "wall_seconds": 590.5708177920314
+  },
+  "scope": "frozen baseline cumulative regression",
+  "status": "PASS",
+  "steps": [
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim1_general_certificate.py",
+        "--output",
+        ".openresearch/artifacts/claim-1/raw_certificate.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_1_exact_certificate.log",
+      "name": "claim_1_exact_certificate",
+      "wall_seconds": 0.48094645800301805
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/run_claim3_sample_complexity.py",
+        "--json-out",
+        ".openresearch/artifacts/claim-2/hard_bin_scaling.json",
+        "--markdown-out",
+        ".openresearch/artifacts/claim-2/hard_bin_EVAL.md"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_2_hard_bin_scaling.log",
+      "name": "claim_2_hard_bin_scaling",
+      "wall_seconds": 7.0840993340243585
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/run_claim3_soft_sample_complexity.py",
+        "--json-out",
+        ".openresearch/artifacts/claim-2/soft_bin_scaling.json",
+        "--markdown-out",
+        ".openresearch/artifacts/claim-2/soft_bin_EVAL.md"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_2_soft_bin_scaling.log",
+      "name": "claim_2_soft_bin_scaling",
+      "wall_seconds": 3.5115222919848748
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim3_gradient_certificate.py",
+        "--output",
+        ".openresearch/artifacts/claim-3/raw_certificate.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_3_exact_counterexamples.log",
+      "name": "claim_3_exact_counterexamples",
+      "wall_seconds": 0.28891645901603624
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim2_compatibility_certificate.py",
+        "--output",
+        ".openresearch/artifacts/claim-4/raw_certificate.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_4_exact_compatibility.log",
+      "name": "claim_4_exact_compatibility",
+      "wall_seconds": 0.2705192080466077
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim5_table2_audit.py",
+        "--paper",
+        "repro/evidence/claim3/2605.21552v1.pdf",
+        "--official-root",
+        "upstream",
+        "--output",
+        ".openresearch/artifacts/claim-5/source_audit.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_5_source_audit.log",
+      "name": "claim_5_source_audit",
+      "wall_seconds": 0.20618187502259389
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim6_capability_audit.py",
+        "--output",
+        ".openresearch/artifacts/claim-6/source_audit.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_6_source_audit.log",
+      "name": "claim_6_source_audit",
+      "wall_seconds": 0.3007671660161577
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim2_theorem_certificate.py",
+        "--output",
+        ".openresearch/artifacts/claim-2/route-a/raw_results.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_2_corrected_theorem.log",
+      "name": "claim_2_corrected_theorem",
+      "wall_seconds": 76.73465125000803
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim2_theorem_independent_checker.py",
+        "--input",
+        ".openresearch/artifacts/claim-2/route-a/raw_results.json",
+        "--output",
+        ".openresearch/artifacts/claim-2/route-a/independent_checker.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_2_independent_checker.log",
+      "name": "claim_2_independent_checker",
+      "wall_seconds": 0.3794299999717623
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim2_soft_falsification_stress.py",
+        "--output",
+        ".openresearch/artifacts/claim-2/route-b/raw_results.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_2_soft_falsification_stress.log",
+      "name": "claim_2_soft_falsification_stress",
+      "wall_seconds": 2.7811783329816535
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim2_soft_stress_checker.py",
+        "--input",
+        ".openresearch/artifacts/claim-2/route-b/raw_results.json",
+        "--output",
+        ".openresearch/artifacts/claim-2/route-b/independent_checker.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_2_soft_stress_checker.log",
+      "name": "claim_2_soft_stress_checker",
+      "wall_seconds": 0.2934182910248637
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim2_soft_theorem_proof.py",
+        "--stress",
+        ".openresearch/artifacts/claim-2/route-b/raw_results.json",
+        "--output",
+        ".openresearch/artifacts/claim-2/route-c-soft-proof/raw_results.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_2_soft_theorem_proof.log",
+      "name": "claim_2_soft_theorem_proof",
+      "wall_seconds": 11.927981625020038
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim2_soft_theorem_independent_checker.py",
+        "--proof",
+        ".openresearch/artifacts/claim-2/route-c-soft-proof/raw_results.json",
+        "--stress",
+        ".openresearch/artifacts/claim-2/route-b/raw_results.json",
+        "--output",
+        ".openresearch/artifacts/claim-2/route-c-soft-proof/independent_checker.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_2_soft_theorem_independent_checker.log",
+      "name": "claim_2_soft_theorem_independent_checker",
+      "wall_seconds": 0.6372144589549862
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim4_real_mnist_soft_bins.py",
+        "--inputs",
+        ".openresearch/artifacts/claim-4/route-real-mnist/inputs.json",
+        "--output",
+        ".openresearch/artifacts/claim-4/route-real-mnist/raw_results.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_4_real_mnist_soft_bins.log",
+      "name": "claim_4_real_mnist_soft_bins",
+      "wall_seconds": 177.7801970000146
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim4_real_mnist_independent_checker.py",
+        "--inputs",
+        ".openresearch/artifacts/claim-4/route-real-mnist/inputs.json",
+        "--results",
+        ".openresearch/artifacts/claim-4/route-real-mnist/raw_results.json",
+        "--output",
+        ".openresearch/artifacts/claim-4/route-real-mnist/independent_checker.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_4_real_mnist_independent_checker.log",
+      "name": "claim_4_real_mnist_independent_checker",
+      "wall_seconds": 1.5583690410130657
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim5_mandatory_falsification_audit.py",
+        "--source-audit",
+        ".openresearch/artifacts/claim-5/source_audit.json",
+        "--output",
+        ".openresearch/artifacts/claim-5/route-4-falsification/raw_results.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_5_mandatory_falsification_audit.log",
+      "name": "claim_5_mandatory_falsification_audit",
+      "wall_seconds": 18.701619292027317
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim5_falsification_independent_checker.py",
+        "--input",
+        ".openresearch/artifacts/claim-5/route-4-falsification/raw_results.json",
+        "--output",
+        ".openresearch/artifacts/claim-5/route-4-falsification/independent_checker.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_5_falsification_independent_checker.log",
+      "name": "claim_5_falsification_independent_checker",
+      "wall_seconds": 0.2583212919998914
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim6_simulation_figure2.py",
+        "--output",
+        ".openresearch/artifacts/claim-6/route-1-simulation/raw_results.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_6_full_simulation_figure2.log",
+      "name": "claim_6_full_simulation_figure2",
+      "wall_seconds": 217.98807745799422
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim6_simulation_checker.py",
+        "--input",
+        ".openresearch/artifacts/claim-6/route-1-simulation/raw_results.json",
+        "--output",
+        ".openresearch/artifacts/claim-6/route-1-simulation/independent_checker.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_6_simulation_independent_checker.log",
+      "name": "claim_6_simulation_independent_checker",
+      "wall_seconds": 2.600088457984384
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim6_table1_falsification.py",
+        "--claim3",
+        ".openresearch/artifacts/claim-3/raw_certificate.json",
+        "--output",
+        ".openresearch/artifacts/claim-6/route-2-table1/raw_results.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_6_table1_falsification.log",
+      "name": "claim_6_table1_falsification",
+      "wall_seconds": 0.20409966696752235
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/claim6_table1_independent_checker.py",
+        "--input",
+        ".openresearch/artifacts/claim-6/route-2-table1/raw_results.json",
+        "--paper",
+        "repro/evidence/claim3/2605.21552v1.pdf",
+        "--output",
+        ".openresearch/artifacts/claim-6/route-2-table1/independent_checker.json"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/claim_6_table1_independent_checker.log",
+      "name": "claim_6_table1_independent_checker",
+      "wall_seconds": 0.21846624999307096
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "repro/src/release_gate.py"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/reader_facing_release_gate.log",
+      "name": "reader_facing_release_gate",
+      "wall_seconds": 15.15165287500713
+    },
+    {
+      "command": [
+        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "-m",
+        "pytest",
+        "repro/tests",
+        "-q"
+      ],
+      "exit_code": 0,
+      "log": ".openresearch/artifacts/baseline/logs/cumulative_pytest.log",
+      "name": "cumulative_pytest",
+      "wall_seconds": 50.29716900002677
+    }
+  ]
+}

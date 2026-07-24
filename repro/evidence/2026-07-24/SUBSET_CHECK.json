@@ -1,0 +1,16 @@
+{
+  "all_uploads_utf8_text": true,
+  "candidate_git_sha": "27f6b268ab59e159c572033852f62bb9a884088e",
+  "candidate_path_count": 123,
+  "modified_old_paths": [
+    "logbook.json"
+  ],
+  "new_logbook_pages": 5,
+  "old_pages_byte_identical": true,
+  "old_path_count": 26,
+  "old_path_set_is_subset": true,
+  "protected_revision": "b864c4b287cffb41d35d51e471f0f23013a787e4",
+  "secret_scan": "PASS",
+  "status": "PASS",
+  "upload_path_count": 98
+}

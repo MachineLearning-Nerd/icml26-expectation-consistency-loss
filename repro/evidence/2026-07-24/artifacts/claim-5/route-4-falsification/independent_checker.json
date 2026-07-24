@@ -1,0 +1,50 @@
+{
+  "cell_recomputations": {
+    "densenet40_ecl": {
+      "bounded": true,
+      "count": 10,
+      "mean_error": 0.0,
+      "sample_std_error": 3.552713678800501e-15
+    },
+    "densenet40_uncal": {
+      "bounded": true,
+      "count": 10,
+      "mean_error": 0.0,
+      "sample_std_error": 3.552713678800501e-15
+    },
+    "lenet5_ecl": {
+      "bounded": true,
+      "count": 10,
+      "mean_error": 0.0,
+      "sample_std_error": 1.3322676295501878e-15
+    },
+    "lenet5_uncal": {
+      "bounded": true,
+      "count": 10,
+      "mean_error": 0.0,
+      "sample_std_error": 2.6645352591003757e-15
+    },
+    "resnet20_ecl": {
+      "bounded": true,
+      "count": 10,
+      "mean_error": 0.0,
+      "sample_std_error": 4.440892098500626e-16
+    },
+    "resnet20_pseudocal": {
+      "bounded": true,
+      "count": 10,
+      "mean_error": 0.0,
+      "sample_std_error": 3.552713678800501e-15
+    }
+  },
+  "controls": {
+    "all_realizations_exact": true,
+    "all_six_cells_independently_recomputed": true,
+    "external_unblock_requirements_present": true,
+    "no_counterexample_claimed": true,
+    "three_prior_routes_rejected": true,
+    "verdict_exactly_blocked": true
+  },
+  "independence": "stdlib-only recomputation; no import from primary audit",
+  "status": "PASS"
+}

@@ -1,0 +1,639 @@
+{
+  "assessment": {
+    "all_negative_controls_pass": true,
+    "anchored_claim_6": "partially_reproduced_source_capabilities_only__broad_empirics_blocked",
+    "ecl_implementation_surface": "verified_at_pinned_source",
+    "figure2": "paper_arithmetic_checked_not_independently_reproduced",
+    "global_uniqueness": "not_established",
+    "inconclusive": true,
+    "table1_selected_matrix": "exactly_transcribed_and_partially_crosschecked",
+    "table3": "paper_arithmetic_checked_not_independently_reproduced",
+    "toy": false
+  },
+  "blocker": {
+    "missing_public_evidence": [
+      "PACS and ImageNet-Sketch data-loading/evaluation pipeline",
+      "model checkpoints and exact architecture/preprocessing configuration",
+      "per-run predictions, seeds, and ten-run metric records",
+      "structured Figure 2 and Table 3 outputs",
+      "dependency lockfile matching Python 3.11.11 and Torch 2.4.1+cu118"
+    ],
+    "next_materially_distinct_approach": "Request or locate an author-produced artifact containing the PACS pipeline, exact run configs/seeds, checkpoints or raw per-run predictions; verify hashes, then rerun one source-pinned PACS->Photo ResNet-50 protocol on isolated GPU capacity before scaling to the full ten-run matrix.",
+    "proven": true,
+    "why_light_local_execution_cannot_close_it": "The available code can rerun one small synthetic setting only.  Reconstructing PACS and the reported multi-run experiments would require missing experiment code/data provenance and material training, which is outside this source-only attempt while other campaign compute is active."
+  },
+  "certificate_sha256": "2c3105384adfcaa3cc364de1b804bb7f0fbc89f27d27dada8b25ea025f3a94f9",
+  "claim": {
+    "anchored_claim_number": 6,
+    "attempt": 1,
+    "openreview_id": "gFPPTokv9C",
+    "scope": "Table 1 capability uniqueness, Figure 2 reliability diagrams, and Appendix Table 3 calibration gaps"
+  },
+  "figure2_audit": {
+    "all_six_ecl_accuracies_at_least_nll": false,
+    "all_six_ecl_errors_lower_than_both_displayed_baselines": true,
+    "independently_reproduced": false,
+    "official_notebook_has_pacs": false,
+    "official_notebook_matches_figure2_setting": false,
+    "paper_values": {
+      "pacs_three_classes": {
+        "canonical": {
+          "ecl_accuracy_not_lower_than_nll": false,
+          "ecl_error_lower_than_both_displayed_baselines": true,
+          "ecl_minus_nll_accuracy_points": "-0.1",
+          "reported": {
+            "ECL": {
+              "accuracy_percent": "91.5",
+              "error_percent": "6.1"
+            },
+            "NLL": {
+              "accuracy_percent": "91.6",
+              "error_percent": "9.9"
+            },
+            "Soft-ECE": {
+              "accuracy_percent": "90.6",
+              "error_percent": "6.5"
+            }
+          }
+        },
+        "classwise": {
+          "ecl_accuracy_not_lower_than_nll": false,
+          "ecl_error_lower_than_both_displayed_baselines": true,
+          "ecl_minus_nll_accuracy_points": "-1.7",
+          "reported": {
+            "ECL": {
+              "accuracy_percent": "89.8",
+              "error_percent": "3.2"
+            },
+            "NLL": {
+              "accuracy_percent": "91.5",
+              "error_percent": "4.0"
+            },
+            "Soft-ECE": {
+              "accuracy_percent": "86.7",
+              "error_percent": "3.9"
+            }
+          }
+        },
+        "top_label": {
+          "ecl_accuracy_not_lower_than_nll": false,
+          "ecl_error_lower_than_both_displayed_baselines": true,
+          "ecl_minus_nll_accuracy_points": "-8.0",
+          "reported": {
+            "ECL": {
+              "accuracy_percent": "86.5",
+              "error_percent": "4.4"
+            },
+            "NLL": {
+              "accuracy_percent": "94.5",
+              "error_percent": "6.5"
+            },
+            "Soft-ECE": {
+              "accuracy_percent": "74.2",
+              "error_percent": "6.1"
+            }
+          }
+        }
+      },
+      "simulated_normal": {
+        "canonical": {
+          "ecl_accuracy_not_lower_than_nll": true,
+          "ecl_error_lower_than_both_displayed_baselines": true,
+          "ecl_minus_nll_accuracy_points": "0.6",
+          "reported": {
+            "ECL": {
+              "accuracy_percent": "95.1",
+              "error_percent": "4.8"
+            },
+            "NLL": {
+              "accuracy_percent": "94.5",
+              "error_percent": "5.7"
+            },
+            "Soft-ECE": {
+              "accuracy_percent": "93.8",
+              "error_percent": "5.2"
+            }
+          }
+        },
+        "classwise": {
+          "ecl_accuracy_not_lower_than_nll": false,
+          "ecl_error_lower_than_both_displayed_baselines": true,
+          "ecl_minus_nll_accuracy_points": "-0.3",
+          "reported": {
+            "ECL": {
+              "accuracy_percent": "94.2",
+              "error_percent": "2.4"
+            },
+            "NLL": {
+              "accuracy_percent": "94.5",
+              "error_percent": "2.5"
+            },
+            "Soft-ECE": {
+              "accuracy_percent": "92.0",
+              "error_percent": "2.8"
+            }
+          }
+        },
+        "top_label": {
+          "ecl_accuracy_not_lower_than_nll": true,
+          "ecl_error_lower_than_both_displayed_baselines": true,
+          "ecl_minus_nll_accuracy_points": "0.5",
+          "reported": {
+            "ECL": {
+              "accuracy_percent": "92.0",
+              "error_percent": "2.8"
+            },
+            "NLL": {
+              "accuracy_percent": "91.5",
+              "error_percent": "3.2"
+            },
+            "Soft-ECE": {
+              "accuracy_percent": "84.2",
+              "error_percent": "5.6"
+            }
+          }
+        }
+      }
+    },
+    "reason_not_reproduced": "The repository's saved notebook is uniform-shift TopLabel only and has no PACS path or structured Figure 2 result data; the values above are arithmetic checks of the paper figure.",
+    "strict_accuracy_preservation_note": "The displayed PACS ECL accuracies are below the displayed NLL accuracies in all three paradigms; the caption's 'preserves or improves' wording is not a uniform non-decrease statement."
+  },
+  "negative_controls": {
+    "absence_of_ratio_code_is_not_all_unbounded_ratio_performance": true,
+    "embedded_png_is_not_raw_machine_readable_runs": true,
+    "one_simulation_mode_is_not_three_paradigms_plus_pacs": true,
+    "paper_table_transcription_is_not_empirical_reproduction": true,
+    "selected_table_uniqueness_is_not_global_uniqueness": true,
+    "source_branch_presence_is_not_effectiveness_evidence": true
+  },
+  "official_notebook_audit": {
+    "calls_seeded_initializer": true,
+    "cell_count": 8,
+    "code_cell_count": 8,
+    "configured_paradigm": "TopLabel",
+    "configured_shift": "uniform",
+    "contains_checkpoint_save_or_load": false,
+    "contains_imagenet_loader_or_path": false,
+    "contains_pacs_loader_or_path": false,
+    "contains_structured_result_export": false,
+    "display_png_count": 2,
+    "embedded_pngs": [
+      {
+        "bytes": 278837,
+        "sha256": "47c27d9d49507c64871bd4a43e6562c7609a5276e9fcf1741bc1cc01545e6ee9"
+      },
+      {
+        "bytes": 145357,
+        "sha256": "65e6409c74790834403d09fb513514be3eb991cfc2b0054297af1da86700477d"
+      }
+    ],
+    "embedded_pngs_expected": true,
+    "environment_version_matches_paper": false,
+    "executed_code_cell_count": 7,
+    "execution_counts": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      null,
+      7,
+      8
+    ],
+    "execution_provenance_internally_complete": false,
+    "markdown_cell_count": 0,
+    "matches_paper_figure2_setting": false,
+    "notebook_python": "3.12.12",
+    "null_execution_count_cells_with_retained_output": [
+      5
+    ],
+    "output_count": 7,
+    "paper_figure2_shift": "normal",
+    "paper_python": "3.11.11",
+    "prints_machine_readable_figure_metrics": false,
+    "reproduction_boundary": "The retained PNGs and console stream are evidence of one saved notebook session, not raw independent runs for Figure 2, PACS, or Table 3.",
+    "seed_is_42_in_imported_utils": true,
+    "sha256": "93904d9cd7b6d86aef24a48a590cb2b9c380359bf87e823f81465034a1e879df",
+    "structured_result_files": []
+  },
+  "official_source": {
+    "actual_file_inventory": [
+      "README.md",
+      "losses.py",
+      "main.ipynb",
+      "metrics.py",
+      "networks.py",
+      "utils.py"
+    ],
+    "all_hashes_match_pin": true,
+    "all_three_modes_implemented": true,
+    "declared_commit": "aae77f890f1e4ebc13dad135b5e29758d98d318d",
+    "density_ratio_tokens": [],
+    "ecl_modes": [
+      "Canonical",
+      "Classwise",
+      "TopLabel"
+    ],
+    "expected_file_inventory": [
+      "README.md",
+      "losses.py",
+      "main.ipynb",
+      "metrics.py",
+      "networks.py",
+      "utils.py"
+    ],
+    "file_inventory_exact": true,
+    "important_boundary": "Absence of a density-ratio operation verifies an implementation property; it does not by itself empirically prove robustness for every unbounded-ratio distribution.",
+    "no_density_ratio_operation_in_official_losses": true,
+    "observed_remote_state_2026_07_19": {
+      "branches": {
+        "main": "aae77f890f1e4ebc13dad135b5e29758d98d318d"
+      },
+      "commit_count": 3,
+      "default_branch": "main",
+      "head_change_scope": "README title only relative to source-introduced commit",
+      "release_count": 0,
+      "source_introduced_commit": "6957faeda392d719de1c394458450e51498be139",
+      "tag_count": 0
+    },
+    "sha256": {
+      "README.md": "b33cbce6741c9a509511087708b55b3b356864f58bfb86a77ad7488649c1c285",
+      "losses.py": "1c2de34967f34b98faae5025368edac88f46a709d6e1e0c063e2c01f4d6e9754",
+      "main.ipynb": "93904d9cd7b6d86aef24a48a590cb2b9c380359bf87e823f81465034a1e879df",
+      "metrics.py": "fb5f22f5f0533175dcbbb605149f7bdd1b74d311a43213ae695c7564fae165f7",
+      "networks.py": "96d4848cc1cfb1e136f5716fc51637ec51e9c0505bbb1835a00671d030ad1a9f",
+      "utils.py": "3655861e165fa11680afeee030fe5be4cd30e8ea3608315b992bbc18b695c890"
+    },
+    "stateful_minibatch_markers": {
+      "ema_cache_update": true,
+      "proximal_iterations": true,
+      "registered_source_cache": true,
+      "registered_target_cache": true,
+      "source_and_target_soft_assignments": true
+    },
+    "two_domain_forward_inputs": true
+  },
+  "paper": {
+    "matches_expected_pdf": true,
+    "pages_read": 23,
+    "path": "repro/evidence/claim3/2605.21552v1.pdf",
+    "sha256": "fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab",
+    "visual_pages_checked": [
+      3,
+      7,
+      12
+    ]
+  },
+  "table1_capability_audit": {
+    "columns": [
+      "covariate_shift",
+      "classwise_calibration",
+      "canonical_calibration",
+      "unbounded_density_ratio",
+      "minibatch_trainable"
+    ],
+    "ecl_is_unique_all_true_within_selected_table": true,
+    "independent_global_uniqueness_established": false,
+    "methods_with_all_five_in_paper_table": [
+      "ECL"
+    ],
+    "official_source_supports_ecl_surface": true,
+    "primary_citation_crosscheck": {
+      "DECE": {
+        "crosscheck": "supports within-domain differentiable ECE; no covariate-shift or canonical claim found",
+        "definition": "differentiable expected-calibration-error surrogate used in a meta-calibration framework",
+        "paper_table_values": {
+          "canonical_calibration": false,
+          "classwise_calibration": false,
+          "covariate_shift": false,
+          "minibatch_trainable": false,
+          "unbounded_density_ratio": true
+        },
+        "url": "https://openreview.net/forum?id=R2hUure38l"
+      },
+      "DRL": {
+        "crosscheck": "supports domain-shift handling but explicitly uses density ratios",
+        "definition": "domain-shift calibration using a learned differentiable density-ratio estimator in a DRL formulation",
+        "paper_table_values": {
+          "canonical_calibration": false,
+          "classwise_calibration": false,
+          "covariate_shift": true,
+          "minibatch_trainable": false,
+          "unbounded_density_ratio": false
+        },
+        "url": "https://www.ijcai.org/proceedings/2023/162"
+      },
+      "ECE_KDE": {
+        "crosscheck": "explicitly supports canonical estimation and small-subset/mini-batch updates; it is not a covariate-shift method",
+        "definition": "consistent differentiable Lp canonical calibration-error estimator using Dirichlet KDE",
+        "paper_table_values": {
+          "canonical_calibration": true,
+          "classwise_calibration": true,
+          "covariate_shift": false,
+          "minibatch_trainable": true,
+          "unbounded_density_ratio": true
+        },
+        "url": "https://papers.neurips.cc/paper_files/paper/2022/hash/33d6e648ee4fb24acec3a4bbcd4f001e-Abstract-Conference.html"
+      },
+      "ECL": {
+        "crosscheck": "official source exposes the three branches, two-domain inputs, proximal/EMA mini-batch state, and no density-ratio operation",
+        "definition": "source-target expectation-matching loss with TopLabel, Classwise, and Canonical branches",
+        "paper_table_values": {
+          "canonical_calibration": true,
+          "classwise_calibration": true,
+          "covariate_shift": true,
+          "minibatch_trainable": true,
+          "unbounded_density_ratio": true
+        },
+        "url": "https://github.com/NeuroDong/ECL/tree/aae77f890f1e4ebc13dad135b5e29758d98d318d"
+      },
+      "FL_IW_Temp": {
+        "crosscheck": "supports covariate-shift handling; the paper states importance weighting requires sufficiently close domains",
+        "definition": "importance-weighted calibration with domain-adaptive feature alignment",
+        "paper_table_values": {
+          "canonical_calibration": false,
+          "classwise_calibration": false,
+          "covariate_shift": true,
+          "minibatch_trainable": false,
+          "unbounded_density_ratio": false
+        },
+        "url": "https://proceedings.mlr.press/v108/park20b.html"
+      },
+      "PseudoCal": {
+        "crosscheck": "supports unlabeled-target domain adaptation without an importance-ratio objective; it is post-hoc/top-confidence focused",
+        "definition": "post-hoc target-specific calibration using inference-stage mixup and temperature scaling",
+        "paper_table_values": {
+          "canonical_calibration": false,
+          "classwise_calibration": false,
+          "covariate_shift": true,
+          "minibatch_trainable": false,
+          "unbounded_density_ratio": true
+        },
+        "url": "https://proceedings.mlr.press/v235/hu24i.html"
+      },
+      "SB-ECE": {
+        "crosscheck": "supports differentiability and train-time use; does not itself establish the paper's narrower unbiased-mini-batch criterion",
+        "definition": "soft differentiable top-confidence ECE objective for within-domain train/post-hoc calibration",
+        "paper_table_values": {
+          "canonical_calibration": false,
+          "classwise_calibration": false,
+          "covariate_shift": false,
+          "minibatch_trainable": false,
+          "unbounded_density_ratio": true
+        },
+        "url": "https://proceedings.neurips.cc/paper/2021/hash/f8905bd3df64ace64a68e154ba72f24c-Abstract.html"
+      },
+      "TransCal": {
+        "crosscheck": "supports covariate-shift/domain-adaptation calibration and density-ratio dependence",
+        "definition": "post-hoc transferable calibration with bias/variance-controlled importance weights",
+        "paper_table_values": {
+          "canonical_calibration": false,
+          "classwise_calibration": false,
+          "covariate_shift": true,
+          "minibatch_trainable": false,
+          "unbounded_density_ratio": false
+        },
+        "url": "https://proceedings.neurips.cc/paper/2020/hash/df12ecd077efc8c23881028604dbb8cc-Abstract.html"
+      },
+      "Weighted_TS": {
+        "crosscheck": "supports covariate-shift handling and explicit dependence on importance/density ratios",
+        "definition": "importance-sampling calibration under covariate shift",
+        "paper_table_values": {
+          "canonical_calibration": false,
+          "classwise_calibration": false,
+          "covariate_shift": true,
+          "minibatch_trainable": false,
+          "unbounded_density_ratio": false
+        },
+        "url": "https://arxiv.org/abs/2006.16405"
+      }
+    },
+    "rows": {
+      "DECE": {
+        "canonical_calibration": false,
+        "classwise_calibration": false,
+        "covariate_shift": false,
+        "minibatch_trainable": false,
+        "unbounded_density_ratio": true
+      },
+      "DRL": {
+        "canonical_calibration": false,
+        "classwise_calibration": false,
+        "covariate_shift": true,
+        "minibatch_trainable": false,
+        "unbounded_density_ratio": false
+      },
+      "ECE_KDE": {
+        "canonical_calibration": true,
+        "classwise_calibration": true,
+        "covariate_shift": false,
+        "minibatch_trainable": true,
+        "unbounded_density_ratio": true
+      },
+      "ECL": {
+        "canonical_calibration": true,
+        "classwise_calibration": true,
+        "covariate_shift": true,
+        "minibatch_trainable": true,
+        "unbounded_density_ratio": true
+      },
+      "FL_IW_Temp": {
+        "canonical_calibration": false,
+        "classwise_calibration": false,
+        "covariate_shift": true,
+        "minibatch_trainable": false,
+        "unbounded_density_ratio": false
+      },
+      "PseudoCal": {
+        "canonical_calibration": false,
+        "classwise_calibration": false,
+        "covariate_shift": true,
+        "minibatch_trainable": false,
+        "unbounded_density_ratio": true
+      },
+      "SB-ECE": {
+        "canonical_calibration": false,
+        "classwise_calibration": false,
+        "covariate_shift": false,
+        "minibatch_trainable": false,
+        "unbounded_density_ratio": true
+      },
+      "TransCal": {
+        "canonical_calibration": false,
+        "classwise_calibration": false,
+        "covariate_shift": true,
+        "minibatch_trainable": false,
+        "unbounded_density_ratio": false
+      },
+      "Weighted_TS": {
+        "canonical_calibration": false,
+        "classwise_calibration": false,
+        "covariate_shift": true,
+        "minibatch_trainable": false,
+        "unbounded_density_ratio": false
+      }
+    },
+    "why_global_uniqueness_is_not_established": [
+      "Table 1 is a selected set of eight comparators, not an exhaustive method census.",
+      "The five columns are not given operational pass/fail protocols that can be rerun uniformly across repositories.",
+      "Differentiable train-time use and an unbiased mini-batch gradient theorem are distinct; the SB-ECE/DECE citations support the former.",
+      "The official ECL class implements mini-batch proximal/EMA updates, but implementation presence alone does not prove the paper's theoretical unbiasedness claim."
+    ]
+  },
+  "table3_audit": {
+    "all_nine_reported_source_means_lower_than_targets": true,
+    "comparison_count": 9,
+    "comparisons": {
+      "Digit (USPS + SVHN -> MNIST)": {
+        "CwECE": {
+          "reported": {
+            "source": {
+              "mean": "0.39",
+              "std": "0.01"
+            },
+            "target": {
+              "mean": "3.14",
+              "std": "0.31"
+            }
+          },
+          "source_mean_lower_than_target_mean": true,
+          "target_minus_source_points": "2.75",
+          "target_over_source_ratio": "8.051282"
+        },
+        "ECE": {
+          "reported": {
+            "source": {
+              "mean": "1.54",
+              "std": "0.04"
+            },
+            "target": {
+              "mean": "16.2",
+              "std": "1.51"
+            }
+          },
+          "source_mean_lower_than_target_mean": true,
+          "target_minus_source_points": "14.66",
+          "target_over_source_ratio": "10.519481"
+        },
+        "ECE_KDE": {
+          "reported": {
+            "source": {
+              "mean": "0.39",
+              "std": "0.02"
+            },
+            "target": {
+              "mean": "2.97",
+              "std": "0.23"
+            }
+          },
+          "source_mean_lower_than_target_mean": true,
+          "target_minus_source_points": "2.58",
+          "target_over_source_ratio": "7.615385"
+        }
+      },
+      "ImageNet-Sketch (ImageNet -> Sketch)": {
+        "CwECE": {
+          "reported": {
+            "source": {
+              "mean": "0.93",
+              "std": "0.09"
+            },
+            "target": {
+              "mean": "12.7",
+              "std": "0.87"
+            }
+          },
+          "source_mean_lower_than_target_mean": true,
+          "target_minus_source_points": "11.77",
+          "target_over_source_ratio": "13.655914"
+        },
+        "ECE": {
+          "reported": {
+            "source": {
+              "mean": "1.47",
+              "std": "0.11"
+            },
+            "target": {
+              "mean": "55.8",
+              "std": "4.34"
+            }
+          },
+          "source_mean_lower_than_target_mean": true,
+          "target_minus_source_points": "54.33",
+          "target_over_source_ratio": "37.959184"
+        },
+        "ECE_KDE": {
+          "reported": {
+            "source": {
+              "mean": "0.86",
+              "std": "0.06"
+            },
+            "target": {
+              "mean": "12.3",
+              "std": "0.73"
+            }
+          },
+          "source_mean_lower_than_target_mean": true,
+          "target_minus_source_points": "11.44",
+          "target_over_source_ratio": "14.302326"
+        }
+      },
+      "PACS (Art + Cartoon + Sketch -> Photo)": {
+        "CwECE": {
+          "reported": {
+            "source": {
+              "mean": "0.58",
+              "std": "0.01"
+            },
+            "target": {
+              "mean": "7.87",
+              "std": "0.31"
+            }
+          },
+          "source_mean_lower_than_target_mean": true,
+          "target_minus_source_points": "7.29",
+          "target_over_source_ratio": "13.568966"
+        },
+        "ECE": {
+          "reported": {
+            "source": {
+              "mean": "3.84",
+              "std": "0.23"
+            },
+            "target": {
+              "mean": "22.3",
+              "std": "2.16"
+            }
+          },
+          "source_mean_lower_than_target_mean": true,
+          "target_minus_source_points": "18.46",
+          "target_over_source_ratio": "5.807292"
+        },
+        "ECE_KDE": {
+          "reported": {
+            "source": {
+              "mean": "0.42",
+              "std": "0.04"
+            },
+            "target": {
+              "mean": "7.58",
+              "std": "0.37"
+            }
+          },
+          "source_mean_lower_than_target_mean": true,
+          "target_minus_source_points": "7.16",
+          "target_over_source_ratio": "18.047619"
+        }
+      }
+    },
+    "contains_pacs": true,
+    "contains_simulated_dataset": false,
+    "dataset_count": 3,
+    "independently_reproduced": false,
+    "official_notebook_has_table3_datasets": false,
+    "raw_runs_available": false,
+    "reason_not_reproduced": "Only aggregate mean\u00b1std values are printed.  The official repository contains no PACS/ImageNet loader, per-run predictions, run seeds, checkpoints, or Table 3 export from which to recompute them.",
+    "sample_count_explicit_in_table3_caption": false,
+    "statistical_significance_test_reported": false
+  }
+}

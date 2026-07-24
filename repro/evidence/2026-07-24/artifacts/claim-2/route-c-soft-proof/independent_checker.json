@@ -1,0 +1,21 @@
+{
+  "gates": {
+    "absolute_constant_dominates": true,
+    "all_1024_rows_present": true,
+    "all_negative_controls_rejected": true,
+    "all_radii_recomputed": true,
+    "confidence_high": true,
+    "constant_budget_recomputed": true,
+    "no_C16_diagnostic_violation": true,
+    "primary_gates_pass": true,
+    "target_count_identity_all_rows": true,
+    "verdict_verified": true
+  },
+  "independence": "recomputed from raw stress rows without importing primary proof code",
+  "maximum_diagnostic_error_over_radius": 0.08733412918842667,
+  "maximum_radius_recomputation_error": 0.0,
+  "maximum_target_count_identity_error": 2.7755575615628914e-17,
+  "recomputed_combined_constant_budget": 15.313708498984761,
+  "status": "PASS",
+  "verdict": "VERIFIED"
+}

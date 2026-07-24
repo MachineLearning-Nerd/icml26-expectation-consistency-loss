@@ -1,0 +1,675 @@
+{
+  "assessment": {
+    "evidence_for_falsification": false,
+    "local_classification": "inconclusive_source_only_audit",
+    "printed_mean_pairwise_arithmetic": "verified_exactly",
+    "reason": "printed summaries and source provenance are auditable, but no raw ten-run evidence or faithful rerun exists under this attempt's compute ceiling",
+    "recommended_claim_verdict": "inconclusive",
+    "substantive_empirical_attempt": false,
+    "table2_empirical_result": "not_independently_reproduced",
+    "table2_transcription": "verified_against_rendered_paper"
+  },
+  "blockers": [
+    "the current paper-linked commit contains no digit experiment script or named digit architectures",
+    "neither public source snapshot contains the ten per-run Table 2 observations or a seed schedule",
+    "neither snapshot contains released digit checkpoints or saved digit result files",
+    "neither snapshot pins a dependency environment or dataset checksums/revisions",
+    "the predecessor script has no ten-run driver and requires manual target/architecture edits",
+    "the predecessor digit script uses batch size 256, while Appendix J states a uniform batch size of 100",
+    "the predecessor DenseNet40 classifier is a one-element tuple and is not callable as written",
+    "the predecessor fresh-training path saves below weights/Digit but that directory is absent",
+    "the paper does not state whether the reported standard deviation uses n or n-1",
+    "the authorized ceiling for this attempt excludes the required multi-architecture ten-run GPU training"
+  ],
+  "current_official_source": {
+    "semantics": {
+      "checked": true,
+      "checkpoint_files_present": false,
+      "digit_datasets_present": false,
+      "digit_training_script_present": false,
+      "named_digit_architectures_present": false,
+      "notebook": {
+        "cell_count": 8,
+        "contains_digit_dataset_names": false,
+        "contains_only_synthetic_2d_workflow": true,
+        "contains_table2_values": false,
+        "contains_ten_run_driver": false,
+        "executed_cell_count": 7,
+        "kernel_python": "3.12.12",
+        "saved_output_count": 7
+      },
+      "requirements_or_lock_present": false,
+      "table2_values_present": false,
+      "ten_run_driver_present": false
+    },
+    "snapshot": {
+      "all_hashes_match": true,
+      "commit": "aae77f890f1e4ebc13dad135b5e29758d98d318d",
+      "expected_files": [
+        "README.md",
+        "losses.py",
+        "main.ipynb",
+        "metrics.py",
+        "networks.py",
+        "utils.py"
+      ],
+      "extra_files": [],
+      "files": {
+        "README.md": {
+          "expected_sha256": "b33cbce6741c9a509511087708b55b3b356864f58bfb86a77ad7488649c1c285",
+          "matches": true,
+          "sha256": "b33cbce6741c9a509511087708b55b3b356864f58bfb86a77ad7488649c1c285"
+        },
+        "losses.py": {
+          "expected_sha256": "1c2de34967f34b98faae5025368edac88f46a709d6e1e0c063e2c01f4d6e9754",
+          "matches": true,
+          "sha256": "1c2de34967f34b98faae5025368edac88f46a709d6e1e0c063e2c01f4d6e9754"
+        },
+        "main.ipynb": {
+          "expected_sha256": "93904d9cd7b6d86aef24a48a590cb2b9c380359bf87e823f81465034a1e879df",
+          "matches": true,
+          "sha256": "93904d9cd7b6d86aef24a48a590cb2b9c380359bf87e823f81465034a1e879df"
+        },
+        "metrics.py": {
+          "expected_sha256": "fb5f22f5f0533175dcbbb605149f7bdd1b74d311a43213ae695c7564fae165f7",
+          "matches": true,
+          "sha256": "fb5f22f5f0533175dcbbb605149f7bdd1b74d311a43213ae695c7564fae165f7"
+        },
+        "networks.py": {
+          "expected_sha256": "96d4848cc1cfb1e136f5716fc51637ec51e9c0505bbb1835a00671d030ad1a9f",
+          "matches": true,
+          "sha256": "96d4848cc1cfb1e136f5716fc51637ec51e9c0505bbb1835a00671d030ad1a9f"
+        },
+        "utils.py": {
+          "expected_sha256": "3655861e165fa11680afeee030fe5be4cd30e8ea3608315b992bbc18b695c890",
+          "matches": true,
+          "sha256": "3655861e165fa11680afeee030fe5be4cd30e8ea3608315b992bbc18b695c890"
+        }
+      },
+      "local_readback_checked": true,
+      "missing_files": [],
+      "repository": "https://github.com/NeuroDong/ECL",
+      "tree": "7572ba68c4ee432cbc7ce866b304b3d84ec1c9b8"
+    }
+  },
+  "negative_controls": {
+    "nine_values": {
+      "accepted_as_independent_reproduction": false,
+      "architecture": "LeNet-5",
+      "expected_runs": 10,
+      "method": "ECL",
+      "observed_runs": 9,
+      "printed_mean": "21.5",
+      "printed_std": "1.51",
+      "reason": "requires_exactly_ten_raw_runs",
+      "std_convention": "sample"
+    },
+    "rounded_table_arithmetic": {
+      "accepted_as_independent_reproduction": false,
+      "reason": "exact arithmetic over printed rounded means verifies transcription-derived reductions only"
+    },
+    "summary_only": {
+      "accepted_as_independent_reproduction": false,
+      "architecture": "LeNet-5",
+      "expected_runs": 10,
+      "method": "ECL",
+      "observed_runs": 0,
+      "printed_mean": "21.5",
+      "printed_std": "1.51",
+      "reason": "raw_per_run_values_missing",
+      "std_convention": "sample"
+    },
+    "ten_repeated_printed_means": {
+      "accepted_as_independent_reproduction": false,
+      "architecture": "LeNet-5",
+      "exact_mean_fraction": "43/2",
+      "exact_variance_fraction": "0",
+      "expected_runs": 10,
+      "method": "ECL",
+      "observed_runs": 10,
+      "printed_mean": "21.5",
+      "printed_mean_rounding_matches": true,
+      "printed_std": "1.51",
+      "printed_std_rounding_matches": false,
+      "reason": "ten_values_do_not_recompute_to_printed_summary",
+      "std_convention": "sample"
+    }
+  },
+  "next_distinct_attempt": {
+    "approach": "faithful_reconstruction_from_public_predecessor",
+    "minimum_authority_needed": "GPU compute and dependency installation authorization",
+    "plan": [
+      "pin a compatible CUDA/PyTorch/torchvision/scipy/sklearn/torchquad environment",
+      "repair only the DenseNet40 tuple and missing output-directory defects while recording patches",
+      "parameterize target SVHN and all three architectures without changing the scientific pipeline",
+      "declare ten deterministic seeds and archive each raw ECE/accuracy observation and checkpoint",
+      "independently recompute 15-bin top-label ECE from saved logits"
+    ]
+  },
+  "pairwise_reductions": [
+    {
+      "architecture": "LeNet-5",
+      "baseline_ece_percent": "61.9",
+      "comparison": "Uncal-minus-ECL",
+      "ecl_ece_percent": "21.5",
+      "ecl_to_baseline_ratio_fraction": "215/619",
+      "percentage_point_reduction_decimal": "40.4",
+      "percentage_point_reduction_fraction": "202/5",
+      "relative_reduction_fraction": "404/619",
+      "relative_reduction_percent_decimal": "65.266558966074"
+    },
+    {
+      "architecture": "LeNet-5",
+      "baseline_ece_percent": "62.2",
+      "comparison": "Soft-ECE-minus-ECL",
+      "ecl_ece_percent": "21.5",
+      "ecl_to_baseline_ratio_fraction": "215/622",
+      "percentage_point_reduction_decimal": "40.7",
+      "percentage_point_reduction_fraction": "407/10",
+      "relative_reduction_fraction": "407/622",
+      "relative_reduction_percent_decimal": "65.434083601286"
+    },
+    {
+      "architecture": "LeNet-5",
+      "baseline_ece_percent": "60.8",
+      "comparison": "DECE-minus-ECL",
+      "ecl_ece_percent": "21.5",
+      "ecl_to_baseline_ratio_fraction": "215/608",
+      "percentage_point_reduction_decimal": "39.3",
+      "percentage_point_reduction_fraction": "393/10",
+      "relative_reduction_fraction": "393/608",
+      "relative_reduction_percent_decimal": "64.638157894736"
+    },
+    {
+      "architecture": "LeNet-5",
+      "baseline_ece_percent": "62.5",
+      "comparison": "KDE-minus-ECL",
+      "ecl_ece_percent": "21.5",
+      "ecl_to_baseline_ratio_fraction": "43/125",
+      "percentage_point_reduction_decimal": "41",
+      "percentage_point_reduction_fraction": "41",
+      "relative_reduction_fraction": "82/125",
+      "relative_reduction_percent_decimal": "65.6"
+    },
+    {
+      "architecture": "LeNet-5",
+      "baseline_ece_percent": "61.3",
+      "comparison": "TS-minus-ECL",
+      "ecl_ece_percent": "21.5",
+      "ecl_to_baseline_ratio_fraction": "215/613",
+      "percentage_point_reduction_decimal": "39.8",
+      "percentage_point_reduction_fraction": "199/5",
+      "relative_reduction_fraction": "398/613",
+      "relative_reduction_percent_decimal": "64.926590538336"
+    },
+    {
+      "architecture": "LeNet-5",
+      "baseline_ece_percent": "63.7",
+      "comparison": "TransCal-minus-ECL",
+      "ecl_ece_percent": "21.5",
+      "ecl_to_baseline_ratio_fraction": "215/637",
+      "percentage_point_reduction_decimal": "42.2",
+      "percentage_point_reduction_fraction": "211/5",
+      "relative_reduction_fraction": "422/637",
+      "relative_reduction_percent_decimal": "66.248037676609"
+    },
+    {
+      "architecture": "LeNet-5",
+      "baseline_ece_percent": "23.7",
+      "comparison": "DRL-minus-ECL",
+      "ecl_ece_percent": "21.5",
+      "ecl_to_baseline_ratio_fraction": "215/237",
+      "percentage_point_reduction_decimal": "2.2",
+      "percentage_point_reduction_fraction": "11/5",
+      "relative_reduction_fraction": "22/237",
+      "relative_reduction_percent_decimal": "9.28270042194"
+    },
+    {
+      "architecture": "LeNet-5",
+      "baseline_ece_percent": "52.4",
+      "comparison": "PseudoCal-minus-ECL",
+      "ecl_ece_percent": "21.5",
+      "ecl_to_baseline_ratio_fraction": "215/524",
+      "percentage_point_reduction_decimal": "30.9",
+      "percentage_point_reduction_fraction": "309/10",
+      "relative_reduction_fraction": "309/524",
+      "relative_reduction_percent_decimal": "58.969465648854"
+    },
+    {
+      "architecture": "ResNet20",
+      "baseline_ece_percent": "68.2",
+      "comparison": "Uncal-minus-ECL",
+      "ecl_ece_percent": "36.8",
+      "ecl_to_baseline_ratio_fraction": "184/341",
+      "percentage_point_reduction_decimal": "31.4",
+      "percentage_point_reduction_fraction": "157/5",
+      "relative_reduction_fraction": "157/341",
+      "relative_reduction_percent_decimal": "46.041055718475"
+    },
+    {
+      "architecture": "ResNet20",
+      "baseline_ece_percent": "67.5",
+      "comparison": "Soft-ECE-minus-ECL",
+      "ecl_ece_percent": "36.8",
+      "ecl_to_baseline_ratio_fraction": "368/675",
+      "percentage_point_reduction_decimal": "30.7",
+      "percentage_point_reduction_fraction": "307/10",
+      "relative_reduction_fraction": "307/675",
+      "relative_reduction_percent_decimal": "45.481481481481"
+    },
+    {
+      "architecture": "ResNet20",
+      "baseline_ece_percent": "66.9",
+      "comparison": "DECE-minus-ECL",
+      "ecl_ece_percent": "36.8",
+      "ecl_to_baseline_ratio_fraction": "368/669",
+      "percentage_point_reduction_decimal": "30.1",
+      "percentage_point_reduction_fraction": "301/10",
+      "relative_reduction_fraction": "301/669",
+      "relative_reduction_percent_decimal": "44.992526158445"
+    },
+    {
+      "architecture": "ResNet20",
+      "baseline_ece_percent": "67.8",
+      "comparison": "KDE-minus-ECL",
+      "ecl_ece_percent": "36.8",
+      "ecl_to_baseline_ratio_fraction": "184/339",
+      "percentage_point_reduction_decimal": "31",
+      "percentage_point_reduction_fraction": "31",
+      "relative_reduction_fraction": "155/339",
+      "relative_reduction_percent_decimal": "45.722713864306"
+    },
+    {
+      "architecture": "ResNet20",
+      "baseline_ece_percent": "68.1",
+      "comparison": "TS-minus-ECL",
+      "ecl_ece_percent": "36.8",
+      "ecl_to_baseline_ratio_fraction": "368/681",
+      "percentage_point_reduction_decimal": "31.3",
+      "percentage_point_reduction_fraction": "313/10",
+      "relative_reduction_fraction": "313/681",
+      "relative_reduction_percent_decimal": "45.961820851688"
+    },
+    {
+      "architecture": "ResNet20",
+      "baseline_ece_percent": "59.4",
+      "comparison": "TransCal-minus-ECL",
+      "ecl_ece_percent": "36.8",
+      "ecl_to_baseline_ratio_fraction": "184/297",
+      "percentage_point_reduction_decimal": "22.6",
+      "percentage_point_reduction_fraction": "113/5",
+      "relative_reduction_fraction": "113/297",
+      "relative_reduction_percent_decimal": "38.047138047138"
+    },
+    {
+      "architecture": "ResNet20",
+      "baseline_ece_percent": "40.1",
+      "comparison": "DRL-minus-ECL",
+      "ecl_ece_percent": "36.8",
+      "ecl_to_baseline_ratio_fraction": "368/401",
+      "percentage_point_reduction_decimal": "3.3",
+      "percentage_point_reduction_fraction": "33/10",
+      "relative_reduction_fraction": "33/401",
+      "relative_reduction_percent_decimal": "8.229426433915"
+    },
+    {
+      "architecture": "ResNet20",
+      "baseline_ece_percent": "48.2",
+      "comparison": "PseudoCal-minus-ECL",
+      "ecl_ece_percent": "36.8",
+      "ecl_to_baseline_ratio_fraction": "184/241",
+      "percentage_point_reduction_decimal": "11.4",
+      "percentage_point_reduction_fraction": "57/5",
+      "relative_reduction_fraction": "57/241",
+      "relative_reduction_percent_decimal": "23.651452282157"
+    },
+    {
+      "architecture": "DenseNet40",
+      "baseline_ece_percent": "80.8",
+      "comparison": "Uncal-minus-ECL",
+      "ecl_ece_percent": "38.4",
+      "ecl_to_baseline_ratio_fraction": "48/101",
+      "percentage_point_reduction_decimal": "42.4",
+      "percentage_point_reduction_fraction": "212/5",
+      "relative_reduction_fraction": "53/101",
+      "relative_reduction_percent_decimal": "52.475247524752"
+    },
+    {
+      "architecture": "DenseNet40",
+      "baseline_ece_percent": "81.2",
+      "comparison": "Soft-ECE-minus-ECL",
+      "ecl_ece_percent": "38.4",
+      "ecl_to_baseline_ratio_fraction": "96/203",
+      "percentage_point_reduction_decimal": "42.8",
+      "percentage_point_reduction_fraction": "214/5",
+      "relative_reduction_fraction": "107/203",
+      "relative_reduction_percent_decimal": "52.709359605911"
+    },
+    {
+      "architecture": "DenseNet40",
+      "baseline_ece_percent": "79.5",
+      "comparison": "DECE-minus-ECL",
+      "ecl_ece_percent": "38.4",
+      "ecl_to_baseline_ratio_fraction": "128/265",
+      "percentage_point_reduction_decimal": "41.1",
+      "percentage_point_reduction_fraction": "411/10",
+      "relative_reduction_fraction": "137/265",
+      "relative_reduction_percent_decimal": "51.698113207547"
+    },
+    {
+      "architecture": "DenseNet40",
+      "baseline_ece_percent": "81.1",
+      "comparison": "KDE-minus-ECL",
+      "ecl_ece_percent": "38.4",
+      "ecl_to_baseline_ratio_fraction": "384/811",
+      "percentage_point_reduction_decimal": "42.7",
+      "percentage_point_reduction_fraction": "427/10",
+      "relative_reduction_fraction": "427/811",
+      "relative_reduction_percent_decimal": "52.651048088779"
+    },
+    {
+      "architecture": "DenseNet40",
+      "baseline_ece_percent": "77.2",
+      "comparison": "TS-minus-ECL",
+      "ecl_ece_percent": "38.4",
+      "ecl_to_baseline_ratio_fraction": "96/193",
+      "percentage_point_reduction_decimal": "38.8",
+      "percentage_point_reduction_fraction": "194/5",
+      "relative_reduction_fraction": "97/193",
+      "relative_reduction_percent_decimal": "50.259067357512"
+    },
+    {
+      "architecture": "DenseNet40",
+      "baseline_ece_percent": "72.9",
+      "comparison": "TransCal-minus-ECL",
+      "ecl_ece_percent": "38.4",
+      "ecl_to_baseline_ratio_fraction": "128/243",
+      "percentage_point_reduction_decimal": "34.5",
+      "percentage_point_reduction_fraction": "69/2",
+      "relative_reduction_fraction": "115/243",
+      "relative_reduction_percent_decimal": "47.325102880658"
+    },
+    {
+      "architecture": "DenseNet40",
+      "baseline_ece_percent": "42.0",
+      "comparison": "DRL-minus-ECL",
+      "ecl_ece_percent": "38.4",
+      "ecl_to_baseline_ratio_fraction": "32/35",
+      "percentage_point_reduction_decimal": "3.6",
+      "percentage_point_reduction_fraction": "18/5",
+      "relative_reduction_fraction": "3/35",
+      "relative_reduction_percent_decimal": "8.571428571428"
+    },
+    {
+      "architecture": "DenseNet40",
+      "baseline_ece_percent": "64.7",
+      "comparison": "PseudoCal-minus-ECL",
+      "ecl_ece_percent": "38.4",
+      "ecl_to_baseline_ratio_fraction": "384/647",
+      "percentage_point_reduction_decimal": "26.3",
+      "percentage_point_reduction_fraction": "263/10",
+      "relative_reduction_fraction": "263/647",
+      "relative_reduction_percent_decimal": "40.64914992272"
+    }
+  ],
+  "paper": {
+    "arxiv_version": "2605.21552v1",
+    "openreview_id": "gFPPTokv9C",
+    "paper_hash_matches": true,
+    "paper_sha256_expected": "fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab",
+    "paper_sha256_observed": "fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab",
+    "reported_experiment_environment": {
+      "batch_size": 100,
+      "cpu": "Intel Core i7-10700 3.70GHz",
+      "digit_preprocessing": "3-channel RGB, resized to 28x28",
+      "gpus": "10 NVIDIA GeForce RTX 3090, 24GB each",
+      "learning_rate": "0.001",
+      "memory_gb": "125.5",
+      "optimizer": "Adam",
+      "os": "Ubuntu 20.04.3 LTS",
+      "python": "3.11.11",
+      "torch": "2.4.1+cu118",
+      "training_epochs": 100
+    },
+    "reported_summary": "mean and standard deviation derived from ten runs",
+    "table_anchor": "PDF page 8 (printed page 8)",
+    "title": "Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift"
+  },
+  "public_predecessor_source": {
+    "semantics": {
+      "checked": false
+    },
+    "snapshot": {
+      "all_hashes_match": null,
+      "commit": "944d492b9d542ebbc0d0396fc57a187b2ce6b293",
+      "expected_files": [
+        "Cali_in_Digit.py",
+        "README.md",
+        "Simulated_Cali.ipynb",
+        "Utils.py",
+        "losses.py",
+        "metrics.py",
+        "networks.py"
+      ],
+      "local_readback_checked": false,
+      "repository": "https://github.com/Anonymous-user-code/ECL",
+      "tree": "7fc9969656b5c31e32d853dcc66785e2655b0534"
+    }
+  },
+  "quoted_comparison_certificates": [
+    {
+      "architecture": "LeNet-5",
+      "baseline": "Uncal",
+      "baseline_ece_percent": "61.9",
+      "ecl_ece_percent": "21.5",
+      "ecl_to_baseline_ratio_fraction": "215/619",
+      "percentage_point_reduction_decimal": "40.4",
+      "percentage_point_reduction_fraction": "202/5",
+      "relative_reduction_fraction": "404/619",
+      "relative_reduction_percent_decimal": "65.266558966074"
+    },
+    {
+      "architecture": "ResNet20",
+      "baseline": "PseudoCal",
+      "baseline_ece_percent": "48.2",
+      "ecl_ece_percent": "36.8",
+      "ecl_to_baseline_ratio_fraction": "184/241",
+      "percentage_point_reduction_decimal": "11.4",
+      "percentage_point_reduction_fraction": "57/5",
+      "relative_reduction_fraction": "57/241",
+      "relative_reduction_percent_decimal": "23.651452282157"
+    },
+    {
+      "architecture": "DenseNet40",
+      "baseline": "Uncal",
+      "baseline_ece_percent": "80.8",
+      "ecl_ece_percent": "38.4",
+      "ecl_to_baseline_ratio_fraction": "48/101",
+      "percentage_point_reduction_decimal": "42.4",
+      "percentage_point_reduction_fraction": "212/5",
+      "relative_reduction_fraction": "53/101",
+      "relative_reduction_percent_decimal": "52.475247524752"
+    }
+  ],
+  "runtime": {
+    "arithmetic": "fractions.Fraction for all reported reductions and raw-run gates",
+    "gpu_used": false,
+    "paid_or_remote_compute_used": false,
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.12.11",
+    "training_performed": false
+  },
+  "schema_version": 1,
+  "source_release_inventory": {
+    "current_official": {
+      "actions_artifact_count": 0,
+      "commit_count": 3,
+      "fork_count": 0,
+      "heads": {
+        "main": "aae77f890f1e4ebc13dad135b5e29758d98d318d"
+      },
+      "release_count": 0,
+      "tags": [],
+      "workflow_count": 0
+    },
+    "hugging_face_search": {
+      "exact_title_datasets": [],
+      "exact_title_models": [],
+      "public_reproduction_spaces_found": [
+        "Vassilbek/ecl-icml2026-reproduction"
+      ],
+      "table2_raw_runs_or_checkpoints_found": false
+    },
+    "observed_at_utc": "2026-07-19",
+    "public_predecessor": {
+      "actions_artifact_count": 0,
+      "commit_count": 2,
+      "fork_count": 0,
+      "heads": {
+        "main": "944d492b9d542ebbc0d0396fc57a187b2ce6b293"
+      },
+      "release_count": 0,
+      "tags": []
+    }
+  },
+  "table2_svhn_transcription": {
+    "DenseNet40": {
+      "DECE": {
+        "mean_ece_percent": "79.5",
+        "std_ece_percent": "6.05"
+      },
+      "DRL": {
+        "mean_ece_percent": "42.0",
+        "std_ece_percent": "3.36"
+      },
+      "DeltaACC": {
+        "mean_percentage_points": "-1.15",
+        "std_percentage_points": "0.45"
+      },
+      "ECL": {
+        "mean_ece_percent": "38.4",
+        "std_ece_percent": "3.21"
+      },
+      "KDE": {
+        "mean_ece_percent": "81.1",
+        "std_ece_percent": "6.15"
+      },
+      "Oracle": {
+        "mean_ece_percent": "0.86",
+        "std_ece_percent": "0.03"
+      },
+      "PseudoCal": {
+        "mean_ece_percent": "64.7",
+        "std_ece_percent": "4.72"
+      },
+      "Soft-ECE": {
+        "mean_ece_percent": "81.2",
+        "std_ece_percent": "5.88"
+      },
+      "TS": {
+        "mean_ece_percent": "77.2",
+        "std_ece_percent": "6.98"
+      },
+      "TransCal": {
+        "mean_ece_percent": "72.9",
+        "std_ece_percent": "5.13"
+      },
+      "Uncal": {
+        "mean_ece_percent": "80.8",
+        "std_ece_percent": "6.26"
+      }
+    },
+    "LeNet-5": {
+      "DECE": {
+        "mean_ece_percent": "60.8",
+        "std_ece_percent": "5.22"
+      },
+      "DRL": {
+        "mean_ece_percent": "23.7",
+        "std_ece_percent": "1.93"
+      },
+      "DeltaACC": {
+        "mean_percentage_points": "+1.65",
+        "std_percentage_points": "0.65"
+      },
+      "ECL": {
+        "mean_ece_percent": "21.5",
+        "std_ece_percent": "1.51"
+      },
+      "KDE": {
+        "mean_ece_percent": "62.5",
+        "std_ece_percent": "5.80"
+      },
+      "Oracle": {
+        "mean_ece_percent": "1.03",
+        "std_ece_percent": "0.02"
+      },
+      "PseudoCal": {
+        "mean_ece_percent": "52.4",
+        "std_ece_percent": "4.55"
+      },
+      "Soft-ECE": {
+        "mean_ece_percent": "62.2",
+        "std_ece_percent": "5.50"
+      },
+      "TS": {
+        "mean_ece_percent": "61.3",
+        "std_ece_percent": "5.89"
+      },
+      "TransCal": {
+        "mean_ece_percent": "63.7",
+        "std_ece_percent": "4.94"
+      },
+      "Uncal": {
+        "mean_ece_percent": "61.9",
+        "std_ece_percent": "6.16"
+      }
+    },
+    "ResNet20": {
+      "DECE": {
+        "mean_ece_percent": "66.9",
+        "std_ece_percent": "6.10"
+      },
+      "DRL": {
+        "mean_ece_percent": "40.1",
+        "std_ece_percent": "3.77"
+      },
+      "DeltaACC": {
+        "mean_percentage_points": "+2.12",
+        "std_percentage_points": "0.88"
+      },
+      "ECL": {
+        "mean_ece_percent": "36.8",
+        "std_ece_percent": "2.08"
+      },
+      "KDE": {
+        "mean_ece_percent": "67.8",
+        "std_ece_percent": "6.25"
+      },
+      "Oracle": {
+        "mean_ece_percent": "0.50",
+        "std_ece_percent": "0.02"
+      },
+      "PseudoCal": {
+        "mean_ece_percent": "48.2",
+        "std_ece_percent": "3.95"
+      },
+      "Soft-ECE": {
+        "mean_ece_percent": "67.5",
+        "std_ece_percent": "5.92"
+      },
+      "TS": {
+        "mean_ece_percent": "68.1",
+        "std_ece_percent": "6.13"
+      },
+      "TransCal": {
+        "mean_ece_percent": "59.4",
+        "std_ece_percent": "4.63"
+      },
+      "Uncal": {
+        "mean_ece_percent": "68.2",
+        "std_ece_percent": "6.44"
+      }
+    }
+  }
+}
