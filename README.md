@@ -17,6 +17,8 @@ The full illustrated article is
 [ECL under covariate shift: an exact audit changes the empirical story](reports/ecl-covariate-shift/report.md).
 The self-contained [marimo tutorial](notebooks/ecl_reproduction.py) opens with
 the completed evidence and does not require rerunning training.
+The [publication record](reports/ecl-covariate-shift/publication.md) documents
+the verified Space revision and awaiting-judge boundary.
 
 | Claim | Assessment | Paper number versus observed evidence |
 | --- | --- | --- |
@@ -40,7 +42,7 @@ Every experiment used the exact same command:
 
 | Branch / experiment | Purpose | Exact run command | Assessment / outcome | Compute |
 | --- | --- | --- | --- | --- |
-| `master` | Public presentation surface | Not run as an experiment (publication surface) | Pending explicit publication approval | — |
+| `master` | Public presentation surface | Not run as an experiment (publication surface) | Published after explicit approval; Space `389efd99d6e4fc28a90ec7aaddcbecec467f01d0`, awaiting judge | — |
 | [`orx/frozen-cumulative-baseline`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/frozen-cumulative-baseline) | Freeze accepted evidence | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | 8/8 steps, 122 tests | Local CPU, 40s |
 | [`orx/claim-2-synthesis-and-claim-4-real-mnist-soft-bi`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-2-synthesis-and-claim-4-real-mnist-soft-bi) | Full MNIST Appendix F check | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | Claim 4 VERIFIED forecast | Local CPU, 7m |
 | [`orx/claim-5-route-4-mandatory-falsification-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-5-route-4-mandatory-falsification-audit) | Fourth-route falsification gate | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | Claim 5 BLOCKED | Local CPU, 5m |
