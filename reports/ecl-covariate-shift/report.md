@@ -22,7 +22,7 @@ uv run --frozen --python 3.12 python repro/src/run_campaign.py
 
 Every child inherited that command, the same repository `.venv`, Python 3.12
 lock, and caches. The winning scientific branch is
-[`orx/claim-2-route-3-soft-bin-concentration-proof`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-2-route-3-soft-bin-concentration-proof)
+[`audit/claim-2-soft-bin-concentration`](https://github.com/MachineLearning-Nerd/icml26-expectation-consistency-loss/tree/audit/claim-2-soft-bin-concentration)
 at `647e2ed98c762b493d20cc506fd67d00b1cc8124`. Its local CPU run passed
 **22/22 steps and 151 tests** in 453.075 seconds.
 

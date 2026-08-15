@@ -1,0 +1,56 @@
+{
+  "paper": "gFPPTokv9C",
+  "source": "reports/ecl-covariate-shift/data/summary.json",
+  "historical_campaign": {
+    "steps": 22,
+    "tests": 122,
+    "local_cpu": true,
+    "gpu_runs": 0
+  },
+  "claims": {
+    "C1": {
+      "status": "VERIFIED_SCOPED",
+      "certificate_components": 561,
+      "exact_posterior_summaries": 257,
+      "score_values": 17,
+      "classes": 11,
+      "qualification": "Shared conditional kernel, measurability, and common identified score support."
+    },
+    "C2": {
+      "status": "VERIFIED_SCOPED_WITH_QUALIFICATION",
+      "absolute_constant": 16.0,
+      "derived_budget": 15.313708498985,
+      "deterministic_checks": 840,
+      "soft_diagnostic_rows": 1024,
+      "max_error_over_radius": 0.08733412918842667,
+      "qualification": "Corrected proof under fixed posterior/assignment, iid evaluation, positive denominators, and K >= 2."
+    },
+    "C3": {
+      "status": "FALSIFIED_AS_STATED",
+      "witnesses": [
+        {"name": "Appendix H scaling", "full": 3.0, "claimed": 1.5},
+        {"name": "Same-batch direction", "full": 1.0, "claimed": 0.0},
+        {"name": "Soft-weight derivative", "full": 0.75, "claimed": 0.0},
+        {"name": "Eq. 8 versus Eq. 10 gradient", "full": 0.0, "claimed": 0.25}
+      ]
+    },
+    "C4": {
+      "status": "VERIFIED_SCOPED",
+      "max_gradient_errors": {
+        "canonical": 2.9058572202991795e-08,
+        "class_wise": 1.4662976995788446e-10,
+        "top_label": 8.915696653177818e-11
+      },
+      "holdout_images": 10000
+    },
+    "C5": {
+      "status": "BLOCKED",
+      "reason": "Raw ten-run predictions/checkpoints, exact seeds, and faithful three-architecture pipeline are unavailable."
+    },
+    "C6": {
+      "status": "FALSIFIED_SCOPED",
+      "logical_route": "Table 1 mini-batch-trainability cell is false through C3.",
+      "simulation_route": "Divergent/mixed and not used as the logical falsification."
+    }
+  }
+}

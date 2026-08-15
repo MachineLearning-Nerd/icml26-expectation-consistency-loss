@@ -1,130 +1,181 @@
-# Reproduction update — ECL under covariate shift
+# Expectation Consistency Loss under Covariate Shift
 
-[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/blob/master/notebooks/ecl_reproduction.py)
+Scoped clean-room audit of **Expectation Consistency Loss: Rethink Confidence
+Calibration under Covariate Shift** for the ICML 2026 reproduction collection.
 
-We tested all six judged claims in *Expectation Consistency Loss: Rethink
-Confidence Calibration under Covariate Shift* (arXiv 2605.21552). The strongest
-new result is exact: the paper defines Table 1’s “theoretically mini-batch
-trainable” capability as an unbiased-gradient identity, but valid rational
-witnesses give full versus expected mini-batch gradients of `3` versus `3/2`
-and `1` versus `0`. Claims 3 and 6 are therefore FALSIFIED as written.
+This repository preserves the complete six-claim campaign, including exact
+proofs, counterexamples, real-MNIST formula checks, source-only audits, and the
+illustrated report. It separates a paper claim from a benchmark result: no
+new official score is claimed, and missing author artifacts are recorded rather
+than inferred.
 
-The previous live score remains **6/12**. The conservative future-judge
-forecast is **8–10/12**, with **10/12** the best-supported possible result;
-neither is an awarded score. Claim 5 remains honestly BLOCKED.
+## Paper identity
 
-The full illustrated article is
-[ECL under covariate shift: an exact audit changes the empirical story](reports/ecl-covariate-shift/report.md).
-The self-contained [marimo tutorial](notebooks/ecl_reproduction.py) opens with
-the completed evidence and does not require rerunning training.
-The [publication record](reports/ecl-covariate-shift/publication.md) documents
-the verified Space revision and awaiting-judge boundary.
+| Field | Value |
+| --- | --- |
+| Paper | *Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift* |
+| Authors | Jinzong Dong, Zhaohui Jiang, Bo Yang |
+| arXiv | [2605.21552](https://arxiv.org/abs/2605.21552) |
+| OpenReview | [gFPPTokv9C](https://openreview.net/forum?id=gFPPTokv9C) |
+| Audited paper source | arXiv v1; SHA-256 `fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab` |
+| Official implementation pin | `NeuroDong/ECL@aae77f890f1e4ebc13dad135b5e29758d98d318d` |
+| Repository role | Claim-by-claim theory, implementation, provenance, and benchmark-boundary audit |
 
-| Claim | Assessment | Paper number versus observed evidence |
+## Claim status
+
+| Claim | Status | What the evidence establishes |
 | --- | --- | --- |
-| 1 | VERIFIED, HIGH | 561 exact components agree |
-| 2 | VERIFIED, HIGH | paper leaves `C` unspecified; corrected proof certifies `C=16`, with max diagnostic error/radius `0.0873` |
-| 3 | FALSIFIED, HIGH | claimed equal gradients; exact `3 vs 3/2`, `1 vs 0`, `3/4 vs 0`, and `0 vs 1/4` |
-| 4 | VERIFIED, HIGH | three variants; independent max gradient error `2.91e-8` on 10,000 MNIST images |
-| 5 | BLOCKED, LOW | paper LeNet ECE `61.9%→21.5%`; three full-data routes diverge but cannot refute the unavailable historical ten-run aggregate |
-| 6 | FALSIFIED, HIGH | paper simulation ECL `{0.028,0.024,0.048}`; observed `{0.1549,0.0638,0.1499}`, plus exact false Table 1 mini-batch cell |
+| C1 — expectation consistency iff calibration-curve transfer | `VERIFIED_SCOPED` | Exact conditional-expectation proof and a 561-component rational certificate pass under shared-kernel, measurability, and common-support qualifications. |
+| C2 — Eq. 9 finite-sample bound and `O(B/epsilon²)` order | `VERIFIED_SCOPED_WITH_QUALIFICATION` | A corrected soft-bin proof gives absolute constant `C=16` under fixed-function, iid, positive-denominator assumptions; the printed Appendix G derivation is not certified. |
+| C3 — Eq. 10 unbiased mini-batch gradient | `FALSIFIED_AS_STATED` | Exact probability-domain witnesses break normalization, same-batch direction, omitted weight derivatives, and Eq. 8/Eq. 10 equivalence. A narrower corrected estimator remains valid. |
+| C4 — differentiable canonical, class-wise, and top-label variants | `VERIFIED_SCOPED` | Independent NumPy and PyTorch/finite-difference implementations agree on all three losses and gradients on a full 10,000-image MNIST holdout. |
+| C5 — ten-run MNIST/USPS→SVHN Table 2 values | `BLOCKED` | Printed arithmetic is auditable, but raw predictions, checkpoints, exact seeds, and a faithful three-architecture pipeline are unavailable. |
+| C6 — five Table 1 capabilities plus Figure 2/Table 3 evidence | `FALSIFIED_SCOPED` | The Table 1 conjunction is falsified by the C3 counterexample; the separate five-seed simulation diverges and is not used as the logical falsification. |
 
-Substitutions are explicit: the Claim 6 simulation follows the paper text
-where the saved notebook conflicts with it; Claim 5 routes use one available
-LeNet reconstruction because the official digit pipeline, seeds, checkpoints,
-and ResNet20/DenseNet40 raw runs are absent. Compute was local CPU except two
-Hugging Face `cpu-upgrade` full-dataset Claim 5 runs; no GPU was used.
+The status vocabulary is deliberately narrow. `VERIFIED_SCOPED` does not mean
+that every empirical table in the paper was reproduced; `BLOCKED` means the
+available artifacts cannot support a fair attempt; and `FALSIFIED_AS_STATED`
+means the exact quantified statement has a valid counterexample.
 
-## Experiment log
+## How each claim is produced
 
-Every experiment used the exact same command:
-`uv run --frozen --python 3.12 python repro/src/run_campaign.py`.
+### C1 — calibration transfer
 
-| Branch / experiment | Purpose | Exact run command | Assessment / outcome | Compute |
-| --- | --- | --- | --- | --- |
-| `master` | Public presentation surface | Not run as an experiment (publication surface) | Published after explicit approval; Space `389efd99d6e4fc28a90ec7aaddcbecec467f01d0`, awaiting judge | — |
-| [`orx/frozen-cumulative-baseline`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/frozen-cumulative-baseline) | Freeze accepted evidence | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | 8/8 steps, 122 tests | Local CPU, 40s |
-| [`orx/claim-2-synthesis-and-claim-4-real-mnist-soft-bi`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-2-synthesis-and-claim-4-real-mnist-soft-bi) | Full MNIST Appendix F check | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | Claim 4 VERIFIED forecast | Local CPU, 7m |
-| [`orx/claim-5-route-4-mandatory-falsification-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-5-route-4-mandatory-falsification-audit) | Fourth-route falsification gate | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | Claim 5 BLOCKED | Local CPU, 5m |
-| [`orx/claim-6-route-1-full-simulated-figure-2`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-6-route-1-full-simulated-figure-2) | Five-seed, three-paradigm Figure 2 | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | DIVERGENT_OR_MIXED | Local CPU, 4m52s |
-| [`orx/claim-6-route-2-primary-source-table-1-audit`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-6-route-2-primary-source-table-1-audit) | Exact Table 1 logical audit | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | Claim 6 FALSIFIED forecast | Local CPU, 5m38s |
-| [`orx/claim-2-route-3-soft-bin-concentration-proof`](https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/orx/claim-2-route-3-soft-bin-concentration-proof) | Corrected soft Eq. 8 proof | `uv run --frozen --python 3.12 python repro/src/run_campaign.py` | 22/22 steps, 151 tests; Claim 2 VERIFIED forecast | Local CPU, 7m47s |
+[`repro/src/claim1_general_certificate.py`](repro/src/claim1_general_certificate.py)
+derives the tower-property identity and checks it with exact rational
+arithmetic. The output covers `257` exact posterior summaries, `17` score
+values, `11` classes, formal coefficient maps for every common posterior, and
+assumption-breaking controls. The main artifact is under
+[`repro/evidence/2026-07-24/artifacts/claim-1/`](repro/evidence/2026-07-24/artifacts/claim-1/);
+the detailed interpretation is [`docs/CLAIM1_GENERAL_PROOF_AUDIT.md`](docs/CLAIM1_GENERAL_PROOF_AUDIT.md).
 
-## Original repository overview
+The proof transfers a source calibration curve to the target only on common
+identified score support and does not claim absolute calibration from
+expectation consistency alone.
 
-> The section below is preserved as the historical baseline README. Its
-> interim assessments and 122-test count are superseded by the reproduction
-> update above.
+### C2 — finite-sample sample complexity
 
-# Repro — ECL under covariate shift (`gFPPTokv9C`)
+Three routes make the production path explicit:
 
-Source-pinned reproduction of *Expectation Consistency Loss: Rethink Confidence
-Calibration under Covariate Shift* (Dong et al.; arXiv
-[2605.21552](https://arxiv.org/abs/2605.21552)) for the
-[ICML 2026 Agent Reproduction Challenge](https://huggingface.co/spaces/ICML-2026-agent-repro/challenge).
+1. [`repro/src/run_claim3_sample_complexity.py`](repro/src/run_claim3_sample_complexity.py)
+   checks the hard-bin construction.
+2. [`repro/src/claim2_soft_theorem_proof.py`](repro/src/claim2_soft_theorem_proof.py)
+   proves the corrected soft-bin bound with budget
+   `8*sqrt(2) + 4 = 15.3137085 < 16`.
+3. [`repro/src/claim2_soft_falsification_stress.py`](repro/src/claim2_soft_falsification_stress.py)
+   searches the allowed probability domain; its independent checker does not
+   label a finite search as a proof.
 
-The current challenge prompt exposes six anchored claims. The live legacy judge still
-scores three defaults: legacy C1 maps to anchored C1, compatibility C2 maps to anchored
-C4, and sample-complexity C3 maps to anchored C2.
+The proof and 1,024-row stress artifacts live under
+[`repro/evidence/2026-07-24/artifacts/claim-2/`](repro/evidence/2026-07-24/artifacts/claim-2/).
+The conclusion requires fixed posterior/assignment functions, iid evaluation
+samples, positive realized denominators, and `K >= 2`; it does not certify the
+paper's printed Appendix G derivation as written.
 
-## Results
+### C3 — mini-batch gradient theorem
 
-| Current claim | Local assessment | Headline evidence |
-| --- | --- | --- |
-| C1 — Theorem 3.1 | **Verified with support/version qualifications** | General tower-property proof; formal all-posterior certificate; exact 257-state, 17-score, 11-class construction with 561 component checks |
-| C2 — Theorem 3.2 sample complexity | **Hard-bin rate plus synthetic and real-trained-model soft Eq. 8 scaling supported** | Real MNIST classifiers reach `0.9097/0.9076`; ECL/ECE tail slopes `-0.680940/-0.742584`; B exponents `0.889/1.014` |
-| C3 — Theorem 3.3 gradient | **Falsified as stated** | Appendix scaling, same-batch direction, soft-weight derivatives, and Eq. 10 objective parity each fail exact controls |
-| C4 — Calibration extensions | **Formula-level verified** | Exact canonical, class-wise, and top-label certificates with diagnostic losses `1/6`, `1/6`, and `1/48`; four controls rejected |
-| C5 — Digit Table 2 | **Inconclusive source-only** | Printed reductions are exact; raw ten-run outputs/checkpoints/faithful current pipeline are absent |
-| C6 — Table 1/Figure 2/Table 3 | **Partial source support; broad empirics inconclusive** | All official source hashes/modes pass; paper arithmetic checked; PACS/ImageNet pipelines and raw runs absent |
+[`repro/src/claim3_gradient_certificate.py`](repro/src/claim3_gradient_certificate.py)
+constructs exact `Fraction` witnesses strictly inside the probability domain.
+The four independent failures are:
 
-The last confirmed official record is **5/6** at Space SHA
-`1abb0c87beb604420d3a0e6140ea122511c63e93`: legacy C1/C2 are `verified`, and
-legacy C3 sample complexity is `toy`. The final real-MNIST attempt in this checkout is not
-called official until a fresh judge record points to its public SHA.
+| Witness | Full quantity | Claimed quantity |
+| --- | ---: | ---: |
+| Appendix H normalization | `3` | `3/2` |
+| Same-batch norm direction | `1` | `0` |
+| Omitted soft-weight derivative | `3/4` | `0` |
+| Eq. 8 versus profiled Eq. 10 gradient | `0` | `1/4` |
 
-## Reproduce
+The corresponding losses are `3/4` and `65/128`. The artifact also identifies
+the narrower fixed-direction estimator that is unbiased when its state is
+frozen independently and correctly scaled. See
+[`docs/CLAIM3_GRADIENT_AUDIT.md`](docs/CLAIM3_GRADIENT_AUDIT.md).
+
+### C4 — differentiable calibration variants
+
+[`repro/src/claim4_real_mnist_independent_checker.py`](repro/src/claim4_real_mnist_independent_checker.py)
+checks canonical, class-wise, and top-label soft-binning on a complete 10,000
+image MNIST holdout. Independent NumPy/finite-difference gradients agree with
+the primary implementation to `2.91e-8`, `1.47e-10`, and `8.92e-11`; loss
+errors are at machine precision. The route and controls are documented in
+[`pages/claim-4-real-mnist-2026-07-24/page.md`](pages/claim-4-real-mnist-2026-07-24/page.md).
+
+This verifies formula/gradient compatibility, not an improvement in benchmark
+calibration.
+
+### C5 — Table 2 empirical benchmark
+
+[`repro/src/claim5_table2_audit.py`](repro/src/claim5_table2_audit.py) and
+the four route pages audit the official source, predecessor source, printed
+Table 2 arithmetic, and three materially different full-data attempts. The
+literal route reaches a nonfinite Soft-ECE path; repaired routes cover one
+LeNet seed; the mandatory fourth route shows that the printed mean/standard
+deviation pairs are arithmetically realizable. None reproduces the unavailable
+ten-run, three-architecture generating protocol, so the correct status remains
+`BLOCKED`.
+
+### C6 — capability conjunction and empirical support
+
+[`repro/src/claim6_table1_falsification.py`](repro/src/claim6_table1_falsification.py)
+uses the C3 witnesses to falsify the Table 1 “theoretically mini-batch
+trainable” cell. This is sufficient to falsify the all-five conjunction without
+pretending to reproduce PACS or ImageNet-Sketch. The separate paper-text
+simulation is produced by
+[`repro/src/claim6_simulation_figure2.py`](repro/src/claim6_simulation_figure2.py)
+and is reported as divergent/mixed rather than upgraded to a universal claim.
+
+## Repository and branch map
+
+The full original branch history is preserved under clean purpose-based names
+in [`docs/BRANCH_AUDIT.md`](docs/BRANCH_AUDIT.md). `main` is the integrated
+publication surface; `audit/*` branches isolate claim attempts; `experiment/*`
+holds the frozen cumulative baseline; and `release/*` holds the release-candidate
+assembly. There are no final `orx/*` branches.
+
+The illustrated report is [`reports/ecl-covariate-shift/report.md`](reports/ecl-covariate-shift/report.md),
+the source/claim contract is under `.openresearch/artifacts/`, and the raw
+campaign evidence is under `repro/evidence/2026-07-24/artifacts/`.
+
+## Reproduce and verify
 
 ```bash
-uv venv --python 3.12 .venv
-uv pip install --python .venv/bin/python numpy scipy pytest
-
-.venv/bin/python repro/src/claim1_general_certificate.py
-.venv/bin/python repro/src/run_claim3_sample_complexity.py
-.venv/bin/python repro/src/run_claim3_soft_sample_complexity.py
-.venv/bin/python repro/src/run_claim3_real_mnist_sample_complexity.py \
-  --data-root /path/to/uncompressed-mnist-idx
-.venv/bin/python repro/src/claim3_gradient_certificate.py
-.venv/bin/python repro/src/claim2_compatibility_certificate.py
-.venv/bin/python repro/src/claim5_table2_audit.py \
-  --paper repro/evidence/claim3/2605.21552v1.pdf --official-root upstream
-.venv/bin/python repro/src/claim6_capability_audit.py
-.venv/bin/python -m pytest repro/tests/ -q
+uv sync --frozen
+uv run pytest -q repro/tests
+uv run python repro/src/release_gate.py
+uv run --frozen --python 3.12 python repro/src/run_campaign.py
+uv run python repro/src/verify_results.py
+uv run python repro/src/publication_gate.py --skip-producers
 ```
 
-Expected full result: **122 passed**.
+The cumulative historical run completed `122` tests on local CPU. The long
+campaign command is not required to read the committed evidence; its exact
+environment, inputs, and limits are recorded in the report and source audit.
 
-## Important scientific boundaries
+## Citation
 
-- C1 identifies equality of source/target calibration curves on common score support.
-  EC alone does not make either curve equal the score; target calibration additionally
-  needs a source-calibration premise.
-- C2 supports fixed hard bins, fixed-`B` soft Eq. 8 scaling on a controlled construction, and
-  comparable sample order on a real-MNIST task with disjoint trained classifiers. Appendix G
-  retains an omitted `sqrt(K)` term and omits target-bin-mass estimation. The empirical `B`
-  sweeps do not prove universal dependence; the MNIST posterior head is an estimate rather than
-  an oracle, and its minimum soft masses are extremely small.
-- C3's exact counterexample gives Eq. 8 loss/gradient `3/4, 0` versus profiled Eq. 10
-  `65/128, 1/4`. This rejects the unrestricted theorem, not the empirical usefulness of
-  the official proximal/EMA heuristic.
-- C4 verifies mathematical grouping/observable compatibility, not image-benchmark
-  improvement or numerical equivalence of every soft/proximal implementation detail.
-- C5/C6 are source/provenance audits. Paper-table arithmetic and embedded figures are
-  never promoted to independent empirical measurements.
-- Paper PDF SHA-256: `fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab`.
-- Official source pin: `NeuroDong/ECL@aae77f890f1e4ebc13dad135b5e29758d98d318d`;
-  `losses.py` SHA-256 `1c2de34967f34b98faae5025368edac88f46a709d6e1e0c063e2c01f4d6e9754`.
+```bibtex
+@article{dong2026expectation,
+  title   = {Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift},
+  author  = {Dong, Jinzong and Jiang, Zhaohui and Yang, Bo},
+  journal = {arXiv preprint arXiv:2605.21552},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2605.21552},
+  url     = {https://arxiv.org/abs/2605.21552}
+}
+```
 
-Detailed audits are under `docs/`; deterministic JSON certificates are under `outputs/`.
+## Thank you
 
-Logbook: https://huggingface.co/spaces/DineshAI/gFPPTokv9C
+Thank you to Jinzong Dong, Zhaohui Jiang, and Bo Yang for developing a clear
+framework for calibration under covariate shift and for stating the claims
+precisely enough to support independent theorem checks and constructive
+counterexamples. This repository is an independent reproduction/audit effort
+and is not affiliated with the authors.
+
+## Provenance and limits
+
+The paper source, official-code pin, public Space history, artifact hashes, and
+missing benchmark inputs are recorded in [`sources.json`](sources.json) and
+[`docs/SOURCE_AUDIT.md`](docs/SOURCE_AUDIT.md). The fail-closed publication
+check is specified in [`docs/PUBLICATION_GATE.md`](docs/PUBLICATION_GATE.md).
+Historical judge scores and forecasts remain provenance only; no score change
+is asserted by this GitHub repository.

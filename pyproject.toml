@@ -1,7 +1,7 @@
 [project]
-name = "icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift"
+name = "icml26-expectation-consistency-loss"
 version = "0.1.0"
-description = "Clean-room repro of ECL (Expectation Consistency Loss for calibration under covariate shift), ICML 2026, OpenReview gFPPTokv9C."
+description = "Scoped clean-room audit of Expectation Consistency Loss under covariate shift."
 requires-python = ">=3.12,<3.13"
 dependencies = [
   "marimo>=0.16,<1",

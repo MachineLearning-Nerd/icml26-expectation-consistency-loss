@@ -1,44 +1,32 @@
-# Status — gFPPTokv9C
+# Status — ECL under covariate shift (`gFPPTokv9C`)
 
-- Campaign owner: `perfect-score campaign`
-- Current official score: **5/6** at judged Space SHA `1abb0c87beb604420d3a0e6140ea122511c63e93`
-- Current legacy verdicts: C1 `verified`, C2 `verified`, C3/sample complexity `toy`
-- Local/publication state: final real-MNIST revision published at Space SHA `c2a00fa8085ad607f19a97ad64b906739cdc7d2d`; public bundle and Space readback verified; official reevaluation pending
-- Compute/cost ceiling: local CPU only; no paid/remote compute
-- GitHub: no commit or push authorized or performed in this revision
+Last audited: 2026-08-15. Repository target: `icml26-expectation-consistency-loss`.
 
-## Completed local revision
+## Current scoped verdict
 
-- Current claim source: the live prompt overlays six anchored claims; legacy/default mapping is documented in the logbook.
-- C1: general conditional-expectation proof plus exact `257 X × 17 S × 11 classes` certificate; 561 components and assumption controls pass.
-- C2: preserved the judged hard-bin evidence and added the actual soft, self-normalized Eq. 8
-  estimator: tail RMSE slope `-0.537951`, matched ECE slopes near `-0.5`, exact population
-  reference, independent calculation agreement, and explicit tiny-mass/universal-`B` limits.
-- C2 attempt 2 official result: still `toy`; the judge accepted comparable fixed-`B`
-  `epsilon^-2` scaling but requested real-data trained-model evidence and noted that the
-  empirical sweep does not establish universal `B` dependence.
-- C2 final attempt 3: two disjoint MNIST-trained classifiers, held-out official test split,
-  X-only covariate shift, ECL/ECE tail slopes `-0.680940/-0.742584`, construction-specific
-  B exponents `0.889/1.014`, and independent implementation agreement below `5e-17`.
-- C3: exact falsification of Theorem 3.3 as written; repaired certificate uses only valid interior soft-assignment paths and seven probability-domain gates.
-- C4: exact canonical/class-wise/top-label certificate, all three predicted classes, four rejected semantic controls, and official mode-source audit.
-- C5: exact Table 2/provenance audit; no independent empirical result claimed because raw ten-run data and faithful released training assets are absent.
-- C6: official capability surface and paper arithmetic audited; broad PACS/ImageNet empirical reproduction remains blocked by missing public artifacts.
-- Verification: **122 passed**; the real-MNIST rerun reproduced every scientific field exactly.
+| Claim | Status | Evidence boundary |
+| --- | --- | --- |
+| C1 calibration-transfer condition | `VERIFIED_SCOPED` | Exact theorem/certificate with common-support and shared-kernel qualifications. |
+| C2 finite-sample order | `VERIFIED_SCOPED_WITH_QUALIFICATION` | Corrected soft-bin proof under explicit fixed-function assumptions; printed proof has a missing `sqrt(K)`/mass term. |
+| C3 mini-batch gradient | `FALSIFIED_AS_STATED` | Exact rational probability-domain counterexamples; corrected restricted estimator is separately identified. |
+| C4 differentiable variants | `VERIFIED_SCOPED` | Full-MNIST implementation/gradient agreement for canonical, class-wise, and top-label forms. |
+| C5 Table 2 | `BLOCKED` | Source arithmetic and multiple routes audited; raw ten-run artifacts and faithful pipeline unavailable. |
+| C6 compound capability/empirical claim | `FALSIFIED_SCOPED` | Table 1 conjunction fails through C3; Figure 2/Table 3 are not represented as independently reproduced. |
 
-## Publication gates
+## Campaign state
 
-- [x] Build, upload, and read back `repro-bundle:v2` with 48 files including the soft-estimator evidence.
-- [x] Build, upload, and read back `repro-bundle:v4` with the real-MNIST trained-model evidence; the remote manifest digest is `ef50869768de1e9dd271157e30b0433ddb7f04ff98616b9fe7668067cf167a46`.
-- [x] Upload and hash-read back every artifact blob and Trackio manifest from `DineshAI/gFPPTokv9C-artifacts` (42/42 v1 entries; 46 retained CAS blobs; zero deletions).
-- [x] Run the current official validator: the canonical title-derived target passes; the existing historical target reports only the authorized legacy-slug exception.
-- [x] Update the existing public Space: 18/18 scoped logbook files match byte-for-byte at
-  `c2a00fa8085ad607f19a97ad64b906739cdc7d2d`; both real-MNIST cells and the v4 artifact
-  link are visible in remote Trackio readback.
-- [x] Refresh the official verdict dataset after publication: SHA
-  `1abb0c87beb604420d3a0e6140ea122511c63e93` was judged at `2026-07-19T15:31:26+00:00`
-  and remains 5/6 (`verified`, `verified`, `toy`).
+- Historical cumulative campaign: 22/22 steps and 122 tests passed.
+- Historical official score records and forecasts are preserved as provenance;
+  this repository claims no new judge score.
+- The final public surface is a clean `main` branch plus purpose-based audit
+  branches. The prior `orx/*` names are mapped in
+  [`docs/BRANCH_AUDIT.md`](docs/BRANCH_AUDIT.md).
+- The release report and notebook remain available, but no missing official
+  checkpoints, raw predictions, exact seeds, or benchmark assets are implied.
 
-## Known external constraint
+## Gate meaning
 
-The existing authorized Space uses historical slug `gFPPTokv9C`. The canonical validator requires a `repro-<title>` slug. Creating or moving to another Space is outside the current authority; content validation can still be demonstrated against a hypothetical canonical target while the exact existing target reports only that slug error.
+`SCOPED_PASS` means the repository identity, evidence paths, claim statuses,
+source provenance, branch naming, and stale-state hygiene checks pass. It does
+not mean that all six paper claims are verified or that an official score has
+changed.

@@ -17,7 +17,7 @@ result. No score increase is claimed.
 | 6 | FALSIFIED | HIGH | 0 | 2 |
 
 The candidate branch is
-`orx/release-candidate-evidence-report-and-logbook` at Git SHA
+`release/candidate-evidence` at Git SHA
 `27f6b268ab59e159c572033852f62bb9a884088e`. The fixed command was:
 
 ```text

@@ -8,3 +8,4 @@ vendor/
 wandb/
 .DS_Store
 upstream/
+.trackio/

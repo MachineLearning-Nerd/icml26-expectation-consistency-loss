@@ -2,7 +2,7 @@
   "previous_live_judged_score": "6/12",
   "conservative_projected_range": "8-10/12",
   "best_supported_possible_score": "10/12 (forecast, not a judge result)",
-  "winning_branch": "orx/claim-2-route-3-soft-bin-concentration-proof",
+  "winning_branch": "audit/claim-2-soft-bin-concentration",
   "winning_git_sha": "647e2ed98c762b493d20cc506fd67d00b1cc8124",
   "final_cumulative_run": "d7777b89-7141-4e80-a127-65e4f9e42f2d",
   "fixed_command": "uv run --frozen --python 3.12 python repro/src/run_campaign.py",

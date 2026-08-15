@@ -1,0 +1,38 @@
+{
+  "paper": {
+    "title": "Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift",
+    "authors": ["Jinzong Dong", "Zhaohui Jiang", "Bo Yang"],
+    "arxiv_id": "2605.21552",
+    "arxiv_url": "https://arxiv.org/abs/2605.21552",
+    "openreview_id": "gFPPTokv9C",
+    "openreview_url": "https://openreview.net/forum?id=gFPPTokv9C",
+    "primary_html_url": "https://ar5iv.labs.arxiv.org/html/2605.21552",
+    "source_pdf_sha256": "fb1d1a634d55132694349d40d56731cc5c7401571bc8c1a9f6eee1b5849950ab"
+  },
+  "repository": {
+    "final_name": "icml26-expectation-consistency-loss",
+    "owner": "MachineLearning-Nerd",
+    "old_name": "icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift",
+    "default_branch": "main",
+    "retrieved_at_utc": "2026-08-15T00:00:00Z"
+  },
+  "official_implementation": {
+    "repository": "NeuroDong/ECL",
+    "revision": "aae77f890f1e4ebc13dad135b5e29758d98d318d",
+    "file": "losses.py",
+    "file_sha256": "1c2de34967f34b98faae5025368edac88f46a709d6e1e0c063e2c01f4d6e9754"
+  },
+  "campaign_artifacts": {
+    "space": "https://huggingface.co/spaces/DineshAI/gFPPTokv9C",
+    "artifact_bucket": "https://huggingface.co/buckets/DineshAI/gFPPTokv9C-artifacts",
+    "interpretation": "Campaign provenance only; no author-endorsed score or new official evaluation is claimed."
+  },
+  "claim_status": {
+    "C1": "VERIFIED_SCOPED",
+    "C2": "VERIFIED_SCOPED_WITH_QUALIFICATION",
+    "C3": "FALSIFIED_AS_STATED",
+    "C4": "VERIFIED_SCOPED",
+    "C5": "BLOCKED",
+    "C6": "FALSIFIED_SCOPED"
+  }
+}
