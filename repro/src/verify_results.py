@@ -107,8 +107,12 @@ def main() -> int:
     final_refs = set()
     for line in branch_output.splitlines():
         ref = line.strip().removeprefix("*").strip()
+        if " -> " in ref:
+            ref = ref.rsplit(" -> ", 1)[1]
         if ref.startswith("remotes/origin/"):
             ref = ref.removeprefix("remotes/origin/")
+        elif ref.startswith("origin/"):
+            ref = ref.removeprefix("origin/")
         final_refs.add(ref)
     check("branch_surface", "master" not in branch_output and "orx/" not in branch_output
           and EXPECTED_BRANCHES <= final_refs, str(sorted(final_refs)))
