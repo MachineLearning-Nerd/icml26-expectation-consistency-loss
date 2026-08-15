@@ -1,0 +1,29 @@
+{
+  "repository": "icml26-expectation-consistency-loss",
+  "paper": "gFPPTokv9C",
+  "status": "PASS",
+  "checks": {
+    "project_name": true,
+    "paper_identity": true,
+    "source_hashes": true,
+    "citation_and_thanks": true,
+    "required_docs": true,
+    "six_claim_summary": true,
+    "claim_statuses": true,
+    "c1_certificate": true,
+    "c3_counterexamples": true,
+    "c4_independent_checker": true,
+    "c5_blocker": true,
+    "no_stale_state": true,
+    "branch_surface": true,
+    "canonical_branch": true,
+    "final_remote": true,
+    "commit_identity": true,
+    "no_private_workspace_path": true,
+    "active_links_clean": true
+  },
+  "details": {
+    "branch_surface": "['audit/claim-2-and-4-real-mnist', 'audit/claim-2-corrected-finite-sample', 'audit/claim-2-falsification-stress', 'audit/claim-2-soft-bin-concentration', 'audit/claim-5-falsification', 'audit/claim-5-lenet-svhn', 'audit/claim-5-predecessor-posthoc', 'audit/claim-5-stabilized-appendix', 'audit/claim-6-simulation', 'audit/claim-6-table1-falsification', 'experiment/frozen-cumulative-baseline', 'main', 'release/candidate-evidence']",
+    "final_remote": "https://github.com/MachineLearning-Nerd/icml26-expectation-consistency-loss.git"
+  }
+}

@@ -21,7 +21,7 @@
     },
     "platform": "macOS-26.5.2-arm64-arm-64bit",
     "python": "3.12.11",
-    "python_executable": "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+    "python_executable": "python",
     "wall_seconds": 590.5708177920314
   },
   "scope": "frozen baseline cumulative regression",
@@ -29,7 +29,7 @@
   "steps": [
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim1_general_certificate.py",
         "--output",
         ".openresearch/artifacts/claim-1/raw_certificate.json"
@@ -41,7 +41,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/run_claim3_sample_complexity.py",
         "--json-out",
         ".openresearch/artifacts/claim-2/hard_bin_scaling.json",
@@ -55,7 +55,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/run_claim3_soft_sample_complexity.py",
         "--json-out",
         ".openresearch/artifacts/claim-2/soft_bin_scaling.json",
@@ -69,7 +69,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim3_gradient_certificate.py",
         "--output",
         ".openresearch/artifacts/claim-3/raw_certificate.json"
@@ -81,7 +81,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim2_compatibility_certificate.py",
         "--output",
         ".openresearch/artifacts/claim-4/raw_certificate.json"
@@ -93,7 +93,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim5_table2_audit.py",
         "--paper",
         "repro/evidence/claim3/2605.21552v1.pdf",
@@ -109,7 +109,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim6_capability_audit.py",
         "--output",
         ".openresearch/artifacts/claim-6/source_audit.json"
@@ -121,7 +121,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim2_theorem_certificate.py",
         "--output",
         ".openresearch/artifacts/claim-2/route-a/raw_results.json"
@@ -133,7 +133,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim2_theorem_independent_checker.py",
         "--input",
         ".openresearch/artifacts/claim-2/route-a/raw_results.json",
@@ -147,7 +147,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim2_soft_falsification_stress.py",
         "--output",
         ".openresearch/artifacts/claim-2/route-b/raw_results.json"
@@ -159,7 +159,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim2_soft_stress_checker.py",
         "--input",
         ".openresearch/artifacts/claim-2/route-b/raw_results.json",
@@ -173,7 +173,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim2_soft_theorem_proof.py",
         "--stress",
         ".openresearch/artifacts/claim-2/route-b/raw_results.json",
@@ -187,7 +187,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim2_soft_theorem_independent_checker.py",
         "--proof",
         ".openresearch/artifacts/claim-2/route-c-soft-proof/raw_results.json",
@@ -203,7 +203,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim4_real_mnist_soft_bins.py",
         "--inputs",
         ".openresearch/artifacts/claim-4/route-real-mnist/inputs.json",
@@ -217,7 +217,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim4_real_mnist_independent_checker.py",
         "--inputs",
         ".openresearch/artifacts/claim-4/route-real-mnist/inputs.json",
@@ -233,7 +233,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim5_mandatory_falsification_audit.py",
         "--source-audit",
         ".openresearch/artifacts/claim-5/source_audit.json",
@@ -247,7 +247,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim5_falsification_independent_checker.py",
         "--input",
         ".openresearch/artifacts/claim-5/route-4-falsification/raw_results.json",
@@ -261,7 +261,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim6_simulation_figure2.py",
         "--output",
         ".openresearch/artifacts/claim-6/route-1-simulation/raw_results.json"
@@ -273,7 +273,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim6_simulation_checker.py",
         "--input",
         ".openresearch/artifacts/claim-6/route-1-simulation/raw_results.json",
@@ -287,7 +287,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim6_table1_falsification.py",
         "--claim3",
         ".openresearch/artifacts/claim-3/raw_certificate.json",
@@ -301,7 +301,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/claim6_table1_independent_checker.py",
         "--input",
         ".openresearch/artifacts/claim-6/route-2-table1/raw_results.json",
@@ -317,7 +317,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "repro/src/release_gate.py"
       ],
       "exit_code": 0,
@@ -327,7 +327,7 @@
     },
     {
       "command": [
-        "/Users/dineshjinjala/Documents/AllCode/ICMLPapers/OpenSearch/local-runs/db201363-31a9-4e20-97c3-06414dc13d21/repo/.venv/bin/python",
+        "python",
         "-m",
         "pytest",
         "repro/tests",

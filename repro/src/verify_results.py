@@ -97,8 +97,8 @@ def main() -> int:
           and c3["verification_gates"]["same_batch_direction_bias_counterexample"] is True)
     check("c4_independent_checker", c4["status"] == "VERIFIED"
           and c4["all_three_losses_and_gradients_match"] is True)
-    check("c5_blocker", c5["local_classification"] == "inconclusive_source_only_audit"
-          and c5["table2_empirical_result"] == "not_independently_reproduced")
+    check("c5_blocker", c5["assessment"]["local_classification"] == "inconclusive_source_only_audit"
+          and c5["assessment"]["table2_empirical_result"] == "not_independently_reproduced")
 
     tracked = git(root, "ls-files").splitlines()
     check("no_stale_state", "logbook.json" not in tracked
@@ -123,9 +123,10 @@ def main() -> int:
     content = "\n".join((root / path).read_text(errors="ignore") for path in tracked if (root / path).is_file())
     check("no_private_workspace_path", "dinesh.jinjala@mareana.com" not in git(root, "log", "--all", "--format=%B")
           and private_path_marker not in content)
-    check("active_links_clean", "orx/" not in readme
-          and "icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/" not in
-          (root / "reports/ecl-covariate-shift/report.md").read_text(encoding="utf-8"))
+    report = (root / "reports/ecl-covariate-shift/report.md").read_text(encoding="utf-8")
+    check("active_links_clean",
+          "https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift" not in readme
+          and "https://github.com/MachineLearning-Nerd/icml26-repro-gFPPTokv9C-ecl-calibration-covariate-shift/tree/" not in report)
 
     result = {
         "repository": EXPECTED_NAME,
